@@ -1,0 +1,13 @@
+@import "~normalize.css";
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+h1 {
+  text-align: center;
+  color: red;
+  font-family: 'Open Sans';
+}
+
