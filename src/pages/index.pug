@@ -7,4 +7,24 @@ html(lang='ru')
     link(rel="icon" href="favicon.ico" type="image/ico")
     title Поиск номеров в отеле
   body
-    h1 Toxin
+    header.header
+      .container
+        nav.main-navigation
+          a.mainpage-link(href="#")
+            img.logo(src="./../assets/img/logo.svg" alt="Логотип Токсин")
+          ul.site-navigation
+            li.site-navigation__item О нас
+            li.site-navigation__item Услуги
+            li.site-navigation__item Вакансии
+            li.site-navigation__item Новости
+            li.site-navigation__item Соглашения
+          ul.user-navigation
+            li.user-navigation__item
+              a.login-link(href="#") Войти
+            li.user-navigation__item
+              a.registration-link(href="#") Зарегистрироваться
+    main
+      h1.visually-hidden Сайт для бронирования номеров в отеле – Токсин
+      .container
+    footer.footer
+      .container
