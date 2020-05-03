@@ -1,84 +1,19 @@
-doctype html
-html(lang='ru')
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    link(rel="icon" href="favicon.ico" type="image/ico")
-    title Поиск номеров в отеле
-  body
-    header.header
-      .container
-        nav.main-navigation
-          a.mainpage-link(href="#")
-            img.logo(src="./../assets/img/logo.svg" alt="Логотип Токсин")
-          ul.site-navigation
-            li.site-navigation__item
-              a.site-navigation__item-link(href="#") О нас
-            li.site-navigation__item
-              a.site-navigation__item-link(href="#") Услуги
-            li.site-navigation__item
-              a.site-navigation__item-link(href="#") Вакансии
-            li.site-navigation__item
-              a.site-navigation__item-link(href="#") Новости
-            li.site-navigation__item
-              a.site-navigation__item-link(href="#") Соглашения
-          ul.user-navigation
-            li.user-navigation__item
-              a.login-link(href="#") Войти
-            li.user-navigation__item
-              a.registration-link(href="#") Зарегистрироваться
-    main
-      h1.visually-hidden Бронирование номеров в отеле Токсин
-      .container
-        p Лучшие номера для вашей работы, отдыха и просто вдохновения
-        section.modal
-          h2 Найдём номера под ваши пожелания
-          form(action="https://echo.htmlacademy.ru" method="post")
-            label Прибытие
-              input(type="date" placeholder="ДД.ММ.ГГГГ")
-            label Выезд
-              input(type="date" placeholder="ДД.ММ.ГГГГ")
-            label Гости
-              input(placeholder="Сколько гостей")
-            button(type="submit") Подобрать номер
+extends ../layouts/main
 
-    footer.footer
-      .container
-        section.footer__section
-          h2.visually-hidden
-          nav.site-map
-            a.mainpage-link(href="#")
-              img.logo(src="./../assets/img/logo.svg" alt="Логотип Токсин")
-            p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-            h3 Навигация
-            ul.site-map
-              li.site-map__item О нас
-              li.site-map__item Новости
-              li.site-map__item Служба поддержки
-              li.site-map__item Услуги
-            h3 О нас
-            ul.site-map
-              li.site-map__item О сервисе
-              li.site-map__item Наша команда
-              li.site-map__item Вакансии
-              li.site-map__item Инвесторы
-            h3 Служба поддержки
-            ul.site-map
-              li.site-map__item Соглашения
-              li.site-map__item Сообщества
-              li.site-map__item Связь с нами
-            h3 Подписка
-            label Получайте специальные предложения и новости сервиса
-              input(type="email" name="email" placeholder="Email")
+block head
+  - var title = "Бронирование номеров в отеле Toxin";
 
-        section.footer__section
-          p Copyright &#169; 2018 Toxin отель. Все права защищены.
-          h3.visually-hidden Мы в социальных сетях:
-          ul.socials
-            li.social__item
-              a.social__item-link(href="#") Твиттер
-            li.social__item
-              a.social__item-link(href="#") Фэйсбук
-            li.social__item
-              a.social__item-link(href="#") Инстаграм
+
+block content
+  h1.visually-hidden Бронирование номеров в отеле Токсин
+  p Лучшие номера для вашей работы, отдыха и просто вдохновения
+  section.modal
+    h2 Найдём номера под ваши пожелания
+    form(action="https://echo.htmlacademy.ru" method="post")
+      label Прибытие
+        input(type="date" name="arrival")
+      label Выезд
+        input(type="date" name="departure")
+      label Гости
+        input(placeholder="Сколько гостей")
+      button(type="submit") Подобрать номер
