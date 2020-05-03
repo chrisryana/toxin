@@ -44,6 +44,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@mdi/font": "^5.1.45",
     "jquery": "^3.5.0",
     "normalize.css": "^8.0.1"
   }
