@@ -23,10 +23,14 @@ input[type="radio"].visually-hidden {
 	overflow: hidden;
 }
 
+
+html {
+  font-family: 'Montserrat';
+}
+
 h1 {
   text-align: center;
   color: red;
-  font-family: 'Montserrat';
 }
 
 .container {
