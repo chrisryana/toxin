@@ -1,5 +1,6 @@
 @import "~normalize.css";
 @import "./fonts";
+@import"./colors";
 
 
 // .visually-hidden:not(:focus):not(:active),
@@ -23,6 +24,7 @@
 
 html {
   font-family: $font-primary;
+  color: $color-lighten;
 }
 
 .container {
