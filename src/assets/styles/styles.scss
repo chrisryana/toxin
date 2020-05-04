@@ -25,6 +25,7 @@
 html {
   font-family: $font-primary;
   color: $text-color;
+  text-rendering: optimizeSpeed;
 }
 
 .container {
