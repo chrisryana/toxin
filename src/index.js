@@ -1,5 +1,5 @@
 console.log('entryy');
-import './assets/styles/styles.scss';
+import './assets/styles/main.scss';
 import * as $ from 'jquery';
 
 
