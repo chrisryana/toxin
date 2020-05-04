@@ -1,6 +1,7 @@
 @import "~normalize.css";
-@import "./fonts";
-@import"./colors";
+@import "./theme/fonts";
+@import "./theme/colors";
+@import "./theme/spaces";
 
 
 // .visually-hidden:not(:focus):not(:active),
@@ -35,6 +36,11 @@ html {
 
 .header {
   padding: 15px 0;
+}
+
+.logo {
+  width: auto;
+  height: auto;
 }
 
 
