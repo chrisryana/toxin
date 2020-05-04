@@ -13,7 +13,7 @@ mixin getNavigationItem(navItem)
     a.site-navigation__item-link(href= navItem.href)=navItem.title
 
 mixin getNavigation(navItems)
-  ul.site-navigation
+  ul.header__site-navigation
     for navItem in navItems
       +getNavigationItem(navItem)
 
@@ -21,11 +21,13 @@ mixin getNavigation(navItems)
 
 header.header
   .container
-    nav.main-navigation
+    nav.header__navigation
       include ../logo/logo
       +getNavigation(navItems)
-      ul.user-navigation
+      ul.header__user-navigation
         li.user-navigation__item
-          a.login-link(href="javascript:void(0)") Войти
+          a.button.button--secondary(href="javascript:void(0)")
+            span.button__wrapper Войти
         li.user-navigation__item
-          a.registration-link(href="javascript:void(0)") Зарегистрироваться
+          a.button.button--primary(href="javascript:void(0)")
+            span.button__wrapper Зарегистрироваться
