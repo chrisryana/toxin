@@ -1,7 +1,11 @@
-extends ../layouts/main
+extends ../layouts/default-layout
+
 
 block head
   - var title = "Бронирование номеров в отеле Toxin";
+
+block logo
+  - var isMainPage = true
 
 
 block content
@@ -11,9 +15,9 @@ block content
     h2 Найдём номера под ваши пожелания
     form(action="https://echo.htmlacademy.ru" method="post")
       label Прибытие
-        input(type="date" name="arrival")
+        input(type="date" name="arrival" required)
       label Выезд
-        input(type="date" name="departure")
+        input(type="date" name="departure" required)
       label Гости
-        input(placeholder="Сколько гостей")
+        input(type="number" placeholder="Сколько гостей" name="guest_count" required)
       button(type="submit") Подобрать номер

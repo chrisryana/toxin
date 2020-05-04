@@ -1,0 +1,31 @@
+-
+  var navItems = [
+    { title: "О нас", href: "javascript:void(0)" },
+    { title: "Услуги", href: "javascript:void(0)" },
+    { title: "Вакансии", href: "javascript:void(0)" },
+    { title: "Новости", href: "javascript:void(0)" },
+    { title: "Соглашения", href: "javascript:void(0)" },
+  ]
+
+
+mixin getNavigationItem(navItem)
+  li.site-navigation__item
+    a.site-navigation__item-link(href= navItem.href)=navItem.title
+
+mixin getNavigation(navItems)
+  ul.site-navigation
+    for navItem in navItems
+      +getNavigationItem(navItem)
+
+
+
+header.header
+  .container
+    nav.main-navigation
+      include ../logo/logo
+      +getNavigation(navItems)
+      ul.user-navigation
+        li.user-navigation__item
+          a.login-link(href="javascript:void(0)") Войти
+        li.user-navigation__item
+          a.registration-link(href="javascript:void(0)") Зарегистрироваться
