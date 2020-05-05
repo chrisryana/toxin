@@ -30,16 +30,19 @@ block site-map
     ]
 
 footer.footer
-  .container
-    section.footer__section
-      h2.visually-hidden
-      nav.site-map
+  section.footer__section.footer__section--wide
+    .container
+      h2.visually-hidden Карта сайта
+      .site-info
         include ../logo/logo
-        p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        p.site-info__description Бронирование номеров в&nbsp;лучшем отеле 2019 года по&nbsp;версии ассоциации &laquo;Отельные взгляды&raquo;
+      nav.site-map
         include ../site-map/site-map
-        h3 Подписка
-        label Получайте специальные предложения и новости сервиса
-          input(type="email" name="email" placeholder="Email")
-    section.footer__section
-      p Copyright &#169; 2018 Toxin отель. Все права защищены.
+        .site-map__group
+          h3.site-map__tagline Подписка
+          label Получайте специальные предложения и новости сервиса
+            input(type="email" name="email" placeholder="Email")
+  section.footer__section.footer__section--narrow
+    .container
+      p.copyright Copyright &#169; 2018 Toxin отель. Все права зачищены.
       include ../socials/socials

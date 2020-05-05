@@ -2,8 +2,9 @@ doctype html
 html(lang='ru')
   include ../blocks/head
   body
-    include ../blocks/header/header
-    main
-      .container
-        block content
-    include ../blocks/footer/footer
+    .site-wrapper
+      include ../blocks/header/header
+      main.main
+        .container
+          block content
+      include ../blocks/footer/footer

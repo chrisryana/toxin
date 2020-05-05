@@ -1,13 +1,15 @@
 -
   var socialsItems = [
-    { title: "Твиттер", href: "javascript:void(0)" },
-    { title: "Фэйсбук", href: "javascript:void(0)" },
-    { title: "Инстаграм", href: "javascript:void(0)" },
+    { title: "Твиттер", href: "javascript:void(0)", icon: "fa-twitter" },
+    { title: "Фэйсбук", href: "javascript:void(0)", icon: "fa-facebook-square" },
+    { title: "Инстаграм", href: "javascript:void(0)", icon: "fa-instagram" },
   ]
 
 mixin getSocialItem(social)
   li.socials__item
-    a.socials__item-link(href= social.href)= social.title
+    a.socials__item-link(href= social.href)
+      i.fab(class= social.icon)
+      span.visually-hidden= social.title
 
 mixin getSocials(socials)
   ul.socials

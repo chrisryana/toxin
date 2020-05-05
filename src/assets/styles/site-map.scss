@@ -1,0 +1,26 @@
+.site-map {
+  display: flex;
+  flex-wrap: wrap;
+  &__group {
+    flex: 1;
+    margin-left: 40px;
+  }
+  &__tagline {
+    margin: 0;
+    margin-bottom: 21px;
+  }
+  &__list {
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__item-link {
+    color: $text-color-2;
+    transition: color .2s ease;
+    &:hover {
+      color: $text-color-1;
+    }
+  }
+}

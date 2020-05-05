@@ -6,17 +6,18 @@ $border-width: 2px;
   align-items: center;
   justify-content: center;
   padding: $border-width;
-  font-size: 12px;
+  font-size: $text-sm;
   font-weight: bold;
+  line-height: 1.25;
   text-transform: uppercase;
-  transition: background .5s ease;
+  transition: background .2s ease;
   border-radius: $border-radius;
   background: $gradient-primary no-repeat $color-primary;
   &:hover {
     background: linear-gradient(180deg, rgba(#BC9CFF, .5) 0%, rgba(#8BA4F9, .5) 100%);
   }
   &__wrapper {
-    padding: 10px 16px;
+    padding: 7px 18px 8px;
     border-radius: calc(#{$border-radius} - #{$border-width});
   }
   &--primary {

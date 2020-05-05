@@ -1,0 +1,26 @@
+.footer {
+  background-color: #fff;
+  &__section {
+    &--wide {
+      padding: 100px 0;
+    }
+    &--narrow {
+      border-top: 1px solid #D1D1D4;
+    }
+  }
+  .site-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &__description {
+      margin: 0;
+      margin-top: 20px;
+      width: 260px;
+      min-width: 260px;
+    }
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

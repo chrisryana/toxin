@@ -1,0 +1,18 @@
+.socials {
+  display: flex;
+  align-items: center;
+  color: $color-primary;
+  &__item {
+    margin-left: 20px;
+    &-link {
+      font-size: 24px;
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: opacity .2s ease;
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+}
