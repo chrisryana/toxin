@@ -1,0 +1,19 @@
+// порядок важен, mixins перед core
+
+@import "variables";
+@import "mixins";
+@import "core";
+@import "icons";
+@import "screen-reader";
+
+// @import "animated";
+// @import "bordered-pulled";
+// @import "fixed-width";
+// @import "larger";
+// @import "list";
+// @import "rotated-flipped";
+// @import "shims";
+// @import "stacked";
+
+
+
