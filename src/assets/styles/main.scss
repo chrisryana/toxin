@@ -3,12 +3,14 @@
 @import "theme/colors";
 @import "theme/spaces";
 
+
+@import "default-layout";
 @import "header";
 @import "footer";
 @import "socials";
 @import "site-map";
 @import "button";
-@import "default-layout";
+@import "input";
 
 
 body {
@@ -47,6 +49,10 @@ h3 {
   line-height: 1.25;
   font-weight: bold;
   color: $text-color;
+}
+
+button {
+  cursor: pointer;
 }
 
 .visually-hidden:not(:focus):not(:active),
