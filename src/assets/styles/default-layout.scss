@@ -4,5 +4,10 @@
   min-height: 100vh;
   .main {
     flex: 1;
+    min-height: 830px;
+    background-image: url("../img/sofa.jpg");
+    background-repeat: no-repeat;
+    background-color: #E8EAE9;
+    background-size: cover;
   }
 }
