@@ -6,6 +6,10 @@
     }
     &--narrow {
       border-top: 1px solid #D1D1D4;
+      padding: 14px 0;
+      .container {
+        align-items: center;
+      }
     }
   }
   .site-info {
