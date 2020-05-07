@@ -1,0 +1,24 @@
+$padding-main: 30px;
+$padding-lg: 40px;
+$padding-sm: 10px;
+
+.dialog {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  max-width: 380px;
+  &__header,
+  &__content {
+    padding-left: $padding-main;
+    padding-right: $padding-main;
+  }
+  &__header {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-sm;
+  }
+  &__content {
+    padding-top: $padding-sm;
+    padding-bottom: $padding-main;
+  }
+}

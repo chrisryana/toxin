@@ -4,10 +4,24 @@
   min-height: 100vh;
   .main {
     flex: 1;
-    min-height: 830px;
     background-image: url("../img/sofa.jpg");
     background-repeat: no-repeat;
     background-color: #E8EAE9;
     background-size: cover;
+    background-position: center;
+    .container {
+      padding-top: 70px;
+      padding-bottom: 18px;
+    }
+  }
+  .content-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .subtitle {
+    margin-top: 320px;
+    align-self: flex-end;
+    text-align: right;
+    max-width: 300px;
   }
 }

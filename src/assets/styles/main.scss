@@ -11,6 +11,7 @@
 @import "site-map";
 @import "button";
 @import "input";
+@import "dialog";
 
 
 body {
@@ -43,12 +44,23 @@ img {
 	height: auto;
 }
 
+h2 {
+  margin: 0;
+  font-size: $text-lg;
+  line-height: 1.25;
+  color: $text-color;
+}
+
 h3 {
   font-size: $text-sm;
   text-transform: uppercase;
   line-height: 1.25;
   font-weight: bold;
   color: $text-color;
+}
+
+p {
+  margin: 0;
 }
 
 button {

@@ -1,5 +1,5 @@
 extends ../layouts/default-layout
-include ../blocks/input/input
+
 
 
 block head
@@ -12,11 +12,8 @@ block logo
 block content
   .content
     h1.visually-hidden Бронирование номеров в отеле Токсин
-    p Лучшие номера для вашей работы, отдыха и просто вдохновения
-    section.modal
-      h2 Найдём номера под ваши пожелания
-      form(action="https://echo.htmlacademy.ru" method="post")
-        +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
-        +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
-        +input("Гости")(type="number" min="1" placeholder="Сколько гостей" name="guestCount" required)
-        button(type="submit") Подобрать номер
+    .content-wrapper
+      p.subtitle Лучшие номера для вашей работы, отдыха и просто вдохновения
+      section
+        include ../blocks/dialog/dialog
+      
