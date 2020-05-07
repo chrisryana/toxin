@@ -1,4 +1,5 @@
 extends ../layouts/default-layout
+include ../blocks/input/input
 
 
 block head
@@ -15,10 +16,7 @@ block content
     section.modal
       h2 Найдём номера под ваши пожелания
       form(action="https://echo.htmlacademy.ru" method="post")
-        label Прибытие
-          input(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
-        label Выезд
-          input(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
-        label Гости
-          input(type="number" min="1" placeholder="Сколько гостей" name="guest_count" required)
+        +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
+        +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
+        +input("Гости")(type="number" min="1" placeholder="Сколько гостей" name="guest_count" required)
         button(type="submit") Подобрать номер
