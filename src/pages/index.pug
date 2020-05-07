@@ -9,15 +9,16 @@ block logo
 
 
 block content
-  h1.visually-hidden Бронирование номеров в отеле Токсин
-  p Лучшие номера для вашей работы, отдыха и просто вдохновения
-  section.modal
-    h2 Найдём номера под ваши пожелания
-    form(action="https://echo.htmlacademy.ru" method="post")
-      label Прибытие
-        input(type="date" name="arrival" required)
-      label Выезд
-        input(type="date" name="departure" required)
-      label Гости
-        input(type="number" min="1" placeholder="Сколько гостей" name="guest_count" required)
-      button(type="submit") Подобрать номер
+  .content
+    h1.visually-hidden Бронирование номеров в отеле Токсин
+    p Лучшие номера для вашей работы, отдыха и просто вдохновения
+    section.modal
+      h2 Найдём номера под ваши пожелания
+      form(action="https://echo.htmlacademy.ru" method="post")
+        label Прибытие
+          input(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
+        label Выезд
+          input(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
+        label Гости
+          input(type="number" min="1" placeholder="Сколько гостей" name="guest_count" required)
+        button(type="submit") Подобрать номер
