@@ -1,9 +1,9 @@
-block input
-
-.form-group
-  label.form-group__label.visually-hidden(for="subscribeEmail") 
-  .input-wrapper
-    button.form-group__input-button(type="submit")
-      span.visually-hidden Отправить
-      span.mdi.mdi-arrow-right
-    input.form-group__input(type="email" placeholder="Email" size="35" name="subscribeEmail" id="subscribeEmail" required)
+mixin input(label, buttonAttributes)
+  .form-group
+    label.form-group__label(class= !label && "visually-hidden")(for="subscribeEmail")= label
+    .input-wrapper
+      if buttonAttributes
+        button.form-group__input-button(type= buttonAttributes.type)
+          span.visually-hidden buttonAttributes.title
+          span.mdi(class= buttonAttributes.icon)
+      input.form-group__input(class= buttonAttributes && "form-group__input--with-icon")&attributes(attributes)

@@ -1,3 +1,5 @@
+
+include ../input/input
 block site-map
   -
     var siteMapItems = [
@@ -28,6 +30,13 @@ block site-map
         ],
       },
     ]
+-
+  var subscribeButton = {
+    icon: "mdi-arrow-right",
+    type: "submit",
+    title: "Отправить",
+  }
+
 
 footer.footer
   section.footer__section.footer__section--wide
@@ -41,7 +50,8 @@ footer.footer
         .site-map__group
           h3.site-map__tagline Подписка
           p Получайте специальные предложения и новости сервиса
-          include ../input/input
+          form.site-map__form(action="https://echo.htmlacademy.ru" method="post")
+            +input(null, subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" id="subscribeEmail" required)
   section.footer__section.footer__section--narrow
     .container
       p.copyright Copyright &#169; 2018 Toxin отель. Все права зачищены.
