@@ -8,14 +8,14 @@
 // select:-webkit-autofill:hover,
 // select:-webkit-autofill:focus
 
+
+
 .form-group {
   &__input,
   &__select,
-  &__textarea,
-  &__input:-webkit-autofill,
-  &__select:-webkit-autofill,
-  &__textarea:-webkit-autofill {
-    width: 260px;
+  &__textarea {
+    // width: 260px;
+    width: 100%;
     border-radius: 4px;
     padding: 13px 15px;
     border-width: 1px;
@@ -36,9 +36,17 @@
   }
   .input-wrapper {
     position: relative;
-    display: inline-block;
+    // display: inline-block;
   }
   &__input {
+    height: 44px;
+    &[type="date"] {
+      text-transform: uppercase;
+    }
+    &:-webkit-autofill {
+      animation-name: autofill;
+      animation-fill-mode: both;
+    }
     &-button {
       padding: 0;
       font-size: $text-lg;
@@ -73,5 +81,15 @@
     line-height: 1.25;
     font-weight: bold;
     color: $text-color;
+  }
+}
+
+
+
+
+@-webkit-keyframes autofill {
+  to {
+    color: inherit;
+    background: transparent;
   }
 }

@@ -4,6 +4,9 @@
   &__group {
     flex: 1;
     margin-left: 40px;
+    &:last-child {
+      min-width: 260px;
+    }
   }
   &__tagline {
     margin: 0;

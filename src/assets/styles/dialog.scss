@@ -7,7 +7,7 @@ $padding-sm: 10px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  max-width: 380px;
+  max-width: 382px;
   &__header,
   &__content {
     padding-left: $padding-main;
@@ -20,5 +20,30 @@ $padding-sm: 10px;
   &__content {
     padding-top: $padding-sm;
     padding-bottom: $padding-main;
+  }
+  &__form {
+    &-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .form-group {
+        // подключить нужную библиотеку и убрать это
+        // чтобы все автоматически растягивалось
+        max-width: calc(100%/2 - 10px);
+        &:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+    &-button {
+      .button {
+        width: 100%;
+        margin-top: 30px;
+        &__wrapper {
+          padding: 12px 18px 13px;
+        }
+      }
+    }
   }
 }
