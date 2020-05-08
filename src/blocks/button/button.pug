@@ -1,0 +1,4 @@
+mixin button(text, type="primary")
+  - var className = `button button--${type}`
+  button(class= className type="button")&attributes(attributes)
+    span.button__wrapper= text
