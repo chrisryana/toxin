@@ -1,16 +1,18 @@
 -
   var navItems = [
     { title: "О нас", href: "javascript:void(0)" },
-    { title: "Услуги", href: "javascript:void(0)" },
+    { title: "Услуги", href: "javascript:void(0)", children: [] },
     { title: "Вакансии", href: "javascript:void(0)" },
     { title: "Новости", href: "javascript:void(0)" },
-    { title: "Соглашения", href: "javascript:void(0)" },
+    { title: "Соглашения", href: "javascript:void(0)", children: [] },
   ]
 
 
 mixin getNavigationItem(navItem)
   li.site-navigation__item
     a.site-navigation__item-link(href= navItem.href)=navItem.title
+      if navItem.children
+        span.mdi.mdi-chevron-down
 
 mixin getNavigation(navItems)
   ul.header__site-navigation

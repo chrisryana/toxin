@@ -20,11 +20,17 @@
       padding: 0 10px;
       &-link {
         transition: color .2s ease;
+        display: flex;
+        align-items: flex-end;
         &--active {
           font-weight: bold;
         }
         &:hover {
           color: $text-color-1;
+        }
+        .mdi {
+          font-size: $text-lg;
+          line-height: 21px;
         }
       }
     }
