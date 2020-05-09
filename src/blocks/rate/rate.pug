@@ -1,12 +1,6 @@
 mixin rate(rate)
   ul.rate
-    li.rate__item
-      span.mdi.mdi-star
-    li.rate__item
-      span.mdi.mdi-star
-    li.rate__item
-      span.mdi.mdi-star-outline
-    li.rate__item
-      span.mdi.mdi-star-outline
-    li.rate__item
-      span.mdi.mdi-star-outline
+    - for (var i = 0; i < 5; i++)
+        - var icon = i < rate ? 'mdi-star' : 'mdi-star-outline';
+        li.rate__item
+          span.mdi(class= icon)
