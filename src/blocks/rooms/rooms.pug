@@ -1,0 +1,13 @@
+include ../room-card/room-card
+include ../paginator/paginator
+
+mixin rooms(roomsList)
+  - var paginatorOptions = {countOnPage: 12, countTotal: 153, currentPage: 1}
+  section.rooms
+    h1.rooms__title Номера которые мы для вас подобрали
+    ul.rooms__list
+      for room in roomsList
+        li.rooms__list-item
+          +roomCard(room)
+    .rooms__paginator
+      +paginator(paginatorOptions)
