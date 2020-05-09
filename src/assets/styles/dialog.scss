@@ -28,7 +28,7 @@ $padding-sm: 10px;
       justify-content: space-between;
       margin-bottom: 20px;
       .form-group {
-        // подключить нужную библиотеку и убрать это
+        // TODO: подключить нужную библиотеку и убрать это
         // чтобы все автоматически растягивалось
         max-width: calc(100%/2 - 10px);
         &:first-child {
