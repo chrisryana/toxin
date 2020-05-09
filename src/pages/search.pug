@@ -1,5 +1,5 @@
 extends ../layouts/default-layout
-
+include ../blocks/room-card/room-card
 
 
 block head
@@ -10,9 +10,12 @@ block logo
 
 
 block content
-  .content
-    h1 Номера которые мы для вас подобрали
-    .content-wrapper
-      p.subtitle Лучшие номера для вашей работы, отдыха и просто вдохновения
-      section
-        include ../blocks/dialog/dialog
+  main.search-page
+    .container
+      .search-page__columns
+        section.filters
+        section.rooms
+          h1 Номера которые мы для вас подобрали
+          ul.rooms__list
+            li.rooms__list-item
+              +roomCard({number: 888, isLux: true, cost: 9990, rate: 4, reviewCount: 145})
