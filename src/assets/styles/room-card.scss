@@ -1,0 +1,38 @@
+.room-card {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 270px;
+  // TODO: убрать позже
+  max-width: 270px;
+  &__gallery {
+    height: 151px;
+    background-color: #efefff;
+  }
+  &__description {
+    padding: 20px;
+    &-row {
+      &--underlined {
+        border-bottom: 1px solid $text-color-4;
+      }
+    }
+  }
+  &__title {
+    font-weight: bold;
+    color: $text-color;
+    font-family: $font-secondary;
+  }
+  &__type {
+    text-transform: uppercase;
+    font-size: $text-sm;
+    color: $color-primary;
+    font-family: $font-primary;
+  }
+  &__info {
+    color: $text-color-2;
+    &--bold {
+      font-weight: bold;
+    }
+  }
+}
