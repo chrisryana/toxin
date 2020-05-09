@@ -1,0 +1,11 @@
+mixin paginator(paginatorOptions)
+  - var {countOnPage = 0, countTotal = 0, currentPage = 1} = paginatorOptions;
+  - var roundCount = Math.floor(countTotal / 100) * 100;
+  - var pagesCount = Math.ceil(countTotal / 12);
+
+  .paginator
+    ul.paginator__list
+      - for (var i = 1; i <= 15; i++)
+        li.paginator__list-item
+          button.paginator__page(type="button")= i
+    p.paginator__info= `1 – ${countOnPage} из ${roundCount}+ вариантов аренды`
