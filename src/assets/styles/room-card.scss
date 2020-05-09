@@ -11,17 +11,26 @@
     background-color: #efefff;
   }
   &__description {
-    padding: 20px;
+    padding: 10px 20px;
     &-row {
+      padding: 0;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
       &--underlined {
         border-bottom: 1px solid $text-color-5;
       }
     }
   }
   &__title {
+    line-height: 1.26;
     font-weight: bold;
     color: $text-color;
     font-family: $font-secondary;
+    &--big {
+      font-size: $text-md;
+    }
   }
   &__type {
     text-transform: uppercase;
@@ -31,8 +40,10 @@
   }
   &__info {
     color: $text-color-50;
-    &--bold {
+    font-size: $text-sm;
+    &--big {
       font-weight: bold;
+      font-size: $text-base-size;
     }
   }
 }

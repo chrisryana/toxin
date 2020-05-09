@@ -1,23 +1,26 @@
+include ../rate/rate
+
 mixin roomCard(roomOptions)
   - var {imgList = [], number = 0, isLux = false, cost = 0, rate = 0, reviewCount = 0} = roomOptions;
 
   mixin numberWithSpaces(num) 
-    span.room-card__info--bold= `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽ `
+    span.room-card__info--big= `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽ `
 
   .room-card
     .room-card__gallery
     .room-card__description
       .room-card__description-row.room-card__description-row--underlined
-        p.room-card__title= `№ ${number} `
+        p.room-card__title
+          | № 
+          span.room-card__title--big= number
           if isLux 
-            span.room-card__type Люкс
+            span.room-card__type= ` Люкс`
         p.room-card__info
-          |
           +numberWithSpaces(cost)
           | в сутки
       .room-card__description-row
-        p.room-card__rate
+        .room-card__rate
+          +rate(rate)
         p.room-card__info
-          |
-          span.room-card__info--bold= `${reviewCount} `
+          span.room-card__info--big= `${reviewCount} `
           | Отзывов
