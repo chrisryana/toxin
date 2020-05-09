@@ -7,7 +7,7 @@
     &-link {
       font-size: 24px;
       background: $gradient-primary;
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: opacity .2s ease;
       &:hover {
