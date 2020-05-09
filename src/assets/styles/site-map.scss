@@ -20,10 +20,10 @@
     }
   }
   &__item-link {
-    color: $text-color-2;
+    color: $text-color-50;
     transition: color .2s ease;
     &:hover {
-      color: $text-color-1;
+      color: $text-color-75;
     }
   }
   &__text {

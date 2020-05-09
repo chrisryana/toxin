@@ -14,7 +14,7 @@
     padding: 20px;
     &-row {
       &--underlined {
-        border-bottom: 1px solid $text-color-4;
+        border-bottom: 1px solid $text-color-5;
       }
     }
   }
@@ -30,7 +30,7 @@
     font-family: $font-primary;
   }
   &__info {
-    color: $text-color-2;
+    color: $text-color-50;
     &--bold {
       font-weight: bold;
     }

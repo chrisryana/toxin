@@ -15,7 +15,7 @@
   }
   &__site-navigation {
     margin-left: auto;
-    color: $text-color-2;
+    color: $text-color-50;
     .site-navigation__item {
       padding: 0 10px;
       &-link {
@@ -26,7 +26,7 @@
           font-weight: bold;
         }
         &:hover {
-          color: $text-color-1;
+          color: $text-color-75;
         }
         .mdi {
           font-size: $text-lg;
