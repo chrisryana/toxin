@@ -7,7 +7,6 @@
     { title: "Соглашения", href: "javascript:void(0)", children: [] },
   ]
 
-
 mixin getNavigationItem(navItem)
   li.site-navigation__item
     a.site-navigation__item-link(href= navItem.href)=navItem.title
@@ -18,8 +17,6 @@ mixin getNavigation(navItems)
   ul.header__site-navigation
     for navItem in navItems
       +getNavigationItem(navItem)
-
-
 
 header.header
   .container
