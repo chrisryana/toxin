@@ -14,6 +14,10 @@
 @import "dialog";
 @import "logo";
 @import "room-card";
+@import "rate";
+@import "search-page";
+@import "checkbox";
+@import "filters";
 
 
 body {
@@ -53,7 +57,8 @@ h2, h1 {
   color: $text-color;
 }
 
-h3, label {
+// , label
+h3 {
   font-size: $text-sm;
   text-transform: uppercase;
   line-height: 1.25;

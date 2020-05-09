@@ -1,0 +1,12 @@
+.search-page {
+  &__columns {
+    display: flex;
+    width: 100%;
+    .filters {
+      width: 325px;
+    }
+    .rooms {
+      flex: 1;
+    }
+  }
+}
