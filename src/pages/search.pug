@@ -1,7 +1,7 @@
 extends ../layouts/default-layout
-include ../blocks/room-card/room-card
 include ../blocks/input/input
 include ../blocks/checkbox/checkbox
+include ../blocks/rooms/rooms
 
 block head
   - var title = "Поиск номеров в отеле Toxin";
@@ -16,9 +16,11 @@ block content
         section.filters
           h2.visually-hidden Фильтр комнат
           form.filter__form(action="https://echo.htmlacademy.ru" method="post")
-            +input("Даты предывания в отеле")
-            +input("Гости")
-            +input("Диапазон цены")
+            .filters__group
+              +input("Даты пребывания в отеле")
+              +input("Гости")
+            .filters__group
+              +input("Диапазон цены")
             fieldset.filters__group
               legend.filter__legend Условия размещения
               ul.filters__list
@@ -35,16 +37,28 @@ block content
                   +checkbox("Широкий коридор", "wide-hall")
                 li.filters__list-item
                   +checkbox("Помощник для инвалидов", "helper", true)
-            +input("Удобства номера")
-            details.filter__group(open)
+            .filters__group
+              +input("Удобства номера")
+            details.filters__group(open)
               summary.filter__legend Дополнительные удобства
               ul.filters__list
                 li.filters__list-item
                   +checkbox("Широкий коридор", "wide-hall")
                 li.filters__list-item
                   +checkbox("Помощник для инвалидов", "helper", true)
-        section.rooms
-          h1 Номера которые мы для вас подобрали
-          ul.rooms__list
-            li.rooms__list-item
-              +roomCard({number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
+        -
+          var roomsList = [
+            {number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145},
+            {number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65},
+            {number: 980, isLux: true, cost: 8500, rate: 3, reviewCount: 35},
+            {number: 856, isLux: false, cost: 7300, rate: 5, reviewCount: 19},
+            {number: 740, isLux: false, cost: 6000, rate: 4, reviewCount: 44},
+            {number: 982, isLux: false, cost: 5800, rate: 3, reviewCount: 56},
+            {number: 678, isLux: false, cost: 5500, rate: 5, reviewCount: 45},
+            {number: 450, isLux: false, cost: 5300, rate: 4, reviewCount: 39},
+            {number: 350, isLux: false, cost: 5000, rate: 3, reviewCount: 77},
+            {number: 666, isLux: false, cost: 5000, rate: 5, reviewCount: 25},
+            {number: 444, isLux: false, cost: 5000, rate: 3, reviewCount: 15},
+            {number: 352, isLux: false, cost: 5000, rate: 3, reviewCount: 55}
+          ]
+        +rooms(roomsList)
