@@ -1,5 +1,40 @@
 .paginator {
   &__list {
     display: flex;
+    font-size: $text-sm;
+    color: $text-color-50;
+    margin-bottom: 10px;
+  }
+  &__page {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color .2s ease;
+    &:focus {
+      border: 1px solid $color-primary;
+      outline: none;
+    }
+    &--active {
+      color: #fff;
+      font-weight: bold;
+      background: $gradient-primary;
+      pointer-events: none;
+    }
+    &--interactive {
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  &__arrow {
+    background: $gradient-secondary;
+    color: #fff;
+    transition: color .2s ease;
+    &:hover {
+      color: rgba(255, 255, 255, 0.6);
+    }
   }
 }
