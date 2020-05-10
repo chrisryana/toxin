@@ -4,7 +4,7 @@ mixin roomCard(roomOptions)
   - var {imgList = [], number = 0, isLux = false, cost = 0, rate = 0, reviewCount = 0} = roomOptions;
 
   mixin numberWithSpaces(num) 
-    span.room-card__info--big= `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽ `
+    span.room-card__info--big= `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}₽ `
 
   a.room-card(href="/room-details?room-number=888")
     .room-card__gallery
