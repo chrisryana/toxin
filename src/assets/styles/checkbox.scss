@@ -7,6 +7,17 @@
       border: 1px solid $text-color-50;
     }
   }
+  &--with-details {
+    font-weight: bold;
+    color: $text-color-75;
+  }
+  &__details {
+    color: $text-color-50;
+    font-size: 12px;
+    font-weight: initial;
+    display: block;
+    margin-top: 5px;
+  }
   &__input {
     &:focus {
       & + .checkbox__indicator {

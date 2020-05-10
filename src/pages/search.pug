@@ -26,12 +26,12 @@ block content
             +checkbox-list([
               {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
               {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
-              {label: "Можно пригласить гостей (до 10 человек)", name: "conditionals", value: "allow-guests", checked: true},
+              {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
             ])
           +filters-group("Доступность")
             +checkbox-list([
-              {label: "Широкий коридор", description: "Ширина коридоров в номере не менее 91 см", name: "accesability", value: "wide-hall"},
-              {label: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист и проводит до номера", name: "accesability", value: "helper", checked: true},
+              {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+              {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper", checked: true},
             ])
           +filters-group()
             +input("Удобства номера")
