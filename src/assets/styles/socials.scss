@@ -4,15 +4,15 @@
   color: $color-primary;
   &__item {
     margin-left: 20px;
+    transition: transform .2s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
     &-link {
       font-size: 24px;
       background: $gradient-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      transition: opacity .2s ease;
-      &:hover {
-        opacity: .5;
-      }
     }
   }
 }
