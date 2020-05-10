@@ -11,6 +11,12 @@
     &:focus {
       & + .checkbox__indicator {
         border: 1px solid $text-color-50;
+        background-color: $color-primary-light;
+        .checkbox__mark {
+          &:after {
+            background-color: $color-primary-light;
+          }
+        }
       }
     }
     &:checked {
@@ -49,6 +55,14 @@
       left: 0;
       width: 4px;
       height: 6px;
+    }
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    &__item {
+      margin-top: 10px;
     }
   }
 }

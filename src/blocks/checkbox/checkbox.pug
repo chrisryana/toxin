@@ -1,6 +1,7 @@
-mixin checkbox(label, name, value, isActive = false)
+mixin checkbox(checkboxOptions)
+  - var {label, description, name, value, checked = false} = checkboxOptions;
   label.checkbox
-    input.visually-hidden.checkbox__input(type="checkbox" name= name checked= isActive value= value)
+    input.visually-hidden.checkbox__input(type="checkbox" name= name checked= checked value= value)
     span.checkbox__indicator
       span.checkbox__mark
     = label
