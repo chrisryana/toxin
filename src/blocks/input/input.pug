@@ -2,8 +2,8 @@ mixin input(label, buttonAttributes)
   .form-group
     label.form-group__label(class= !label && "visually-hidden")(for= attributes.name)= label
     .input-wrapper
+      input.form-group__input(class= buttonAttributes && "form-group__input--with-icon" id= attributes.name)&attributes(attributes)
       if buttonAttributes
         button.form-group__input-button(type= buttonAttributes.type)
           span.visually-hidden= buttonAttributes.title
           span.mdi(class= buttonAttributes.icon)
-      input.form-group__input(class= buttonAttributes && "form-group__input--with-icon" id= attributes.name)&attributes(attributes)
