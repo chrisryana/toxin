@@ -38,10 +38,6 @@
   url('#{$fa-font-path}/fa-brands-400.svg#fontawesome') format('svg');
 }
 
-.fab {
-  font-family: 'Font Awesome 5 Brands';
-  font-weight: 400;
-}
 
 $font-primary: Montserrat, serif;
 $font-secondary: Quicksand;
@@ -50,4 +46,17 @@ $text-base-size: 14px;
 $text-sm: 12px;
 $text-md: 19px;
 $text-lg: 24px;
+
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400;
+}
+
+.mdi {
+  font-size: $text-lg;
+  line-height: 0.87;
+}
+
+
 
