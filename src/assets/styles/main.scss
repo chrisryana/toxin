@@ -33,6 +33,7 @@ body {
 
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 ul, li {
@@ -58,7 +59,6 @@ h2, h1 {
   color: $text-color;
 }
 
-// , label
 h3 {
   font-size: $text-sm;
   text-transform: uppercase;

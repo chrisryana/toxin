@@ -4,5 +4,44 @@
     padding: 0;
     padding-right: 60px;
     margin-top: 30px;
+    &-title {
+      font-size: $text-sm;
+      text-transform: uppercase;
+      line-height: 1.25;
+      font-weight: bold;
+      color: $text-color;
+      margin-bottom: 6px;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      &--with-icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: color .2s ease;
+        &:hover,
+        &:focus {
+          color: $text-color-50;
+          outline: none;
+        }
+        &:active {
+          color: $text-color;
+        }
+      }
+    }
+  }
+  &__accordion {
+    .mdi-chevron-up {
+      display: none;
+    }
+    &[open] {
+      .mdi-chevron-up {
+        display: inline;
+      }
+      .mdi-chevron-down {
+        display: none;
+      }
+    }
   }
 }
