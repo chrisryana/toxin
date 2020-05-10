@@ -6,7 +6,7 @@ mixin roomCard(roomOptions)
   mixin numberWithSpaces(num) 
     span.room-card__info--big= `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽ `
 
-  .room-card
+  a.room-card(href="/room-details?room-number=888")
     .room-card__gallery
     .room-card__description
       .room-card__description-row.room-card__description-row--underlined
