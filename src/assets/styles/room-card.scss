@@ -4,6 +4,14 @@
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  transition: box-shadow .2s ease;
+  &:hover {
+    box-shadow: 0 10px 30px rgba(31,32,65,.15);
+  }
+  &:focus {
+    box-shadow: 0 0px 3px $color-primary;
+    outline: none;
+  }
   &__gallery {
     height: 151px;
     background-color: #efefff;
