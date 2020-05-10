@@ -1,6 +1,10 @@
+mixin declOfNum(n, titles)
+  span.visually-hidden= `${n} ${titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2]} из 5`
+
 mixin rate(rate)
-  ul.rate
+  .rate
+    +declOfNum(rate, ['звезда', 'звезды', 'звезд'])
     - for (var i = 0; i < 5; i++)
       - var icon = i < rate ? 'mdi-star' : 'mdi-star-outline';
-      li.rate__item
+      span.rate__item
         span.mdi(class= icon)
