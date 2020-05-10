@@ -2,6 +2,8 @@ extends ../layouts/default-layout
 include ../blocks/input/input
 include ../blocks/checkbox/checkbox
 include ../blocks/rooms/rooms
+include ../blocks/filters/filters
+include ../blocks/filters/filters-group
 
 block head
   - var title = "Поиск номеров в отеле Toxin";
@@ -13,33 +15,30 @@ block content
   main.search-page
     .container
       .search-page__columns
-        section.filters
-          h2.visually-hidden Фильтр комнат
-          form.filter__form(action="https://echo.htmlacademy.ru" method="post")
-            .filters__group
-              +input("Даты пребывания в отеле")
-              +input("Гости")
-            .filters__group
-              +input("Диапазон цены")
-            fieldset.filters__group
-              legend.filter__legend Условия размещения
-              ul.filters__list
-                li.filters__list-item
-                  +checkbox("Можно курить", "allow-smoke")
-                li.filters__list-item
-                  +checkbox("Можно с питомцами", "allow-pets", true)
-                li.filters__list-item
-                  +checkbox("Можно пригласить гостей (до 10 человек)", "allow-guests", true)
-            fieldset.filters__group
-              legend.filter__legend Доступность
-              ul.filters__list
-                li.filters__list-item
-                  +checkbox("Широкий коридор", "wide-hall")
-                li.filters__list-item
-                  +checkbox("Помощник для инвалидов", "helper", true)
-            .filters__group
-              +input("Удобства номера")
-            details.filters__group(open)
+        +filters("Фильтр комнат")
+          +filters-group()
+            +input("Даты пребывания в отеле")
+            +input("Гости")
+          +filters-group()
+            +input("Диапазон цены")
+          +filters-group("Условия размещения")
+            ul.filters__list
+              li.filters__list-item
+                +checkbox("Можно курить", "conditionals", "allow-smoke")
+              li.filters__list-item
+                +checkbox("Можно с питомцами", "conditionals", "allow-pets", true)
+              li.filters__list-item
+                +checkbox("Можно пригласить гостей (до 10 человек)", "conditionals", "allow-guests", true)
+          +filters-group("Доступность")
+            ul.filters__list
+              li.filters__list-item
+                +checkbox("Широкий коридор","accesability", "wide-hall")
+              li.filters__list-item
+                +checkbox("Помощник для инвалидов","accesability", "helper", true)
+          +filters-group()
+            +input("Удобства номера")
+          +filters-group()
+            details.filters__accardeon(open)
               summary.filter__legend Дополнительные удобства
               ul.filters__list
                 li.filters__list-item
