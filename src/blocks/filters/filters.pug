@@ -3,4 +3,4 @@ mixin filters(title= 'Фильтр')
     h2.visually-hidden= title
     form.filter__form(action="https://echo.htmlacademy.ru" method="post")
       block
-      button.visually-hidden(type="submit")
+      button.visually-hidden(type="submit" tabindex=-1) Применить
