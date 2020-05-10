@@ -1,0 +1,13 @@
+extends ../layouts/default-layout
+include ../blocks/dialog/dialog
+
+block head
+  - var title = "Войти в аккаунт Toxin";
+
+block logo
+  - var isMainPage = false
+
+block content
+  main.signin-page
+    .container
+      +dialog("Войти")

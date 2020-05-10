@@ -1,4 +1,5 @@
 extends ../layouts/default-layout
+include ../blocks/dialog/dialog
 
 block head
   - var title = "Бронирование номеров в отеле Toxin";
@@ -13,5 +14,5 @@ block content
         h1.visually-hidden Бронирование номеров в отеле Токсин
         p.subtitle Лучшие номера для вашей работы, отдыха и просто вдохновения
         section
-          include ../blocks/dialog/dialog
+          +dialog("Найдём номера под ваши пожелания")
           
