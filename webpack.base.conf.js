@@ -1,9 +1,17 @@
-const path = require('path')
-const fs = require('fs')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const fs = require('fs');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const getFiles = (dir, fileType) => {
+  return dir.map(folder => {
+    const folderPath = `${PAGES_DIR}/${folder}`;
+    const folderFiles = fs.readdirSync(folderPath);
+    const pageFile = folderFiles.find(fileName => fileName.endsWith(`.${fileType}`));
+    return pageFile;
+  });
+}
 
 const PATHS = {
   src: path.resolve(__dirname, 'src'),
@@ -11,18 +19,24 @@ const PATHS = {
   assets: 'assets/'
 }
 
-const PAGES_DIR = `${PATHS.src}/pages/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
+const PAGES_DIR = `${PATHS.src}/pages/`;
+const PAGE_FOLDERS = fs.readdirSync(PAGES_DIR);
+const PAGES = getFiles(PAGE_FOLDERS, 'pug');
+const ENTRY_FILES = getFiles(PAGE_FOLDERS, 'js');
+const ENTRYS = {};
+
+ENTRY_FILES.forEach((entryFile, index) => {
+  const fileName = entryFile.split('.')[0];
+  ENTRYS[fileName] = `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${entryFile}`
+})
 
 module.exports = {
   externals: {
     paths: PATHS
   },
-  entry: {
-    app: PATHS.src,
-  },
+  entry: ENTRYS,
   output: {
-    filename: `${PATHS.assets}js/[name].[hash].js`,
+    filename: `js/[name].min.js`,
     path: PATHS.dist,
     publicPath: '/'
   },
@@ -65,11 +79,12 @@ module.exports = {
     }, {
       test: /\.scss$/,
       use: [
+
         'style-loader',
         MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
-          options: { sourceMap: true }
+          options: { sourceMap: true, import: false}
         }, {
           loader: 'postcss-loader',
           options: { sourceMap: true, config: { path: `./postcss.config.js` } }
@@ -100,7 +115,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].[hash].css`,
+      filename: `css/[name].min.css`,
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
@@ -108,8 +123,8 @@ module.exports = {
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
     ]),
-    ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
+    ...PAGES.map((page, index) => new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`
     }))
   ],
