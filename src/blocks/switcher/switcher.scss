@@ -1,0 +1,68 @@
+$switcher-width: 40px;
+$switcher-height: 20px;
+$switcher-padding: 3px;
+$switcher-radius: calc(#{$switcher-width} * 2);
+$circle-size: calc(#{$switcher-height} - #{$switcher-padding} * 2 - 2px);
+$circle-radius: calc(#{$circle-size} * 2);
+
+
+.switcher {
+  display: flex;
+  line-height: 1.5;
+  cursor: pointer;
+  &__input {
+    &:checked {
+      & + .switcher__indicator {
+        border-color: $color-primary;
+        &:after {
+          background: $gradient-primary;
+          left: calc(100% - #{$switcher-padding});
+          transform: translateX(-100%);
+        }
+      }
+    }
+    &:hover {
+      & + .switcher__indicator {
+        border-color: $color-primary;
+      }
+    }
+    &:focus {
+      & + .switcher__indicator {
+        background-color: $color-primary-light;
+      }
+    }
+    &:active {
+      & + .switcher__indicator {
+        &:after {
+          width: 50%;
+        }
+      }
+    }
+  }
+  &__indicator {
+    height: $switcher-height;
+    flex-basis: $switcher-width;
+    min-width: $switcher-width;
+    border-radius: $switcher-radius;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $text-color-25;
+    position: relative;
+    transition: border-color .2s ease, background-color .2s ease;
+    &:after {
+      content: '';
+      position: absolute;
+      top: $switcher-padding;
+      bottom: $switcher-padding;
+      left: $switcher-padding;
+      width: $circle-size;
+      display: block;
+      background-color: $text-color-25;
+      border-radius: $circle-radius;
+      transition: left .2s, width .1s, transform .2s;
+    }
+  }
+  &__description {
+    margin-left: 10px;
+  }
+}
