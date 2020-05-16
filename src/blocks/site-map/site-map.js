@@ -1,1 +1,0 @@
-import './site-map.scss';
