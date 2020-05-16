@@ -49,6 +49,7 @@ $circle-radius: calc(#{$circle-size} * 2);
     border-color: $text-color-25;
     position: relative;
     transition: border-color .2s ease, background-color .2s ease;
+    margin-right: $gap-xs;
     &:after {
       content: '';
       position: absolute;
@@ -61,8 +62,5 @@ $circle-radius: calc(#{$circle-size} * 2);
       border-radius: $circle-radius;
       transition: left .2s, width .3s, transform .2s;
     }
-  }
-  &__description {
-    margin-left: 10px;
   }
 }
