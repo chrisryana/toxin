@@ -1,0 +1,24 @@
+@import "../../assets/styles/main";
+@import "../../blocks/header/header";
+@import "../../layouts/default-layout";
+@import "../../blocks/button/button";
+@import "../../blocks/input/input";
+@import "../../blocks/footer/footer";
+@import "../../blocks/header/header";
+@import "../../blocks/logo/logo";
+@import "../../blocks/filters/filters";
+@import "../../blocks/paginator/paginator";
+@import "../../blocks/rate/rate";
+@import "../../blocks/checkbox/checkbox";
+@import "../../blocks/rooms/rooms";
+@import "../../blocks/room-card/room-card";
+
+.search-page {
+  &__columns {
+    display: flex;
+    width: 100%;
+    .filters {
+      width: 325px;
+    }
+  }
+}

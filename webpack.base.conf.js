@@ -68,23 +68,25 @@ module.exports = {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
       options: {
-        name: '[name].[ext]'
+        name: '[name].[ext]',
+        outputPath: 'assets/fonts',
       }
-    }, {
-      test: /\.(png|jpg|gif|svg)$/,
+    }, 
+    {
+      test: /\.(png|jpe?g|gif|svg)?$/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]'
       }
-    }, {
+    }, 
+    {
       test: /\.scss$/,
       use: [
-
         'style-loader',
         MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
-          options: { sourceMap: true, import: false}
+          options: { sourceMap: true }
         }, {
           loader: 'postcss-loader',
           options: { sourceMap: true, config: { path: `./postcss.config.js` } }
@@ -120,7 +122,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/${PATHS.assets}img/favicon.ico`, to: '' },
-      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+      // { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
     ]),
     ...PAGES.map((page, index) => new HtmlWebpackPlugin({
