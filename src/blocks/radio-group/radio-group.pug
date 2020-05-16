@@ -1,0 +1,14 @@
+include ../radio-button/radio-button
+
+mixin radio-group-item(name, buttonOptions)
+  li.radio-group__item
+    +radio-button({name, buttonOptions})
+
+mixin radio-group(options)
+  - var {name, title, radioButtons} = options
+
+  fieldset.radio-group
+    legend.visually-hidden= title
+    ul.radio-group__list
+      for buttonOptions in radioButtons
+        +radio-group-item(name, buttonOptions)
