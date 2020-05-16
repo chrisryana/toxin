@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: color .2s ease;
+    transition: background-color .3s ease;
     &:focus {
       border: 1px solid $color-primary;
       outline: none;
@@ -25,16 +25,20 @@
     }
     &--interactive {
       &:hover {
-        color: $color-primary;
+        background-color: $text-color-10;
       }
     }
   }
   &__arrow {
     background: $gradient-secondary;
     color: #fff;
-    transition: color .2s ease;
+    .mdi {
+      transition: transform .2s ease;
+    }
     &:hover {
-      color: rgba(255, 255, 255, 0.6);
+      .mdi {
+        transform: scale(1.3);
+      }
     }
   }
 }
