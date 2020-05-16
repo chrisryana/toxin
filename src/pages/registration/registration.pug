@@ -1,5 +1,9 @@
 extends ../../layouts/default-layout
 include ../../blocks/dialog/dialog
+include ../../blocks/input/input
+include ../../blocks/button/button
+include ../../blocks/switcher/switcher
+include ../../blocks/radio-group/radio-group
 
 block head
   - var title = "Зарегистрировать аккаунт Toxin";
@@ -8,6 +12,39 @@ block logo
   - var isMainPage = false
 
 block content
+  -
+    var radioGroup = {
+      name: "user-gender",
+      title: "Ваш пол",
+      radioButtons: [
+        {label: "Мужчина", value: "man", checked: true},
+        {label: "Женщина", value: "woman"}
+      ]
+    }
+
   main.start-account-page
     .container
       +dialog("Регистрация аккаунта")
+        .dialog__form-group.dialog__form-group--gap-xs
+          +input()(placeholder="Имя" name="user-name" required)
+        .dialog__form-group.dialog__form-group--gap-xs
+          +input()(placeholder="Фамилия" name="user-surname" required)
+        .dialog__form-group.dialog__form-group--gap-m
+          +radio-group(radioGroup)
+
+        .dialog__form-group.dialog__form-group--gap-xs
+          +input("Дата рождения")(type="date" name="user-bday")
+
+        .dialog__form-group.dialog__form-group--gap-xs
+          +input("Данные для входа в сервис")(type="email" placeholder="Email" name="user-email" required)
+        .dialog__form-group.dialog__form-group--gap-xs
+          +input()(type="password" placeholder="Пароль" name="user-password" required)
+        .dialog__form-group.dialog__form-group--gap-m
+          +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
+
+        .dialog__form-group.dialog__form-group--gap-xxl
+          +button({name: "Перейти к оплате", icon: "mdi-arrow-right", size: "l"})(type="submit")
+
+        .dialog__form-message
+          p.dialog__text Уже есть аккаунт на Toxin?
+          +button({name: "Войти", type: "secondary", href: "/signin.html", size: "l"})
