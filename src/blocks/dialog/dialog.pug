@@ -1,15 +1,7 @@
-include ../input/input
-include ../button/button
-
 mixin dialog(title)
   section.dialog
     .dialog__header
       h2.dialog__title= title
     .dialog__content
       form.dialog__form(action="https://echo.htmlacademy.ru" method="post")
-        .dialog__form-wrapper
-          +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
-          +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
-        +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
-        .dialog__form-button
-          +button("Подобрать номер")(type="submit")
+        block

@@ -1,5 +1,7 @@
 extends ../../layouts/default-layout
 include ../../blocks/dialog/dialog
+include ../../blocks/input/input
+include ../../blocks/button/button
 
 block head
   - var title = "Бронирование номеров в отеле Toxin";
@@ -15,4 +17,10 @@ block content
         p.subtitle Лучшие номера для вашей работы, отдыха и просто вдохновения
         section
           +dialog("Найдём номера под ваши пожелания")
+            .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
+              +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
+              +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
+            .dialog__form-group--gap-xxl
+              +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
+            +button({name: "Подобрать номер", icon: "mdi-arrow-right", size: "l"})(type="submit")
           
