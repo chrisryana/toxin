@@ -1,5 +1,7 @@
 extends ../../layouts/default-layout
 include ../../blocks/dialog/dialog
+include ../../blocks/input/input
+include ../../blocks/button/button
 
 block head
   - var title = "Войти в аккаунт Toxin";
@@ -11,3 +13,12 @@ block content
   main.start-account-page
     .container
       +dialog("Войти")
+        .dialog__form-group.dialog__form-group--gap-xs
+          +input()(type="email" placeholder="Email" name="user-email" required)
+        .dialog__form-group.dialog__form-group--gap-m
+          +input()(type="password" placeholder="Пароль" name="user-password" required)
+        .dialog__form-group.dialog__form-group--gap-xxl
+          +button({name: "Войти", icon: "mdi-arrow-right", size: "l"})(type="submit")
+        .dialog__form-message
+          p.dialog__text Нет аккаунта на Toxin?
+          +button({name: "Создать", type: "secondary", href: "/registration.html", size: "l"})
