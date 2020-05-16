@@ -27,6 +27,6 @@ header.header
       +getNavigation(navItems)
       ul.header__user-navigation
         li.user-navigation__item
-          +button("Войти", "secondary", "/signin.html")
+          +button({name: "Войти", type: "secondary", href: "/signin.html"})
         li.user-navigation__item
-          +button("Зарегистрироваться", "primary", "/registration.html")
+          +button({name: "Зарегистрироваться", href: "/registration.html"})
