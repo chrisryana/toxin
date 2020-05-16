@@ -59,7 +59,7 @@ $circle-radius: calc(#{$circle-size} * 2);
       display: block;
       background-color: $text-color-25;
       border-radius: $circle-radius;
-      transition: left .2s, width .1s, transform .2s;
+      transition: left .2s, width .3s, transform .2s;
     }
   }
   &__description {
