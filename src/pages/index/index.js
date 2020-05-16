@@ -1,5 +1,16 @@
+import * as $ from 'jquery';
 import './index.scss';
 
-console.log('entryy');
-import * as $ from 'jquery';
-$(document).on('click', () => {console.log('click')})
+
+const imageUrls = ['../../assets/img/blue-chair.jpg', '../../assets/img/green-room.jpg', '../../assets/img/sofa.jpg'];
+let imageIndex = 0;
+
+const changeImage = () => {
+  $('.main-page').css('background-image', `url(${imageUrls[imageIndex]})`);
+  imageIndex++;
+  if (imageIndex === imageUrls.length) {
+    imageIndex = 0;
+  }
+}
+
+setInterval(changeImage, 5000);
