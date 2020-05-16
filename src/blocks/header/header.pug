@@ -1,3 +1,5 @@
+include ../button/button
+
 -
   var navItems = [
     { title: "О нас", href: "javascript:void(0)" },
@@ -25,8 +27,6 @@ header.header
       +getNavigation(navItems)
       ul.header__user-navigation
         li.user-navigation__item
-          a.button.button--secondary(href="javascript:void(0)")
-            span.button__wrapper Войти
+          +button("Войти", "secondary", "/signin.html")
         li.user-navigation__item
-          a.button.button--primary(href="javascript:void(0)")
-            span.button__wrapper Зарегистрироваться
+          +button("Зарегистрироваться", "primary", "/registration.html")
