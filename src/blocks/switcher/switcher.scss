@@ -1,5 +1,5 @@
 $switcher-width: 40px;
-$switcher-height: 20px;
+$switcher-height: calc(#{$switcher-width} / 2);
 $switcher-padding: 3px;
 $switcher-radius: calc(#{$switcher-width} * 2);
 $circle-size: calc(#{$switcher-height} - #{$switcher-padding} * 2 - 2px);
