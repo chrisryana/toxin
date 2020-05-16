@@ -1,0 +1,10 @@
+@import "../checkbox/checkbox";
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  &__item {
+    margin-top: 10px;
+  }
+}
