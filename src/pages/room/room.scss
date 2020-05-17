@@ -1,0 +1,58 @@
+@import "../../assets/styles/main";
+@import "../../blocks/room-gallery/room-gallery";
+@import "../../blocks/bullet-list/bullet-list";
+@import "../../blocks/feature/feature";
+@import "../../blocks/comment/comment";
+
+.room-description {
+  display: flex;
+  &__column {
+    padding-top: 70px;
+  }
+  &__group {
+    display: flex;
+  }
+  &__item {
+    flex: 1;
+  }
+
+  .description-block {
+    &__title {
+      font-family: $font-secondary;
+      font-size: $text-md;
+      font-weight: bold;
+      margin-bottom: $gap-m;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &--gap-m {
+        padding-left: $gap-m;
+      }
+    }
+    &__counter {
+      color: $text-color-50;
+      font-size: $text-base-size;
+      font-weight: initial;
+      font-family: $font-primary;
+    }
+    .features-list {
+      &__item {
+        padding: $gap-m $gap-m 17px 0;
+        border-top: 1px solid $text-color-10;
+        &:first-child {
+          border-top: none;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+  .comments-list {
+    &__item {
+      margin-bottom: 22px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

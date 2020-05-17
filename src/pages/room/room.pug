@@ -1,0 +1,98 @@
+extends ../../layouts/default-layout
+include ../../blocks/dialog/dialog
+include ../../blocks/input/input
+include ../../blocks/button/button
+include ../../blocks/room-gallery/room-gallery
+include ../../blocks/bullet-list/bullet-list
+include ../../blocks/feature/feature
+include ../../blocks/comment/comment
+
+mixin declOfNum(n, titles)
+  span.description-block__counter= `${n} ${titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2]}`
+
+block head
+  - var title = "Информация о номере 888";
+
+block logo
+  - var isMainPage = false
+
+block content
+  -
+    var roomImages = [
+      {src: "../../assets/img/888/1.jpg", alt: "Комната в бежевых тонах. Посередине двуспальная кровать. Перед ней пуфик с узором 'морской огурец' бирюзового цвета"},
+      {src: "../../assets/img/888/2.jpg", alt: "Кабинет с односпальной кроватью. Слева от входа стол"},
+      {src: "../../assets/img/888/3.jpg", alt: "Гостинная с 2 креслами и стеклянным круглым столом. Большие окна"}
+    ]
+  -
+    var rules = [
+      "Нельзя с питомцами",
+      "Без вечеринок и мероприятий",
+      "Время прибытия — после 13:00, а выезд до 12:00"
+    ]
+  -
+    var features = [
+      {icon: "mdi-emoticon-outline", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
+      {icon: "mdi-city", title: "Удобство", subtitle: "Окно в каждой из спален"},
+      {icon: "mdi-fire", title: "Уют", subtitle: "Номер оснащён камином"},
+    ]
+  -
+    var comments = [
+      {
+        userName: "Мурад Сарафанов",
+        userAvatar: "../../assets/img/avatars/man.jpg",
+        date: new Date(),
+        message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+        likeOptions: {
+          count: 12,
+          liked: true,
+        }
+      },
+      {
+        userName: "Патрисия Стёклышкова",
+        userAvatar: "../../assets/img/avatars/woman.jpg",
+        date: new Date(),
+        message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
+        likeOptions: {
+          count: 2,
+          liked: false,
+        }
+      },
+    ]
+
+  main.room-page
+    h1.visually-hidden Информация о номере 888
+    +room-gallery(roomImages)
+    .container
+      .room-description
+        .room-description__column
+          .room-description__group
+            section.room-description__item.description-block
+              h2.description-block__title Сведения о номере
+              ul.features-list
+                for feature in features
+                  li.features-list__item
+                    +feature(feature)
+
+            section.room-description__item.description-block
+              h2.description-block__title Впечатления от номера
+
+          section.room-description__item.description-block
+            h2.description-block__title Отзывы посетителей номера
+              +declOfNum(comments.length, ['отзыв', 'отзыва', 'отзывов'])
+            ul.comments-list
+              for comment in comments
+                li.comments-list__item
+                  +comment(comment)
+
+          .room-description__group
+            section.room-description__item.description-block
+              h2.description-block__title.description-block__title--gap-m Правила
+              +bullet-list(rules)
+            section.room-description__item.description-block
+              h2.description-block__title Отмена
+              p.description-block__paragraph
+                | Бесплатная отмена в течение 48 ч. 
+                | После этого при отмене не позднее чем за 5 дн. до прибытия
+                | вы получите полный возврат за вычетом сбора за услуги.
+        .room-description__column
+          +dialog("888")
