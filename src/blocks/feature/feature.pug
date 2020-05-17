@@ -1,0 +1,8 @@
+mixin feature(options)
+  - var {icon, title, subtitle} = options
+  - var iconClass = `mdi ${icon}`
+  .feature
+    span(class= iconClass)
+    .feature__description
+      p.feature__title= title
+      = subtitle
