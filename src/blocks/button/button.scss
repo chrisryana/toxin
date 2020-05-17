@@ -1,7 +1,7 @@
-$border-radius: 22px;
-$border-width: 2px;
-
 .button {
+  $border-radius: 22px;
+  $border-width: 2px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,11 +11,21 @@ $border-width: 2px;
   font-weight: bold;
   line-height: 1.25;
   text-transform: uppercase;
-  transition: background .2s ease;
+  transition: background-image .2s ease, background-color .2s ease;
   border-radius: $border-radius;
-  background: $gradient-primary no-repeat $color-primary;
-  &:hover {
-    background: $gradient-primary-transparent;
+  background-color: $color-primary;
+  background-image: $gradient-primary;
+  outline: none;
+  &:hover,
+  &:focus {
+    background-color: $color-primary-light;
+    background-image: $gradient-primary-transparent;
+  }
+  &:focus {
+    box-shadow: 0px 0px 3px 2px $color-primary;
+  }
+  &:active {
+    transform: translateY(1px);
   }
   &__wrapper {
     border-radius: calc(#{$border-radius} - #{$border-width});
