@@ -1,0 +1,35 @@
+.like-button {
+  background-color: $text-color-25;
+  padding: 1px;
+  font-size: $text-xs;
+  border: none;
+  color: $text-color-25;
+  outline: none;
+  border-radius: 50px;
+  transition: background-color .2s ease, background-image .2s ease;
+  &--active {
+    background-color: $color-primary;
+    background-image: $gradient-primary;
+    color: $color-primary;
+  }
+  &:hover {
+    background-color: $color-primary;
+  }
+  &:focus {
+    .like-button__wrapper {
+      background-color: $color-primary-light;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 4px 10px 5px 5px;
+    border-radius: 50px;
+  }
+  .mdi {
+    font-size: inherit;
+    margin-right: 4px;
+  }
+}

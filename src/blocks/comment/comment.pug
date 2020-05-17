@@ -1,0 +1,15 @@
+include ../avatar/avatar
+include ../like-button/like-button
+
+mixin comment(options)
+  - var {userName, userAvatar, date, message, likeOptions} = options
+  .comment
+    .comment__column
+      .comment__avatar
+        +avatar({src: userAvatar, userName})
+      .comment__like-button
+        +like-button(likeOptions)
+    .comment__column
+      p.comment__user-name= userName
+      p.comment__date= date
+      p.comment__message= message

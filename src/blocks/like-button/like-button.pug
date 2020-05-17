@@ -1,0 +1,10 @@
+mixin like-button({count=0, liked=false})
+  - var likeIcon = `mdi ${liked ? 'mdi-heart' : 'mdi-heart-outline'}`
+  - var likeClass = `like-button`
+  if liked
+    - likeClass = `${likeClass} like-button--active`
+  button(class= likeClass type="button")
+    span.like-button__wrapper
+      span(class= likeIcon)
+      span.visually-hidden Количество лайков:
+      = count

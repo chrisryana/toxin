@@ -1,0 +1,24 @@
+@import '../avatar/avatar';
+@import '../like-button/like-button';
+
+
+.comment {
+  display: flex;
+  &__avatar {
+    margin-bottom: 12px;
+  }
+  &__column {
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+  &__user-name {
+    font-weight: bold;
+  }
+  &__like-button {
+    text-align: center;
+  }
+  &__date {
+    margin-bottom: $gap-xs;
+  }
+}
