@@ -1,0 +1,15 @@
+mixin image(image, index)
+  - var className = 'room-gallery__item'
+  if index === 0
+    - className = `${className} room-gallery__item--current`
+  div(class= className)
+    img.room-gallery__item-img(src= image.src loading="lazy" alt= image.alt)
+
+mixin room-gallery(images)
+  section.room-gallery
+    h2.visually-hidden Фотографии номера
+    figure.room-gallery__list
+      .room-gallery__list-wrapper
+        for image, index in images
+          +image(image, index)
+      figcaption.visually-hidden Интерьер в классическом стиле, фотографии с разных ракурсов

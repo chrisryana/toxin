@@ -1,0 +1,31 @@
+.room-gallery {
+  &__list {
+    margin: 0;
+  }
+  &__list-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 484px;
+    max-width: 100vw;
+  }
+  &__item {
+    flex-grow: 1;
+    max-width: 32vw;
+    max-height: 242px;
+    overflow: hidden;
+    &--current {
+      max-height: 100%;
+      max-width: 68vw;
+      // flex-grow: 2;
+    }
+  }
+  &__item-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
