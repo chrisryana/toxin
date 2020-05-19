@@ -7,13 +7,18 @@
 .room-description {
   display: flex;
   &__column {
-    padding-top: 70px;
+    padding: 70px 0;
   }
   &__group {
     display: flex;
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   &__item {
     flex: 1;
+    margin-right: 70px;
   }
 
   .description-block {
@@ -42,6 +47,9 @@
         &:first-child {
           border-top: none;
           padding-top: 0;
+        }
+        &:last-child {
+          padding-bottom: 0;
         }
       }
     }

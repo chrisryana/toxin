@@ -12,7 +12,7 @@ mixin paginator(paginatorOptions)
       if currentPage !== 1
         li.paginator__list-item
           a.paginator__page.paginator__arrow(href="javascript:void(0)")
-            span.mdi.mdi-arrow-left
+            i.material-icons arrow_back
 
       - for (var i = 1; i <= pagesCount; i++)
         - var isBoundary = (i === 1 || i === pagesCount)
@@ -32,5 +32,5 @@ mixin paginator(paginatorOptions)
       if currentPage !== 15
         li.paginator__list-item
           a.paginator__page.paginator__arrow(href="javascript:void(0)")
-            span.mdi.mdi-arrow-right
+            i.material-icons arrow_forward
     p.paginator__info= `${startCount} – ${endCount} из ${roundCount}+ вариантов аренды`

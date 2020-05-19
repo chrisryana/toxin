@@ -32,14 +32,14 @@
     }
   }
   &__accordion {
-    .mdi-chevron-up {
+    .material-icons__less {
       display: none;
     }
     &[open] {
-      .mdi-chevron-up {
+      .material-icons__less {
         display: inline;
       }
-      .mdi-chevron-down {
+      .material-icons__more {
         display: none;
       }
     }

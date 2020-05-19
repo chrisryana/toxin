@@ -32,11 +32,11 @@
   &__arrow {
     background: $gradient-secondary;
     color: #fff;
-    .mdi {
+    .material-icons {
       transition: transform .2s ease;
     }
     &:hover {
-      .mdi {
+      .material-icons {
         transform: scale(1.3);
       }
     }

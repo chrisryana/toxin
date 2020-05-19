@@ -7,9 +7,9 @@ mixin button(params)
     a(class= className href= href)
       span.button__wrapper= name
         if icon
-          span(class= `mdi ${icon}`)
+          i.material-icons= icon
   else
     button(class= className type="button")&attributes(attributes)
       span.button__wrapper= name
         if icon
-          span(class= `mdi ${icon}`)
+          i.material-icons= icon

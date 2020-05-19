@@ -5,6 +5,6 @@ mixin rate(rate)
   .rate
     +declOfNum(rate, ['звезда', 'звезды', 'звезд'])
     - for (var i = 0; i < 5; i++)
-      - var icon = i < rate ? 'mdi-star' : 'mdi-star-outline';
+      - var icon = i < rate ? 'star' : 'star_border';
       span.rate__item
-        span.mdi(class= icon)
+        i.material-icons= icon

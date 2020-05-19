@@ -37,6 +37,8 @@
       animation-fill-mode: both;
     }
     &-button {
+      display: flex;
+      align-items: center;
       padding: 0;
       font-size: $text-lg;
       border: none;
@@ -49,12 +51,10 @@
       &:hover {
         opacity: .5;
       }
-      .mdi {
-        &:before {
-          background: $gradient-primary;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+      .material-icons {
+        background: $gradient-primary;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
     &--with-icon {

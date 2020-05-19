@@ -31,9 +31,9 @@ block content
     ]
   -
     var features = [
-      {icon: "mdi-emoticon-outline", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
-      {icon: "mdi-city", title: "Удобство", subtitle: "Окно в каждой из спален"},
-      {icon: "mdi-fire", title: "Уют", subtitle: "Номер оснащён камином"},
+      {icon: "insert_emoticon", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
+      {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
+      {icon: "whatshot", title: "Уют", subtitle: "Номер оснащён камином"},
     ]
   -
     var comments = [
@@ -76,13 +76,14 @@ block content
             section.room-description__item.description-block
               h2.description-block__title Впечатления от номера
 
-          section.room-description__item.description-block
-            h2.description-block__title Отзывы посетителей номера
-              +declOfNum(comments.length, ['отзыв', 'отзыва', 'отзывов'])
-            ul.comments-list
-              for comment in comments
-                li.comments-list__item
-                  +comment(comment)
+          .room-description__group
+            section.room-description__item.description-block
+              h2.description-block__title Отзывы посетителей номера
+                +declOfNum(comments.length, ['отзыв', 'отзыва', 'отзывов'])
+              ul.comments-list
+                for comment in comments
+                  li.comments-list__item
+                    +comment(comment)
 
           .room-description__group
             section.room-description__item.description-block

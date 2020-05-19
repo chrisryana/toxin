@@ -13,7 +13,7 @@ mixin getNavigationItem(navItem)
   li.site-navigation__item
     a.site-navigation__item-link(href= navItem.href)=navItem.title
       if navItem.children
-        span.mdi.mdi-chevron-down
+        i.material-icons expand_more
 
 mixin getNavigation(navItems)
   ul.header__site-navigation
