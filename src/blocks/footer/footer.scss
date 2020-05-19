@@ -3,6 +3,9 @@
 
 .footer {
   background-color: #fff;
+  &--underlined {
+    border-top: 1px solid $text-color-25;
+  }
   &__section {
     &--wide {
       padding: 100px 0;

@@ -37,7 +37,11 @@ block site-map
     title: "Отправить",
   }
 
-footer.footer
+block footer
+- var footerClass = 'footer'
+if isUnderlined
+  - footerClass = `${footerClass} footer--underlined`
+footer(class= footerClass)
   section.footer__section.footer__section--wide
     .container
       h2.visually-hidden Карта сайта
