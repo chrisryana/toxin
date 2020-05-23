@@ -1,0 +1,39 @@
+mixin pie-chart(votes)
+  - var {perfect= 0, good= 0, satisfactorily= 0, bad= 0} = votes
+  - var totalCount = perfect + good + satisfactorily + bad
+  .pie-chart
+    .pie-chart__group
+      svg.pie-chart__chart(width="120" height="120" viewbox="0 0 34 34" fill="none" stroke-width="1")
+        defs
+          linearGradient(id="satisfactorily" x1="0%" y1="0%" x2="0%" y2="100%")
+            stop(offset="0%" stop-color="#BC9CFF")
+            stop(offset="100%" stop-color="#8BA4F9")
+          linearGradient(id="good" x1="0%" y1="0%" x2="100%" y2="0%")
+            stop(offset="0%" stop-color="#66D2EA")
+            stop(offset="100%" stop-color="#6FCF97")
+          linearGradient(id="perfect" x1="0%" y1="0%" x2="0%" y2="100%")
+            stop(offset="0%" stop-color="#FFE39C")
+            stop(offset="100%" stop-color="#FFBA9C")
+          linearGradient(id="bad" x1="0%" y1="0%" x2="0%" y2="100%")
+            stop(offset="0%" stop-color="#909090")
+            stop(offset="100%" stop-color="#3D4975")
+        - var previosOffset = 0
+        each value, voteType in votes
+          if value !== 0
+            - var gap = 2
+            - var dash = value * 100 / totalCount - gap / 2
+            - var offset = previosOffset - dash - gap / 2
+            - previosOffset = offset
+            circle.pie-chart__unit(r="15.9" stroke=`url(#${voteType})` stroke-dasharray=`${dash} 100` stroke-dashoffset= offset cx="50%" cy="50%")
+        //- circle.pie-chart__unit(r="15.9" stroke="url(#satisfactorily)" stroke-dasharray="24 100" stroke-dashoffset="-75" cx="50%" cy="50%")
+        //- circle.pie-chart__unit(r="15.9" stroke="url(#good)" stroke-dasharray="24 100" cx="50%" cy="50%")
+        //- circle.pie-chart__unit(r="15.9" stroke="url(#perfect)" stroke-dasharray="49 100" stroke-dashoffset="-25" cx="50%" cy="50%")
+        //- circle.pie-chart__unit(r="15.9" stroke="url(#bad)" stroke-dasharray="0 100" stroke-dashoffset="0" cx="50%" cy="50%")
+      p.pie-chart__info
+        span.pie-chart__count= totalCount 
+        | голосов
+    ul.pie-chart__legend 
+      li.pie-chart__legend-item Великолепно
+      li.pie-chart__legend-item Хорошо
+      li.pie-chart__legend-item Удовлетворительно
+      li.pie-chart__legend-item Разочарован

@@ -6,6 +6,7 @@ include ../../blocks/room-gallery/room-gallery
 include ../../blocks/bullet-list/bullet-list
 include ../../blocks/feature/feature
 include ../../blocks/comment/comment
+include ../../blocks/pie-chart/pie-chart
 
 mixin declOfNum(n, titles)
   span.description-block__counter= `${n} ${titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2]}`
@@ -78,6 +79,7 @@ block content
 
             section.room-description__item.description-block
               h2.description-block__title Впечатления от номера
+              +pie-chart({perfect: 130, satisfactorily: 65, good: 65})
 
           .room-description__group
             section.room-description__item.description-block
