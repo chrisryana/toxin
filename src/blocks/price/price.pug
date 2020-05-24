@@ -1,0 +1,41 @@
+include ../../mixins
+
+mixin price(data)
+  - var {roomCost= 0, days= 0, servicesCost= 0, additional= 0} = data
+  - var totalRoomCost = roomCost * days
+  - var total = totalRoomCost + servicesCost + additional
+
+  table.price
+    tbody.price__details
+      tr.price__row
+        td.price__cell
+          +numberWithSpaces(roomCost)
+          = `₽ х ${days} `
+          +declOfNum(days, ['сутки', 'суток', 'суток'])
+        td.price__cell.price__cell--aligned-right
+          +numberWithSpaces(totalRoomCost)
+          | ₽
+      tr.price__row
+        td.price__cell
+          | Сбор за услуги
+          if servicesCost < 0
+            | : скидка 
+            +numberWithSpaces(-servicesCost)
+            | ₽
+        td.price__cell.price__cell--aligned-right 
+          if servicesCost > 0
+            +numberWithSpaces(servicesCost)
+            | ₽
+          else
+            | 0₽
+      tr.price__row
+        td.price__cell Сбор за дополнительные услуги
+        td.price__cell.price__cell--aligned-right
+          +numberWithSpaces(additional)
+          | ₽
+    tfoot.price__total
+      tr.price__row
+        td.price__cell Итого
+        td.price__cell.price__cell--aligned-right
+          +numberWithSpaces(total)
+          | ₽
