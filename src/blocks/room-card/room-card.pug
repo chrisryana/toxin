@@ -1,10 +1,8 @@
 include ../rate/rate
+include ../../mixins
 
 mixin roomCard(roomOptions)
   - var {imgList = [], number = 0, isLux = false, cost = 0, rate = 0, reviewCount = 0} = roomOptions;
-
-  mixin numberWithSpaces(num) 
-    span.room-card__info--big= `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}₽ `
 
   a.room-card(href="/room.html")
     .room-card__gallery
@@ -16,8 +14,9 @@ mixin roomCard(roomOptions)
           if isLux 
             span.room-card__type= ` Люкс`
         p.room-card__info
-          +numberWithSpaces(cost)
-          | в сутки
+          span.room-card__info--big
+            +numberWithSpaces(cost)
+            | ₽ в сутки
       .room-card__description-row
         .room-card__rate
           +rate(rate)

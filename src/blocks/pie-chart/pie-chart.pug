@@ -1,3 +1,5 @@
+include ../../mixins
+
 mixin pie-chart(votes)
   - var {perfect= 0, good= 0, satisfactorily= 0, bad= 0} = votes
   //- тк для корректного dashoffset важен порядок:
@@ -28,7 +30,7 @@ mixin pie-chart(votes)
             - previosOffset = previosOffset - dash - gap / 2
       p.pie-chart__info
         span.pie-chart__count= totalCount 
-        | голосов
+        +declOfNum(totalCount, ['голос', 'голоса', 'голосов'])
     ul.pie-chart__legend 
       li.pie-chart__legend-item Великолепно
       li.pie-chart__legend-item Хорошо

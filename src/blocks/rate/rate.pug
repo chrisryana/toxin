@@ -1,9 +1,11 @@
-mixin declOfNum(n, titles)
-  span.visually-hidden= `${n} ${titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2]} из 5`
+include ../../mixins
 
 mixin rate(rate)
   .rate
-    +declOfNum(rate, ['звезда', 'звезды', 'звезд'])
+    span.visually-hidden
+      = `${rate} `
+      +declOfNum(rate, ['звезда', 'звезды', 'звезд'])
+      |  из 5
     - for (var i = 0; i < 5; i++)
       - var icon = i < rate ? 'star' : 'star_border';
       span.rate__item

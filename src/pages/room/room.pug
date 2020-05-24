@@ -7,9 +7,8 @@ include ../../blocks/bullet-list/bullet-list
 include ../../blocks/feature/feature
 include ../../blocks/comment/comment
 include ../../blocks/pie-chart/pie-chart
-
-mixin declOfNum(n, titles)
-  span.description-block__counter= `${n} ${titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2]}`
+include ../../blocks/price/price
+include ../../mixins
 
 block head
   - var title = "Информация о номере 888";
@@ -84,7 +83,9 @@ block content
           .room-description__group
             section.room-description__item.description-block
               h2.description-block__title Отзывы посетителей номера
-                +declOfNum(comments.length, ['отзыв', 'отзыва', 'отзывов'])
+                span.description-block__counter
+                  = `${comments.length} `
+                  +declOfNum(comments.length, ['отзыв', 'отзыва', 'отзывов'])
               ul.comments-list
                 for comment in comments
                   li.comments-list__item
@@ -102,3 +103,11 @@ block content
                 | вы получите полный возврат за вычетом сбора за услуги.
         .room-description__column
           +dialog("888")
+            .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
+              +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
+              +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
+            .dialog__form-group.dialog__form-group--gap-m
+              +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
+            .dialog__form-group.dialog__form-group--gap-xxl
+              +price({roomCost: 9990, days: 4, servicesCost: -2179, additional: 300})
+            +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
