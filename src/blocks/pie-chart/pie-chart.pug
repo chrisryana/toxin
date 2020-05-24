@@ -1,7 +1,7 @@
 mixin pie-chart(votes)
   - var {perfect= 0, good= 0, satisfactorily= 0, bad= 0} = votes
   //- тк для корректного dashoffset важен порядок:
-  - var orderedVotes = {good, perfect, satisfactorily}
+  - var orderedVotes = {good, perfect, satisfactorily, bad}
   - var totalCount = perfect + good + satisfactorily + bad
   .pie-chart
     .pie-chart__group
