@@ -20,7 +20,7 @@ block content
             .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
               +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
               +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
-            .dialog__form-group--gap-xxl
+            .dialog__form-group.dialog__form-group--gap-xxl
               +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
             +button({name: "Подобрать номер", icon: "arrow_forward", size: "l"})(type="submit")
           
