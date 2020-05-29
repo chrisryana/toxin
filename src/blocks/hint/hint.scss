@@ -1,0 +1,56 @@
+$button-size: 20px;
+
+.hint {
+  position: relative;
+  &__button {
+    width: $button-size;
+    height: $button-size;
+    border-radius: 50%;
+    border: 1px solid $text-color-25;
+    color: $text-color-25;
+    font-weight: bold;
+    font-size: $text-sm;
+    transition: color .2s ease, border-color .2s ease;
+    background-color: #fff;
+    &:hover,
+    &:focus {
+      border: 1px solid $color-primary;
+      color: $color-primary;
+      & ~ .hint__description {
+        opacity: 1;
+      }
+    }
+    &:focus {
+      outline: none;
+      background-color: $color-primary-light;
+    }
+  }
+  &__description {
+    opacity: 0;
+    min-width: 200px;
+    pointer-events: none;
+    font-size: $text-sm;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid $text-color-25;
+    padding: $gap-xs $gap-m;
+    bottom: calc(#{$button-size} + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1);
+    transition: opacity .2s ease;
+    &:before {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid $text-color-25;
+      border-bottom: 1px solid $text-color-25;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+}

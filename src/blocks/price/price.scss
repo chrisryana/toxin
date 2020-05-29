@@ -1,16 +1,37 @@
-.price{
+.price {
   &__details {
 
   }
   &__row {
 
   }
-  &__cell {
+  &__cell-wrapper {
+    display: flex;
     &--aligned-right {
-      text-align: right;
+      justify-content: flex-end;
+      padding-left: 20px;
+    }
+    &--gap-m {
+      padding-top: $gap-m;
     }
   }
+  &__dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted $text-color-25;
+  }
+  &__cell {
+    vertical-align: top;
+    padding: 5px 0;
+  }
   &__total {
-
+    font-family: $font-secondary;
+    font-weight: bold;
+    font-size: $text-md;
+    color: $text-color;
+  }
+  &__hint {
+    &--gap-xxs {
+      margin-left: $gap-xxs;
+    }
   }
 }

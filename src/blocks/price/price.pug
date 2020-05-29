@@ -1,4 +1,5 @@
 include ../../mixins
+include ../hint/hint
 
 mixin price(data)
   - var {roomCost= 0, days= 0, servicesCost= 0, additional= 0} = data
@@ -9,33 +10,46 @@ mixin price(data)
     tbody.price__details
       tr.price__row
         td.price__cell
-          +numberWithSpaces(roomCost)
-          = `₽ х ${days} `
-          +declOfNum(days, ['сутки', 'суток', 'суток'])
-        td.price__cell.price__cell--aligned-right
-          +numberWithSpaces(totalRoomCost)
-          | ₽
+          .price__cell-wrapper
+            +numberWithSpaces(roomCost)
+            = `₽ х ${days} `
+            +declOfNum(days, ['сутки', 'суток', 'суток'])
+        td.price__cell
+          .price__cell-wrapper.price__cell-wrapper--aligned-right
+            +numberWithSpaces(totalRoomCost)
+            | ₽
       tr.price__row
         td.price__cell
-          | Сбор за услуги
-          if servicesCost < 0
-            | : скидка 
-            +numberWithSpaces(-servicesCost)
-            | ₽
-        td.price__cell.price__cell--aligned-right 
-          if servicesCost > 0
-            +numberWithSpaces(servicesCost)
-            | ₽
-          else
-            | 0₽
+          .price__cell-wrapper
+            | Сбор&nbsp;за&nbsp;услуги
+            if servicesCost < 0
+              | :&nbsp;скидка&nbsp;
+              +numberWithSpaces(-servicesCost)
+              | ₽
+            .price__hint.price__hint--gap-xxs
+              +hint("Скидка на первую бронь за подписку")
+        td.price__cell
+          .price__cell-wrapper.price__cell-wrapper--aligned-right
+            if servicesCost > 0
+              +numberWithSpaces(servicesCost)
+              | ₽
+            else
+              | 0₽
       tr.price__row
-        td.price__cell Сбор за дополнительные услуги
-        td.price__cell.price__cell--aligned-right
-          +numberWithSpaces(additional)
-          | ₽
+        td.price__cell
+          .price__cell-wrapper Сбор за дополнительные услуги
+            .price__hint.price__hint--gap-xxs
+              +hint("Чаевые для персонала уже включены в счет")
+        td.price__cell
+          .price__cell-wrapper.price__cell-wrapper--aligned-right
+            +numberWithSpaces(additional)
+            | ₽
     tfoot.price__total
       tr.price__row
-        td.price__cell Итого
-        td.price__cell.price__cell--aligned-right
-          +numberWithSpaces(total)
-          | ₽
+        td.price__cell
+          .price__cell-wrapper.price__cell-wrapper--gap-m Итого
+            span.price__dots
+        td.price__cell
+          .price__cell-wrapper.price__cell-wrapper--aligned-right.price__cell-wrapper--gap-m
+            +numberWithSpaces(total)
+            | ₽
