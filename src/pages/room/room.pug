@@ -102,10 +102,17 @@ block content
                 | После этого при отмене не позднее чем за 5 дн. до прибытия
                 | вы получите полный возврат за вычетом сбора за услуги.
         .room-description__column
-          +dialog("888")
+          - var today = new Date()
+          - var todayYY = today.getFullYear()
+          - var todayMM = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1
+          - var todayDD = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate()
+          - var minDate = `${todayYY}-${todayMM}-${todayDD}`
+          - var maxDate = `${todayYY + 1}-${todayMM}-${todayDD}`
+
+          +dialog({number: "888", isLux: true, cost: 9990})
             .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
-              +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
-              +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)
+              +input("Прибытие")(type="date" min=minDate max=maxDate name="arrival" required)
+              +input("Выезд")(type="date" min=minDate max=maxDate name="departure" required)
             .dialog__form-group.dialog__form-group--gap-m
               +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
             .dialog__form-group.dialog__form-group--gap-xxl
