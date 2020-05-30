@@ -16,7 +16,7 @@ block content
         h1.visually-hidden Поиск номеров в отеле Токсин
         p.subtitle Лучшие номера для вашей работы, отдыха и просто вдохновения
         section
-          +dialog("Найдём номера под ваши пожелания")
+          +dialog({title: "Найдём номера под ваши пожелания"})
             .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
               +input("Прибытие")(type="date" min="2020-04-30" max="2021-06-30" name="arrival" required)
               +input("Выезд")(type="date" min="2020-04-30" max="2021-06-30" name="departure" required)

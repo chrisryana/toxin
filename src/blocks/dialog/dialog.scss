@@ -21,6 +21,33 @@ $padding-sm: 10px;
     padding-top: $padding-sm;
     padding-bottom: $padding-main;
   }
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: $text-base-size;
+    line-height: 1.5;
+  }
+  &__room-title {
+    font-family: $font-secondary;
+    font-weight: bold;
+    font-size: inherit;
+  }
+  &__room-number {
+    font-size: $text-lg;
+  }
+  &__room-type {
+    color: $color-primary;
+    text-transform: uppercase;
+    font-size: $text-sm;
+    font-family: $font-primary;
+  }
+  &__room-cost {
+    color: $text-color-50;
+    &--bold {
+      font-weight: bold;
+    }
+  }
   &__form-group {
     &--gap-xs {
       margin-bottom: $gap-xs;

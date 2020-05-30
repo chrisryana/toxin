@@ -1,7 +1,21 @@
-mixin dialog(title)
+mixin dialog(dialogOptions)
+  - var {title= "", number= 0, isLux= false, cost= 0} = dialogOptions
   section.dialog
     .dialog__header
-      h2.dialog__title= title
+      if title
+        h2.dialog__title= title
+      else if number
+        .dialog__title-wrapper
+          h2.dialog__room-title
+            | № 
+            span.dialog__room-number 888
+            if isLux
+              span.dialog__room-type= ` Люкс`
+          span.dialog__room-cost 
+            span.dialog__room-cost.dialog__room-cost--bold
+              +numberWithSpaces(cost)
+              | ₽ 
+            | в сутки
     .dialog__content
       form.dialog__form(action="https://echo.htmlacademy.ru" method="post")
         block

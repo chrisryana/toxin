@@ -13,7 +13,7 @@ block content
   main.start-account-page
     h1.visually-hidden Вход в аккаунт Toxin
     .container
-      +dialog("Войти")
+      +dialog({title: "Войти"})
         .dialog__form-group.dialog__form-group--gap-xs
           +input()(type="email" placeholder="Email" name="user-email" required)
         .dialog__form-group.dialog__form-group--gap-m
