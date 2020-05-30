@@ -1,4 +1,4 @@
-import * as $ from 'jquery';
+import '../../blocks/date-dropdown/date-dropdown';
 import './index.scss';
 
 

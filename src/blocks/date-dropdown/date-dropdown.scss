@@ -1,8 +1,14 @@
-.form-group {
-  flex-grow: 1;
-  &__input,
-  &__select,
-  &__textarea {
+.date-dropdown {
+  position: relative;
+  display: flex;
+  width: 100%;
+  &__item {
+    flex-grow: 1;
+    &--gap-m {
+      margin-right: $gap-m;
+    }
+  }
+  &__input {
     width: 100%;
     border-radius: 4px;
     padding: 13px 15px;
@@ -20,33 +26,27 @@
       outline: none;
     }
   }
-  .input-wrapper {
+  &__input-wrapper {
     position: relative;
     // чтобы при наведении на иконку оставались стили у инпута
     &:hover {
-      .form-group__input {
+      .date-dropdown__input {
         border-color: $text-color-50;
       }
     }
   }
   &__input {
     height: 44px;
-    &[type="date"] {
-      text-transform: uppercase;
-      &::-webkit-inner-spin-button,
-      &::-webkit-calendar-picker-indicator {
-        display: none;
-      }
-    }
-    &:-webkit-autofill {
-      animation-name: autofill;
-      animation-fill-mode: both;
+    text-transform: uppercase;
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+      display: none;
     }
     &--with-icon {
       padding-right: 36px;
     }
   }
-  &__input-button {
+  &__button {
     display: flex;
     align-items: center;
     padding: 0;
@@ -58,23 +58,11 @@
     right: 13px;
     top: 50%;
     transition: opacity .2s ease;
+    color: $text-color-50;
     &:hover,
     &:focus {
       outline: none;
       opacity: .5;
-    }
-    &--primary {
-      .material-icons {
-        color: $color-primary;
-        background: $gradient-primary;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
-    &--secondary {
-      .material-icons {
-        color: $text-color-50;
-      }
     }
     
   }
@@ -85,14 +73,12 @@
     font-weight: bold;
     color: $text-color;
   }
-}
-
-
-
-
-@keyframes autofill {
-  to {
-    color: inherit;
-    background: transparent;
+  &__datepicker {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 }
+

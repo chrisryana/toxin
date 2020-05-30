@@ -21,6 +21,9 @@ $padding-sm: 10px;
     padding-top: $padding-sm;
     padding-bottom: $padding-main;
   }
+  &__title {
+    font-family: $font-secondary;
+  }
   &__title-wrapper {
     display: flex;
     justify-content: space-between;
@@ -49,6 +52,7 @@ $padding-sm: 10px;
     }
   }
   &__form-group {
+    display: flex;
     &--gap-xs {
       margin-bottom: $gap-xs;
     }

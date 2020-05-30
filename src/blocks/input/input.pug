@@ -4,6 +4,6 @@ mixin input(label, buttonAttributes)
     .input-wrapper
       input.form-group__input(class= buttonAttributes && "form-group__input--with-icon" id= attributes.name)&attributes(attributes)
       if buttonAttributes
-        button.form-group__input-button(type= buttonAttributes.type)
+        button.form-group__input-button(class= `${buttonAttributes.type === 'submit' ? 'form-group__input-button--primary' : 'form-group__input-button--secondary'}` type= buttonAttributes.type)
           i.visually-hidden= buttonAttributes.title
           i.material-icons= buttonAttributes.icon

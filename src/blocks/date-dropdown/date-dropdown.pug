@@ -1,0 +1,30 @@
+mixin date-dropdown()
+  - var today = new Date()
+  - var todayYY = today.getFullYear()
+  - var todayMM = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1
+  - var todayDD = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate()
+  - var minDate = `${todayYY}-${todayMM}-${todayDD}`
+  - var maxDate = `${todayYY + 1}-${todayMM}-${todayDD}`
+
+  -
+    var dropdownButton = {
+      icon: "expand_more",
+      type: "button",
+      title: "Показать календарь",
+    }
+  .date-dropdown
+    .date-dropdown__item.date-dropdown__item--gap-m
+      label.date-dropdown__label(for="arrival") Прибытие
+      .date-dropdown__input-wrapper
+        input#arrival.date-dropdown__input.date-dropdown__input--with-icon(type="date" min=minDate max=maxDate name="arrival" required)
+        button.date-dropdown__button(type="button")
+          span.visually-hidden Показать календарь
+          i.material-icons expand_more
+    .date-dropdown__item
+      label.date-dropdown__label(for="departure") Выезд
+      .date-dropdown__input-wrapper
+        input#departure.date-dropdown__input.date-dropdown__input--with-icon(type="date" min=minDate max=maxDate name="arrival" required)
+        button.date-dropdown__button(type="button")
+          span.visually-hidden Показать календарь
+          i.material-icons expand_more
+    .date-dropdown__datepicker
