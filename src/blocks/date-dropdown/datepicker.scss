@@ -1,0 +1,185 @@
+// Переназначение стилей библиотеки air-datepicker
+.datepicker {
+  box-sizing: border-box;
+  width: 100%;
+  border-color: $text-color-25;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  font-family: $font-primary;
+  &--nav {
+    border-bottom: none;
+    padding: 20px;
+  }
+  &--nav-title {
+    font-size: $text-md;
+    font-family: $font-secondary;
+    color: $text-color;
+    font-weight: bold;
+    line-height: 1.26;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  &--nav-action {
+    color: $color-primary;
+    transition: opacity .2s ease;
+    &:hover {
+      opacity: .5;
+      background-color: transparent;
+    }
+    &[data-action="prev"] {
+      justify-content: flex-start;
+    }
+    &[data-action="next"] {
+      justify-content: flex-end;
+    }
+  }
+  &--content {
+    padding: 10px 20px;
+  }
+  &--days-names {
+    margin: 0;
+    height: 40px;
+    align-items: stretch;
+  }
+  &--day-name {
+    text-transform: none;
+    color: $color-primary;
+    font-weight: bold;
+    font-size: $text-sm;
+    line-height: 1.25;
+  }
+  &--cell {
+    color: $text-color-50;
+  }
+  &--cell-day {
+    height: 40px;
+    &:hover {
+      background-color: transparent;
+      border: none;
+    }
+    &.-focus- {
+      background: $gradient-primary-light;
+      border: none;
+    }
+    &.-focus-:not([class^="-range-"], .-selected-) {
+      background: transparent;
+      border: none;
+    }
+    &.-selected-.-focus-,
+    &.-selected-.-current- {
+      background: $gradient-primary-light;
+    }
+    &.-current- {
+      background: transparent;
+    }
+    &.-other-month- {
+      color: $text-color-25;
+      &.-in-range-,
+      &.-in-range-.-focus- {
+        color: $text-color-25;
+        background: $gradient-primary-light;
+      }
+      &.-selected-.-focus-,
+      &.-selected- {
+        background: $gradient-primary-light;
+        border: none;
+      }
+      &.-focus- {
+        background: transparent;
+        &.-range-to-,
+        &.-range-from- {
+          background: $gradient-primary-light;
+        }
+      }
+      
+    }
+  }
+  &--cell-circle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    &:hover {
+      background-color: $text-color-10;
+    }
+  }
+  .-current- .datepicker--cell-circle {
+    color: #fff;
+    font-weight: bold;
+    background: $gradient-secondary;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .-selected- {
+    .datepicker--cell-circle {
+      background: $gradient-primary;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      &:hover {
+        background: $gradient-primary;
+      }
+    }
+  }
+  .-in-range- {
+    background: $gradient-primary-light;
+    color: $text-color-50;
+    &:hover {
+      background: $gradient-primary-light;
+    }
+  }
+  .-range-to-,
+  .-range-from- {
+    background: $gradient-primary-light;
+    border: none;
+  }
+  .-range-to- {
+    border-radius: 0 50% 50% 0;
+  }
+  .-range-from- {
+    border-radius: 50% 0 0 50%;
+  }
+  &--buttons {
+    padding: 10px 20px 20px 20px;
+    border-top: none;
+    justify-content: space-between;
+  }
+  &--button {
+    height: auto;
+    flex: initial;
+    font-family: $font-primary;
+    font-weight: bold;
+    font-size: $text-sm;
+    text-transform: uppercase;
+    color: $text-color-50;
+    transition: color .2s ease;
+    &:hover {
+      background-color: transparent;
+      color: $text-color-75;
+    }
+    &:focus {
+      background-color: $text-color-25;
+    }
+    &-primary {
+      color: $color-primary;
+      transition: opacity .2s ease;
+      border: none;
+      background-color: transparent;
+      &:hover {
+        color: $color-primary;
+        opacity: .6;
+      }
+      &:focus {
+        background-color: $color-primary-light;
+      }
+      &:disabled {
+        opacity: .6;
+        color: $text-color-50;
+      }
+    }
+  }
+}
