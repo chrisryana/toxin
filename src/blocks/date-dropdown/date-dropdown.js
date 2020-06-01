@@ -3,11 +3,24 @@ import 'air-datepicker/dist/css/datepicker.min.css';
 
 
 const datepickerArea = $('.date-dropdown__datepicker');
-const input = $('.date-dropdown__input-wrapper');
+const inputs = $('.date-dropdown__input-wrapper');
 
 const minDate = new Date();
 const maxDate  = new Date();
 maxDate.setFullYear(minDate.getFullYear() + 1);
+
+const actions = {close: 'close', open: 'open'};
+
+const toggleDatepicker = (action) => {
+  if (action === actions.open) {
+    object.data('datepicker').show();
+    datepickerArea.fadeIn(100);
+  }
+  if (action === actions.close) {
+    object.data('datepicker').hide();
+    datepickerArea.fadeOut(100);
+  }
+}
 
 const onRenderCell = (date, cellType) => {
   if (cellType == 'day') {
@@ -18,14 +31,25 @@ const onRenderCell = (date, cellType) => {
   }
 }
 
+const parseDate = (date) => {
+  const YYYY = date.getFullYear();
+  const MM = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+  const DD = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+  return `${YYYY}-${MM}-${DD}`;
+}
+
 const addApplyButton = (dp, animationCompleted) => {
   if (!animationCompleted) {
     const dpFooter = dp.$datepicker.find('.datepicker--buttons');
     const applyButton = dp.$datepicker.find('.datepicker--button-primary');
     if (!applyButton.html()) {
-      dpFooter.append('<button type="button" class="datepicker--button datepicker--button-primary" disabled="true">Применить</button>')
+      dpFooter.append('<button type="button" class="datepicker--button datepicker--button-primary" data-action="clear" disabled="true">Применить</button>')
       dp.$datepicker.find('.datepicker--button-primary').on('click', (event) => {
-        dp.$datepicker.hide();
+        dp.selectedDates.forEach((date, index) => {
+          const dateString = parseDate(date);
+          inputs.eq(index).find('.date-dropdown__input').val(dateString);
+        });
+        toggleDatepicker(actions.close);
       });
     }
   }
@@ -43,7 +67,6 @@ const toggleApplyButton = (formattedDate, date, dp) => {
 const object = datepickerArea.datepicker({
   view: 'days',
   range: true,
-  altField: '#arrival',
   minDate,
   maxDate,
   clearButton: true,
@@ -55,19 +78,10 @@ const object = datepickerArea.datepicker({
   onSelect: toggleApplyButton,
 });
 
-datepickerArea.hide();
-// object.data('datepicker').hide();
-input.on('click', (e) => {
-  // console.log('click', e.target);
-  // $(this)
-  //   .siblings('.dropdown')
-  //   .toggleClass('active')
-  //   .find('.entry-field__input')
-  //   .toggleClass('active');
-  object.data('datepicker').show();
-  datepickerArea.fadeIn(100);
-})
+toggleDatepicker(actions.close);
 
-
-
-// console.log($('.date-dropdown__input').data('datepicker'))
+inputs.on('click', (e) => {
+  if (datepickerArea.is(":hidden")) {
+    toggleDatepicker(actions.open)
+  }
+});
