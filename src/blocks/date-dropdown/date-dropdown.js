@@ -5,6 +5,11 @@ import 'air-datepicker/dist/css/datepicker.min.css';
 const datepickerArea = $('.date-dropdown__datepicker');
 const inputs = $('.date-dropdown__input-wrapper');
 
+for (let i = 0; i < inputs.length; i++) {
+  inputs.eq(i).find('.date-dropdown__input').prop('disabled', true );
+}
+
+
 const minDate = new Date();
 const maxDate  = new Date();
 maxDate.setFullYear(minDate.getFullYear() + 1);
@@ -43,7 +48,7 @@ const addApplyButton = (dp, animationCompleted) => {
     const dpFooter = dp.$datepicker.find('.datepicker--buttons');
     const applyButton = dp.$datepicker.find('.datepicker--button-primary');
     if (!applyButton.html()) {
-      dpFooter.append('<button type="button" class="datepicker--button datepicker--button-primary" data-action="clear" disabled="true">Применить</button>')
+      dpFooter.append('<button type="button" class="datepicker--button datepicker--button-primary" disabled="true">Применить</button>')
       dp.$datepicker.find('.datepicker--button-primary').on('click', (event) => {
         dp.selectedDates.forEach((date, index) => {
           const dateString = parseDate(date);
@@ -81,6 +86,7 @@ const object = datepickerArea.datepicker({
 toggleDatepicker(actions.close);
 
 inputs.on('click', (e) => {
+  e.preventDefault();
   if (datepickerArea.is(":hidden")) {
     toggleDatepicker(actions.open)
   }
