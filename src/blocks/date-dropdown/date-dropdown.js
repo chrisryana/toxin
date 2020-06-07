@@ -1,5 +1,6 @@
 import 'air-datepicker';
 import 'air-datepicker/dist/css/datepicker.min.css';
+// import '../simple-button/simple-button.scss'; // - если на странице не будет кнопок то и стили для кнопок календаря не подтянутся
 
 
 const datepickerArea = $('.date-dropdown__datepicker');
@@ -77,27 +78,43 @@ const parseDate = (date) => {
 
 const addApplyButton = (dp, animationCompleted) => {
   if (!animationCompleted) {
-    const dpFooter = dp.$datepicker.find('.datepicker--buttons');
-    const applyButton = dp.$datepicker.find('.datepicker--button-primary');
-    if (!applyButton.html()) {
-      dpFooter.append('<button type="button" class="datepicker--button datepicker--button-primary" disabled="true">Применить</button>')
-      dp.$datepicker.find('.datepicker--button-primary').on('click', (event) => {
+    if (!dp.$datepicker.find('.datepicker--footer').html()) {
+      const isDisabledApplyButton = dp.selectedDates.length < 2;
+      const isDisabledClearButton = dp.selectedDates.length === 0;
+      const clearButton = `<button class="simple-button simple-button--secondary" data-action="clear" type="button" disabled=${isDisabledClearButton}>Очистить</button>`;
+      const applyButton = `<button class="simple-button simple-button--primary" data-action="apply" type="button" disabled=${isDisabledApplyButton}>Применить</button>`;
+      const footer = `<div class="datepicker--footer">${clearButton}${applyButton}</div>`
+      dp.$datepicker.append(footer);
+
+      dp.$datepicker.find('.simple-button--primary[data-action="apply"]').on('click', (event) => {
         dp.selectedDates.forEach((date, index) => {
           const dateString = parseDate(date);
           inputs.eq(index).find('.date-dropdown__input').val(dateString);
         });
         toggleDatepicker(actions.close);
       });
+
+      dp.$datepicker.find('.simple-button--secondary[data-action="clear"]').on('click', (event) => {
+        dp.clear();
+      });
     }
   }
 }
 
-const toggleApplyButton = (formattedDate, date, dp) => {
-  const applyButton = dp.$datepicker.find('.datepicker--button-primary');
-  if (formattedDate.split(',').length === 2) {
+const toggleButtonsState = (formattedDate, date, dp) => {
+  const applyButton = dp.$datepicker.find('.simple-button--primary[data-action="apply"]');
+  const clearButton = dp.$datepicker.find('.simple-button--secondary[data-action="clear"]');
+
+  if (dp.selectedDates.length === 2) {
     applyButton.prop('disabled', false);
   } else {
     applyButton.prop('disabled', true);
+  }
+
+  if (dp.selectedDates.length === 0) {
+    clearButton.prop('disabled', true);
+  } else {
+    clearButton.prop('disabled', false);
   }
 }
 
@@ -119,13 +136,12 @@ const datepickerData = datepickerArea.datepicker({
   range: true,
   minDate,
   maxDate,
-  clearButton: true,
   prevHtml: '<span class="material-icons">arrow_back</span>',
   nextHtml: '<span class="material-icons">arrow_forward</span>',
   navTitles: {days: 'MM yyyy',},
   onRenderCell,
   onShow,
-  onSelect: toggleApplyButton,
+  onSelect: toggleButtonsState,
 });
 
 toggleDatepicker(actions.close);

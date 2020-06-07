@@ -153,9 +153,10 @@
   .-range-from- {
     border-radius: 50% 0 0 50%;
   }
-  &--buttons {
+  &--footer {
     padding: 10px 20px 20px 20px;
     border-top: none;
+    display: flex;
     justify-content: space-between;
   }
   &--button {
