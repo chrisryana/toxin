@@ -109,10 +109,6 @@ const readInputs = (dp) => {
   }
 }
 
-const onChangeView = () => {
-  datepickerData.data('datepicker').view = 'days';
-}
-
 const onShow = (dp, animationCompleted) => {
   addApplyButton(dp, animationCompleted);
   readInputs(dp);
@@ -130,7 +126,6 @@ const datepickerData = datepickerArea.datepicker({
   onRenderCell,
   onShow,
   onSelect: toggleApplyButton,
-  onChangeView,
 });
 
 toggleDatepicker(actions.close);

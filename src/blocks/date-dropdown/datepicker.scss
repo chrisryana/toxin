@@ -10,6 +10,7 @@
     padding: 20px;
   }
   &--nav-title {
+    pointer-events: none;
     font-size: $text-md;
     font-family: $font-secondary;
     color: $text-color;
@@ -57,6 +58,15 @@
       background-color: transparent;
       border: none;
     }
+    &.-disabled- {
+      &:not(.-other-month-) {
+        color: $text-color-50;
+      }
+      .datepicker--cell-circle:hover {
+        background-color: transparent;
+      }
+    }
+      
     &.-focus- {
       background: $gradient-primary-light;
       border: none;
