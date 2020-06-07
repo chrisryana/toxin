@@ -20,6 +20,8 @@ mixin date-dropdown()
         button.date-dropdown__button(type="button")
           span.visually-hidden Показать календарь
           i.material-icons expand_more
+        //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
+        .date-dropdown__click-area
     .date-dropdown__item
       label.date-dropdown__label(for="departure") Выезд
       .date-dropdown__input-wrapper
@@ -27,4 +29,6 @@ mixin date-dropdown()
         button.date-dropdown__button(type="button")
           span.visually-hidden Показать календарь
           i.material-icons expand_more
+        //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
+        .date-dropdown__click-area
     .date-dropdown__datepicker

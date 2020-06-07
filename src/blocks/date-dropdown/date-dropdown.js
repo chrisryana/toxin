@@ -6,24 +6,41 @@ const datepickerArea = $('.date-dropdown__datepicker');
 const inputs = $('.date-dropdown__input-wrapper');
 
 for (let i = 0; i < inputs.length; i++) {
-  inputs.eq(i).find('.date-dropdown__input').prop('disabled', true );
+  inputs.eq(i).find('.date-dropdown__input').prop('disabled', true);
 }
-
 
 const minDate = new Date();
 const maxDate  = new Date();
 maxDate.setFullYear(minDate.getFullYear() + 1);
 
-const actions = {close: 'close', open: 'open'};
+const actions = {
+  close: 'close',
+  open: 'open'
+};
 
 const toggleDatepicker = (action) => {
   if (action === actions.open) {
-    object.data('datepicker').show();
+    datepickerData.data('datepicker').show();
     datepickerArea.fadeIn(100);
+    $(document).on('click', onOutsideCalendarClick);
   }
   if (action === actions.close) {
-    object.data('datepicker').hide();
+    datepickerData.data('datepicker').hide();
     datepickerArea.fadeOut(100);
+    $(document).off('click', onOutsideCalendarClick);
+  }
+}
+
+const onOutsideCalendarClick = (e) => {
+  const isDatepickerClick = !!$(e.target).closest('.date-dropdown__datepicker').length;
+  const isDatepickerInputClick = !!$(e.target).closest('.date-dropdown__input-wrapper').length;
+  const isDatepickerNav = !!$(e.target).closest('.datepicker--nav').length;
+  const isDatepickerNavAction = !!$(e.target).closest('.datepicker--nav-action').length;
+  const isDatepickerDays = !!$(e.target).closest('.datepicker--cell').length;
+  const isDatepickerArea = isDatepickerClick || isDatepickerInputClick || isDatepickerNav || isDatepickerDays || isDatepickerNavAction;
+
+  if (!isDatepickerArea) {
+    toggleDatepicker(actions.close);
   }
 }
 
@@ -69,7 +86,24 @@ const toggleApplyButton = (formattedDate, date, dp) => {
   }
 }
 
-const object = datepickerArea.datepicker({
+const readInputs = (dp) => {
+  const arrivalDate = inputs.eq(0).find('.date-dropdown__input').val();
+  const departureDate = inputs.eq(1).find('.date-dropdown__input').val();
+  if (arrivalDate || departureDate) {
+    dp.selectDate([new Date(arrivalDate), new Date(departureDate)])
+  }
+}
+
+const onChangeView = () => {
+  datepickerData.data('datepicker').view = 'days';
+}
+
+const onShow = (dp, animationCompleted) => {
+  addApplyButton(dp, animationCompleted);
+  readInputs(dp);
+}
+
+const datepickerData = datepickerArea.datepicker({
   view: 'days',
   range: true,
   minDate,
@@ -79,8 +113,9 @@ const object = datepickerArea.datepicker({
   nextHtml: '<span class="material-icons">arrow_forward</span>',
   navTitles: {days: 'MM yyyy',},
   onRenderCell,
-  onShow: addApplyButton,
+  onShow,
   onSelect: toggleApplyButton,
+  onChangeView,
 });
 
 toggleDatepicker(actions.close);

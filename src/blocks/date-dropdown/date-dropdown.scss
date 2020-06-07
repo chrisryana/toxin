@@ -29,6 +29,14 @@
       outline: none;
     }
   }
+  &__click-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
   &__input-wrapper {
     position: relative;
     // чтобы при наведении на иконку оставались стили у инпута
@@ -67,7 +75,6 @@
       outline: none;
       opacity: .5;
     }
-    
   }
   &__label {
     font-size: $text-sm;
