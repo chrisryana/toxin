@@ -38,6 +38,11 @@
         display: none;
       }
     }
+    &[type="number"] {
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+      }
+    }
     &:-webkit-autofill {
       animation-name: autofill;
       animation-fill-mode: both;

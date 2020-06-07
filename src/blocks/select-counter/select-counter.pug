@@ -1,0 +1,24 @@
+include ../input/input
+include ../simple-button/simple-button
+
+mixin select-counter(options)
+  - var {items = [], name = '', required = false, placeholder = '', withButtons = false} = options
+  - var isEachCountNull = true
+  each item in items
+    if item.count > 0
+      - isEachCountNull = false
+  .select-counter.select-counter--expanded
+    +input("Гости", {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(type="number" min="1" max="30" placeholder= placeholder name= name required= required value="2 гостя")
+    .select-counter__items
+      ul.select-counter__items-list
+        each item in items
+          li.select-counter__item
+            = item.title
+            .select-counter__item-controls
+              button.select-counter__item-button(type="button" data-action="desc" disabled= item.count === 0) -
+              span.select-counter__item-count= item.count
+              button.select-counter__item-button(type="button" data-action="asc" disabled= item.count >= 5) +
+      .select-counter__items-footer
+        if !isEachCountNull
+          +simple-button({name: 'Очистить', type: 'secondary'})
+        +simple-button({name: 'Применить'})

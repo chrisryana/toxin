@@ -1,6 +1,7 @@
 extends ../../layouts/default-layout
 include ../../blocks/dialog/dialog
 include ../../blocks/input/input
+include ../../blocks/select-counter/select-counter
 include ../../blocks/date-dropdown/date-dropdown
 include ../../blocks/button/button
 
@@ -11,6 +12,12 @@ block logo
   - var isMainPage = true
 
 block content
+  -
+    var items = [
+      {title: 'Взрослые', count: 1},
+      {title: 'Дети', count: 0},
+      {title: 'Младенцы', count: 5, separately: true},
+    ]
   main.main-page
     .container
       .content-wrapper
@@ -21,6 +28,7 @@ block content
             .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
               +date-dropdown()
             .dialog__form-group.dialog__form-group--gap-xxl
-              +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
+              +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+              //- +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
             +button({name: "Подобрать номер", icon: "arrow_forward", size: "l"})(type="submit")
           
