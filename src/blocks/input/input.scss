@@ -11,6 +11,7 @@
     border-color: $text-color-25;
     color: $text-color-75;
     transition: border-color .2s ease, color .2s ease;
+    background-color: #fff;
     &::placeholder {
       color: $text-color-25;
     }

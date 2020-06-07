@@ -25,7 +25,7 @@ $(document).on('keydown', (e) => {
 })
 
 for (let i = 0; i < inputs.length; i++) {
-  inputs.eq(i).find('.date-dropdown__input').prop('disabled', true);
+  inputs.eq(i).find('.date-dropdown__input').on('focus', function(e) {$(this).blur()});
 }
 
 const minDate = new Date();

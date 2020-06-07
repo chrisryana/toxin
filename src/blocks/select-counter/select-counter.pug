@@ -7,7 +7,7 @@ mixin select-counter(options)
   each item in items
     if item.count > 0
       - isEachCountNull = false
-  .select-counter.select-counter--expanded
+  .select-counter
     +input("Гости", {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(type="number" min="1" max="30" placeholder= placeholder name= name required= required value="2 гостя")
     .select-counter__items
       ul.select-counter__items-list
@@ -19,6 +19,10 @@ mixin select-counter(options)
               span.select-counter__item-count= item.count
               button.select-counter__item-button(type="button" data-action="asc" disabled= item.count >= 5) +
       .select-counter__items-footer
-        if !isEachCountNull
-          +simple-button({name: 'Очистить', type: 'secondary'})
-        +simple-button({name: 'Применить'})
+        - var clearClasses = "select-counter__footer-button"
+        if isEachCountNull
+          - clearClasses = `${clearClasses} select-counter__footer-button--hide`
+        div(class= clearClasses)
+          +simple-button({name: 'Очистить', type: 'secondary'})(data-action="clear")
+        .select-counter__footer-button.select-counter__footer-button--right
+          +simple-button({name: 'Применить'})

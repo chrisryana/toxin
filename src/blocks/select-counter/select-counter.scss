@@ -14,6 +14,9 @@
       display: block;
     }
   }
+  .form-group__input {
+    cursor: pointer;
+  }
   &__items {
     display: none;
     border: 1px solid $text-color-50;
@@ -34,8 +37,13 @@
   &__items-footer {
     padding: 20px 7px 13px 15px;
     display: flex;
-    .simple-button--primary {
+  }
+  &__footer-button {
+    &--right {
       margin-left: auto;
+    }
+    &--hide {
+      display: none;
     }
   }
   &__item-button {
@@ -49,6 +57,7 @@
     color: $text-color-50;
     font-size: $text-md;
     transition: border-color .2s ease, color .2s ease;
+    outline: none;
     &:hover,
     &:focus {
       border-color: $color-primary;
