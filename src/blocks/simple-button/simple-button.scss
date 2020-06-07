@@ -1,0 +1,23 @@
+.simple-button {
+  font-size: $text-sm;
+  font-weight: bold;
+  line-height: 1.25;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  transition: opacity .2s ease;
+  &:hover,
+  &:focus {
+    opacity: .8;
+    outline: none;
+  }
+  &:disabled {
+    color: $text-color-10;
+  }
+  &--primary {
+    color: $color-primary;
+  }
+  &--secondary {
+    color: $text-color-50;
+  }
+}
