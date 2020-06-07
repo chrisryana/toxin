@@ -74,6 +74,9 @@
     &:focus {
       outline: none;
       opacity: .5;
+      & ~ .date-dropdown__input {
+        border-color: $text-color-50;
+      }
     }
   }
   &__label {

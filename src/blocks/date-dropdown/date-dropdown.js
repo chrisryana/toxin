@@ -4,6 +4,24 @@ import 'air-datepicker/dist/css/datepicker.min.css';
 
 const datepickerArea = $('.date-dropdown__datepicker');
 const inputs = $('.date-dropdown__input-wrapper');
+const inputButtons = $('.date-dropdown__button');
+
+const actions = {
+  close: 'close',
+  open: 'open'
+};
+
+inputButtons.on('keydown', (e) => {
+  if (e.keyCode === 13 && datepickerArea.is(":hidden")) {
+    toggleDatepicker(actions.open);
+  }
+})
+
+$(document).on('keydown', (e) => {
+  if (e.keyCode === 27 && datepickerArea.is(":visible")) {
+    toggleDatepicker(actions.close);
+  }
+})
 
 for (let i = 0; i < inputs.length; i++) {
   inputs.eq(i).find('.date-dropdown__input').prop('disabled', true);
@@ -13,10 +31,7 @@ const minDate = new Date();
 const maxDate  = new Date();
 maxDate.setFullYear(minDate.getFullYear() + 1);
 
-const actions = {
-  close: 'close',
-  open: 'open'
-};
+
 
 const toggleDatepicker = (action) => {
   if (action === actions.open) {
