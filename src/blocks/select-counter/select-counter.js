@@ -159,7 +159,7 @@ function getCountString(countData) {
       ? `${string}${stringOfCount}`
       : `${string}${stringOfCount}, `;
   }, '')
-  return value;
+  return value.toLowerCase();
 }
 
 function declOfNum(n, titles) {

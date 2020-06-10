@@ -44,6 +44,7 @@ mixin select-counter(options)
           ? `${string}${stringOfCount}`
           : `${string}${stringOfCount}, `;
       }, '')
+    - countString = countString.toLowerCase()
 
   .select-counter
     +input("Гости", {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value= countString || 'Сколько гостей')
