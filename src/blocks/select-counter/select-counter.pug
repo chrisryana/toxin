@@ -1,14 +1,52 @@
 include ../input/input
 include ../simple-button/simple-button
+include ../../mixins
 
 mixin select-counter(options)
   - var {items = [], name = '', required = false, placeholder = '', withButtons = false} = options
   - var isEachCountNull = true
-  each item in items
+  - var countData = []
+  - var countString = ''
+  - var filteredItems = items.filter((item) => item.count !== 0)
+
+  -
+    function declOfNum(n, titles) {
+      return titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2];
+    }
+  -
+    function findDeclArray(word) {
+      const dictionary = {
+        'Гости': ['Гость', 'Гостя', 'Гостей'],
+        'Младенцы': ['Младенец', 'Младенца', 'Младенцев'],
+      };
+      return dictionary[word];
+    }
+
+  for item, index in items
     if item.count > 0
       - isEachCountNull = false
+
+  for item, index in items
+    - var sameCountWordIndex = countData.findIndex((data) => data.countWord === item.countWord)
+    if sameCountWordIndex !== -1
+      - countData[sameCountWordIndex].count += item.count
+    else
+      - var dataItem = {countWord: item.countWord || item.title, count: item.count}
+      - countData.push(dataItem)
+
+  for countItem, index in countData
+    - var filteredCountData = countData.filter((countItem) => countItem.count !== 0)
+    -
+      countString = filteredCountData.reduce((string, countItem, index) => {
+        const declOfCount = declOfNum(countItem.count, findDeclArray(countItem.countWord));
+        const stringOfCount = `${countItem.count} ${declOfCount}`;
+        return index === (filteredCountData.length - 1)
+          ? `${string}${stringOfCount}`
+          : `${string}${stringOfCount}, `;
+      }, '')
+
   .select-counter
-    +input("Гости", {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value="2 гостя")
+    +input("Гости", {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value= countString || 'Сколько гостей')
     .select-counter__items
       ul.select-counter__items-list
         for item, index in items
@@ -23,6 +61,6 @@ mixin select-counter(options)
         if isEachCountNull
           - clearClasses = `${clearClasses} select-counter__footer-button--hide`
         div(class= clearClasses)
-          +simple-button({name: 'Очистить', type: 'secondary'})(data-action="clear")
+          +simple-button({name: 'Очистить', type: 'secondary'})(data-action="clear-select")
         .select-counter__footer-button.select-counter__footer-button--right
-          +simple-button({name: 'Применить'})(data-action="apply")
+          +simple-button({name: 'Применить'})(data-action="apply-select" disabled= isEachCountNull)

@@ -66,6 +66,7 @@
     &:disabled {
       border-color: $text-color-25;
       color: $text-color-25;
+      cursor: initial;
     }
   }
   &__item-controls {

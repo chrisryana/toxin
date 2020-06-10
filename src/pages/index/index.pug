@@ -14,9 +14,9 @@ block logo
 block content
   -
     var items = [
-      {title: 'Взрослые', count: 1, countWord: 'Гости'},
+      {title: 'Взрослые', count: 0, countWord: 'Гости'},
       {title: 'Дети', count: 0, countWord: 'Гости'},
-      {title: 'Младенцы', count: 5},
+      {title: 'Младенцы', count: 0},
     ]
   main.main-page
     .container
@@ -29,6 +29,5 @@ block content
               +date-dropdown()
             .dialog__form-group.dialog__form-group--gap-xxl
               +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
-              //- +input("Гости")(type="number" min="1" max="30" placeholder="Сколько гостей" name="guestCount" required)
             +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
           
