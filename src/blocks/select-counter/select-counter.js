@@ -40,6 +40,7 @@ function showDropdown(e) {
 
     if (initialItems.length) {
       items = JSON.parse(JSON.stringify(initialItems));
+      verifyButtons($(this).find('.select-counter__items'), items);
     } else {
       initValues($(this))
     }
