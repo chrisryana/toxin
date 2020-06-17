@@ -29,7 +29,7 @@ block content
         +filters("Фильтр комнат")
           +filters-group()
             //- +input("Даты пребывания в отеле")
-            +date-dropdown({start: new Date(), end: new Date()})
+            +date-dropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
           +filters-group()
             +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
           +filters-group()

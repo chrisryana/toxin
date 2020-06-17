@@ -26,7 +26,7 @@ block content
         section
           +dialog({title: "Найдём номера под ваши пожелания"})
             .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
-              +date-dropdown({start: new Date(), end: new Date(), split: true})
+              +date-dropdown({split: true})
             .dialog__form-group.dialog__form-group--gap-xxl
               +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
             +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
