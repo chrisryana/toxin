@@ -1,4 +1,11 @@
 .filters {
+  // TODO: сделать резиновый datepicker
+  .datepicker--cell-day {
+    height: 32px;
+  }
+  .datepicker--nav {
+    padding: 20px 20px 0 20px;
+  }
   &__group {
     border: none;
     padding: 0;

@@ -3,9 +3,11 @@ import 'air-datepicker/dist/css/datepicker.min.css';
 // import '../simple-button/simple-button.scss'; // - если на странице не будет кнопок то и стили для кнопок календаря не подтянутся
 
 
-const datepickerArea = $('.date-dropdown__datepicker');
+const datepickerArea = $('.date-dropdown');
 const inputs = $('.date-dropdown__input-wrapper');
 const inputButtons = $('.date-dropdown__button');
+
+const monthes = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 
 const actions = {
   close: 'close',
@@ -26,6 +28,7 @@ $(document).on('keydown', (e) => {
 
 for (let i = 0; i < inputs.length; i++) {
   inputs.eq(i).find('.date-dropdown__input').on('focus', function(e) {$(this).blur()});
+  inputs.eq(i).find('.date-dropdown__input').prop('type', 'text');
 }
 
 const minDate = new Date();
@@ -35,14 +38,15 @@ maxDate.setFullYear(minDate.getFullYear() + 1);
 
 
 const toggleDatepicker = (action) => {
+  const datepicker = $(datepickerArea).find('.date-dropdown__datepicker');
   if (action === actions.open) {
     datepickerData.data('datepicker').show();
-    datepickerArea.fadeIn(100);
+    datepicker.fadeIn(100);
     $(document).on('click', onOutsideCalendarClick);
   }
   if (action === actions.close) {
     datepickerData.data('datepicker').hide();
-    datepickerArea.fadeOut(100);
+    datepicker.fadeOut(100);
     $(document).off('click', onOutsideCalendarClick);
   }
 }
@@ -73,7 +77,12 @@ const parseDate = (date) => {
   const YYYY = date.getFullYear();
   const MM = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
   const DD = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-  return `${YYYY}-${MM}-${DD}`;
+  return `${DD}.${MM}.${YYYY}`;
+}
+
+const parsePeriod = (dates) => {
+  const period = dates.map((date) => `${date.getDate()} ${monthes[date.getMonth()]}`);
+  return period.join(' – ');
 }
 
 const addApplyButton = (dp, animationCompleted) => {
@@ -87,10 +96,16 @@ const addApplyButton = (dp, animationCompleted) => {
       dp.$datepicker.append(footer);
 
       dp.$datepicker.find('.simple-button--primary[data-action="apply"]').on('click', (event) => {
-        dp.selectedDates.forEach((date, index) => {
-          const dateString = parseDate(date);
-          inputs.eq(index).find('.date-dropdown__input').val(dateString);
-        });
+        const dpInputs = dp.$datepicker.closest('.date-dropdown').find('.date-dropdown__input');
+        if (dpInputs.length === 2) {
+          dp.selectedDates.forEach((date, index) => {
+            const dateString = parseDate(date);
+            dpInputs.eq(index).val(dateString);
+          });
+        } else if (dpInputs.length === 1) {
+          const period = parsePeriod(dp.selectedDates);
+          dpInputs.eq(0).val(period);
+        }
         toggleDatepicker(actions.close);
       });
 
@@ -118,11 +133,35 @@ const toggleButtonsState = (formattedDate, date, dp) => {
   }
 }
 
+const getDatesPeriod = (date) => {
+  const period = date.split(' – ');
+  const dates = period.map((datePeriod) => {
+    const [day, month] = datePeriod.split(' ');
+    const monthNumber = monthes.findIndex((monthWord) => month === monthWord);
+    const currentDate = new Date();
+    const selectDate = new Date(currentDate.getFullYear(), monthNumber, day);
+    // чтобы если текущий месяц декабрь, была возможность вырать даты следующего года
+    if (selectDate < currentDate) {
+      selectDate.setFullYear(currentDate.getFullYear() + 1)
+    }
+    return selectDate;
+  });
+  return dates
+}
+
+const getDate = (dateString) => {
+  const [DD, MM, YYYY] = dateString.split('.');
+  return new Date(`${YYYY}-${MM}-${DD}`);
+}
+
 const readInputs = (dp) => {
-  const arrivalDate = inputs.eq(0).find('.date-dropdown__input').val();
-  const departureDate = inputs.eq(1).find('.date-dropdown__input').val();
+  const dpInputs = dp.$datepicker.closest('.date-dropdown').find('.date-dropdown__input');
+  const arrivalDate = dpInputs.eq(0).val();
+  const departureDate = dpInputs.eq(1).val();
   if (arrivalDate || departureDate) {
-    dp.selectDate([new Date(arrivalDate), new Date(departureDate)])
+    dpInputs.length === 2
+      ? dp.selectDate([getDate(arrivalDate), getDate(departureDate)])
+      : dp.selectDate(getDatesPeriod(arrivalDate));
   }
 }
 
@@ -131,7 +170,7 @@ const onShow = (dp, animationCompleted) => {
   readInputs(dp);
 }
 
-const datepickerData = datepickerArea.datepicker({
+const datepickerData = datepickerArea.find('.date-dropdown__datepicker').datepicker({
   view: 'days',
   range: true,
   minDate,
@@ -148,7 +187,9 @@ toggleDatepicker(actions.close);
 
 inputs.on('click', (e) => {
   e.preventDefault();
-  if (datepickerArea.is(":hidden")) {
-    toggleDatepicker(actions.open)
+  const datepicker = $(datepickerArea).find('.date-dropdown__datepicker');
+  if (!datepicker || datepicker.is(":hidden")) {
+    $(datepickerArea).append('<div class="date-dropdown__datepicker"></div>');
+    toggleDatepicker(actions.open);
   }
 });

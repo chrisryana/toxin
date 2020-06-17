@@ -1,4 +1,5 @@
-mixin date-dropdown()
+mixin date-dropdown(options)
+  - var {start, end, split = false} = options
   - var today = new Date()
   - var todayYY = today.getFullYear()
   - var todayMM = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1
@@ -12,23 +13,18 @@ mixin date-dropdown()
       type: "button",
       title: "Показать календарь",
     }
+  
+  - var splitLabels = split ? ['Прибытие', 'Выезд'] : ['Даты пребывания в отеле']
+
   .date-dropdown
-    .date-dropdown__item.date-dropdown__item--gap-m
-      label.date-dropdown__label(for="arrival") Прибытие
-      .date-dropdown__input-wrapper
-        button.date-dropdown__button(type="button")
-          span.visually-hidden Показать календарь
-          i.material-icons expand_more
-        input#arrival.date-dropdown__input.date-dropdown__input--with-icon(type="date" min=minDate max=maxDate name="arrival" required)
-        //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
-        .date-dropdown__click-area
-    .date-dropdown__item
-      label.date-dropdown__label(for="departure") Выезд
-      .date-dropdown__input-wrapper
-        button.date-dropdown__button(type="button")
-          span.visually-hidden Показать календарь
-          i.material-icons expand_more
-        input#departure.date-dropdown__input.date-dropdown__input--with-icon(type="date" min=minDate max=maxDate name="arrival" required)
-        //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
-        .date-dropdown__click-area
+    for label, index in splitLabels
+      .date-dropdown__item(class= (index === splitLabels.length - 1) ? "" : "date-dropdown__item--gap-m")
+        label.date-dropdown__label(for="arrival")= label
+        .date-dropdown__input-wrapper
+          button.date-dropdown__button(type="button")
+            span.visually-hidden Показать календарь
+            i.material-icons expand_more
+          input#arrival.date-dropdown__input.date-dropdown__input--with-icon(type="date" min=minDate max=maxDate placeholder="ДД.ММ.ГГГГ" name="arrival" required)
+          //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
+          .date-dropdown__click-area
     .date-dropdown__datepicker

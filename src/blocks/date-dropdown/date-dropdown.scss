@@ -21,7 +21,7 @@
     background-color: #fff;
     transition: border-color .2s ease, color .2s ease;
     &::placeholder {
-      color: $text-color-25;
+      color: $text-color-75;
     }
     &:hover,
     &:focus {
@@ -48,7 +48,6 @@
   }
   &__input {
     height: 44px;
-    text-transform: uppercase;
     &::-webkit-inner-spin-button,
     &::-webkit-calendar-picker-indicator {
       display: none;

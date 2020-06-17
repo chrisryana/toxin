@@ -4,6 +4,8 @@ include ../../blocks/rooms/rooms
 include ../../blocks/filters/filters
 include ../../blocks/filters/filters-group
 include ../../blocks/checkbox-list/checkbox-list
+include ../../blocks/select-counter/select-counter
+include ../../blocks/date-dropdown/date-dropdown
 
 block head
   - var title = "Поиск номеров в отеле Toxin";
@@ -15,13 +17,21 @@ block logo
   - var isMainPage = false
 
 block content
+  -
+    var items = [
+      {title: 'Взрослые', count: 2, countWord: 'Гости'},
+      {title: 'Дети', count: 1, countWord: 'Гости'},
+      {title: 'Младенцы', count: 1},
+    ]
   main.search-page
     .container
       .search-page__columns
         +filters("Фильтр комнат")
           +filters-group()
-            +input("Даты пребывания в отеле")
-            +input("Гости")
+            //- +input("Даты пребывания в отеле")
+            +date-dropdown({start: new Date(), end: new Date()})
+          +filters-group()
+            +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
           +filters-group()
             +input("Диапазон цены")(type="range" min=0 max=15000)
           +filters-group("Условия размещения")
