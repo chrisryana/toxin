@@ -16,6 +16,7 @@
   }
   .form-group__input {
     cursor: pointer;
+    text-overflow: ellipsis;
   }
   &__items {
     display: none;

@@ -17,11 +17,19 @@ block logo
   - var isMainPage = false
 
 block content
+  //- если есть countWord то объединяются все элементы с одинаковым словом
+  //- иначе считаются отдельно
   -
-    var items = [
+    var guestItems = [
       {title: 'Взрослые', count: 2, countWord: 'Гости'},
       {title: 'Дети', count: 1, countWord: 'Гости'},
       {title: 'Младенцы', count: 1},
+    ]
+
+    var roomItems = [
+      {title: 'Спальни', count: 2},
+      {title: 'Кровати', count: 2},
+      {title: 'Ванные комнаты', count: 0},
     ]
   main.search-page
     .container
@@ -31,7 +39,7 @@ block content
             //- +input("Даты пребывания в отеле")
             +date-dropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
           +filters-group()
-            +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
+            +select-counter({items: guestItems, label: 'Гости', name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
           +filters-group()
             +input("Диапазон цены")(type="range" min=0 max=15000)
           +filters-group("Условия размещения")
@@ -46,7 +54,7 @@ block content
               {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper", checked: true},
             ])
           +filters-group()
-            +input("Удобства номера")
+            +select-counter({items: roomItems, label: 'Удобства номера', name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
           +filters-group()
             details.filters__accordion(open)
               summary.filters__group-title.filters__group-title--with-icon Дополнительные удобства

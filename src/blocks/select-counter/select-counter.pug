@@ -3,7 +3,7 @@ include ../simple-button/simple-button
 include ../../mixins
 
 mixin select-counter(options)
-  - var {items = [], name = '', required = false, placeholder = '', withButtons = false} = options
+  - var {items = [], label = '', name = '', required = false, placeholder = '', withButtons = false} = options
   - var isEachCountNull = true
   - var countData = []
   - var countString = ''
@@ -18,6 +18,9 @@ mixin select-counter(options)
       const dictionary = {
         'Гости': ['Гость', 'Гостя', 'Гостей'],
         'Младенцы': ['Младенец', 'Младенца', 'Младенцев'],
+        'Спальни': ['Спальня', 'Спальни', 'Спален'],
+        'Кровати': ['Кровать', 'Кровати', 'Кроватей'],
+        'Ванные комнаты': ['Ванная комната', 'Ванные комнаты', 'Ванных комнат'],
       };
       return dictionary[word];
     }
@@ -47,7 +50,7 @@ mixin select-counter(options)
     - countString = countString.toLowerCase()
 
   .select-counter
-    +input("Гости", {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value= countString || 'Сколько гостей')
+    +input(label, {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value= countString || 'Сколько гостей')
     .select-counter__items
       ul.select-counter__items-list
         for item, index in items
