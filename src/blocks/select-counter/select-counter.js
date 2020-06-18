@@ -61,12 +61,18 @@ function initValues(el) {
 
 function handleChangeCount(e) {
   const liElement = $(this).closest('.select-counter__item');
+  const isHaveFooterButtons = !!$(this).closest('.select-counter__items').find('.select-counter__items-footer').length;
   const liIndex = liElement.attr('data-index');
   const countType = $(this).attr('data-action'); // asc | desc
   items[liIndex].count = countType === 'asc' ? items[liIndex].count + 1 : items[liIndex].count - 1;
 
   refreshItemCount(liElement, items[liIndex].count);
-  verifyButtons($(this), items);
+
+  if (isHaveFooterButtons) {
+    verifyButtons($(this), items);
+  } else {
+    applyValues(e);
+  }
 }
 
 function verifyButtons(el, itemsData) {
@@ -126,7 +132,7 @@ function clearValues(e) {
 function applyValues(e) {
   const countData = getCountData(items);
   const countValue = getCountString(countData);
-  $(this).closest('.select-counter')
+  $(e.target).closest('.select-counter')
     .find('.form-group__input')
     .val(countValue);
   initialItems = JSON.parse(JSON.stringify(items));

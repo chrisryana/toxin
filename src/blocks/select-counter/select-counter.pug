@@ -57,11 +57,12 @@ mixin select-counter(options)
               button.select-counter__item-button(type="button" data-action="desc" disabled= item.count === 0) -
               span.select-counter__item-count= item.count
               button.select-counter__item-button(type="button" data-action="asc" disabled= item.count >= 5) +
-      .select-counter__items-footer
-        - var clearClasses = "select-counter__footer-button"
-        if isEachCountNull
-          - clearClasses = `${clearClasses} select-counter__footer-button--hide`
-        div(class= clearClasses)
-          +simple-button({name: 'Очистить', type: 'secondary'})(data-action="clear-select")
-        .select-counter__footer-button.select-counter__footer-button--right
-          +simple-button({name: 'Применить'})(data-action="apply-select" disabled= isEachCountNull)
+      if withButtons
+        .select-counter__items-footer
+          - var clearClasses = "select-counter__footer-button"
+          if isEachCountNull
+            - clearClasses = `${clearClasses} select-counter__footer-button--hide`
+          div(class= clearClasses)
+            +simple-button({name: 'Очистить', type: 'secondary'})(data-action="clear-select")
+          .select-counter__footer-button.select-counter__footer-button--right
+            +simple-button({name: 'Применить'})(data-action="apply-select" disabled= isEachCountNull)

@@ -31,11 +31,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 7px 0 15px;
     text-transform: uppercase;
+    padding: 7px 7px 0px 15px;
+    &:last-child {
+      padding-bottom: 7px;
+    }
   }
   &__items-footer {
-    padding: 20px 7px 13px 15px;
+    padding: 13px 7px 13px 15px;
     display: flex;
   }
   &__footer-button {
