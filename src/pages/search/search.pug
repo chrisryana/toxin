@@ -1,11 +1,11 @@
 extends ../../layouts/default-layout
-include ../../blocks/input/input
 include ../../blocks/rooms/rooms
 include ../../blocks/filters/filters
 include ../../blocks/filters/filters-group
 include ../../blocks/checkbox-list/checkbox-list
 include ../../blocks/select-counter/select-counter
 include ../../blocks/date-dropdown/date-dropdown
+include ../../blocks/range-slider/range-slider
 
 block head
   - var title = "Поиск номеров в отеле Toxin";
@@ -36,12 +36,11 @@ block content
       .search-page__columns
         +filters("Фильтр комнат")
           +filters-group()
-            //- +input("Даты пребывания в отеле")
             +date-dropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
           +filters-group()
             +select-counter({items: guestItems, label: 'Гости', name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
           +filters-group()
-            +input("Диапазон цены")(type="range" min=0 max=15000)
+            +range-slider({label: "Диапазон цены", description: "Стоимость за сутки пребывания в номере", unit: "₽", from: 5000, to: 10000, max: 15000})
           +filters-group("Условия размещения")
             +checkbox-list([
               {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
