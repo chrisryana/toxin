@@ -13,7 +13,8 @@ $('.range-slider__input').ionRangeSlider({
 
 function updateValue(data) {
   const valueArea = $(data.input).closest('.range-slider').find('.range-slider__caption');
-  const newFrom = `${data.from.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;")}₽`;
-  const newTo = `${data.to.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;")}₽`;
+  const unit = $(data.input).data('postfix');
+  const newFrom = `${data.from.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;")}${unit}`;
+  const newTo = `${data.to.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;")}${unit}`;
   valueArea.html(`${newFrom} - ${newTo}`);
 }

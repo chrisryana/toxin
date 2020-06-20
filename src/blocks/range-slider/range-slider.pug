@@ -1,5 +1,3 @@
-include ../../blocks/input/input
-
 mixin range-slider(options)
   - var {label = "", description = "", unit = "", from = 0, to = 0, max = 0, min = 0 } = options
   - var newFrom = `${from.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;")}${unit}`
@@ -14,6 +12,7 @@ mixin range-slider(options)
         type="text"
         name="costRange"
         value=""
+        data-postfix= unit
         data-min= min
         data-max= max
         data-from= from

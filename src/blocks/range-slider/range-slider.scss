@@ -1,7 +1,9 @@
 .range-slider {
   $top-offset: 20px;
   $handle-size: 12px;
-
+  // важно чтобы не скролилось вверх при изменении значения
+  // https://github.com/IonDen/ion.rangeSlider/issues/147
+  position: relative;
   &__heading {
     display: flex;
     justify-content: space-between;
