@@ -40,12 +40,16 @@ block content
       {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
       {icon: "whatshot", title: "Уют", subtitle: "Номер оснащён камином"},
     ]
+
   -
+    var fiveDaysAgo = new Date().setDate(new Date().getDate() - 5)
+    var weekAgo = new Date().setDate(new Date().getDate() - 7)
+
     var comments = [
       {
         userName: "Мурад Сарафанов",
         userAvatar: "../../assets/img/avatars/man.jpg",
-        date: new Date(),
+        date: fiveDaysAgo,
         message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
         likeOptions: {
           count: 12,
@@ -55,7 +59,7 @@ block content
       {
         userName: "Патрисия Стёклышкова",
         userAvatar: "../../assets/img/avatars/woman.jpg",
-        date: new Date(),
+        date: weekAgo,
         message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
         likeOptions: {
           count: 2,
