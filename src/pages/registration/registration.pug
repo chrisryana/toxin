@@ -29,12 +29,12 @@ block content
         .dialog__form-group.dialog__form-group--gap-xs
           +input()(placeholder="Имя" name="user-name" required)
         .dialog__form-group.dialog__form-group--gap-xs
-          +input()(placeholder="Фамилия" name="user-surname" required)
+          +input()(placeholder="Фамилия" name="user-surname")
         .dialog__form-group.dialog__form-group--gap-m
           +radio-group(radioGroup)
 
         .dialog__form-group.dialog__form-group--gap-xs
-          +input("Дата рождения")(type="date" name="user-bday")
+          +input("Дата рождения")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
 
         .dialog__form-group.dialog__form-group--gap-xs
           +input("Данные для входа в сервис")(type="email" placeholder="Email" name="user-email" required)
