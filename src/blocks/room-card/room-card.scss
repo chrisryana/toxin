@@ -92,6 +92,7 @@
       background-color: transparent;
       border-radius: 50%;
       transition: background-color .2s ease;
+      box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.1);
       &:hover {
         background-color: rgba(255, 255, 255, 0.5);
       }
@@ -101,6 +102,7 @@
     }
     .slick-active button {
       background-color: #fff;
+      box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3);
     }
   }
   &__description {
