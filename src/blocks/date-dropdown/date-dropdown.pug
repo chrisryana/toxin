@@ -2,9 +2,18 @@ mixin date-dropdown(options)
   - var {start, end, split = false} = options
   - var monthes = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
 
-  - var startDateString = start && `${start.getDate()}.${start.getMonth() + 1}.${start.getFullYear()}`
-  - var endDateString = end && `${end.getDate()}.${end.getMonth() + 1}.${end.getFullYear()}`
-  - var periodDateString = start && end && `${start.getDate()} ${monthes[start.getMonth()]} – ${end.getDate()} ${monthes[end.getMonth()]}`
+  if start && end
+    - var startDD = start.getDate() < 10 ? `0${start.getDate()}` : start.getDate()
+    - var startMM = start.getMonth() + 1 < 10 ? `0${start.getMonth() + 1}` : start.getMonth() + 1
+    - var startYYYY = start.getFullYear()
+    - var startDateString = `${startDD}.${startMM}.${startYYYY}`
+
+    - var endDD = end.getDate() < 10 ? `0${end.getDate()}` : end.getDate()
+    - var endMM = end.getMonth() + 1 < 10 ? `0${end.getMonth() + 1}` : end.getMonth() + 1
+    - var endYYYY = end.getFullYear()
+    - var endDateString = `${endDD}.${endMM}.${endYYYY}`
+
+    - var periodDateString = `${start.getDate()} ${monthes[start.getMonth()]} – ${end.getDate()} ${monthes[end.getMonth()]}`
 
   -
     var dropdownButton = {
