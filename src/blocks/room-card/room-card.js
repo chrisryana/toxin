@@ -4,13 +4,9 @@ import 'slick-carousel/slick/slick-theme.css';
 
 $('.room-card__gallery').slick({
   dots: true,
-  // dotsClass: 'room-card__gallery-dots',
   adaptiveHeight: true,
-
-  // variableWidth: true,
   nextArrow: getButton('next'),
   prevArrow: getButton('before'),
-  // variableWidth: true,
 })
 
 // type = before | next

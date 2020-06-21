@@ -4,12 +4,11 @@ include ../../mixins
 mixin roomCard(roomOptions)
   - var {imgList = [], number = 0, isLux = false, cost = 0, rate = 0, reviewCount = 0} = roomOptions;
 
-  a.room-card
-    //- (href="/room.html")
+  .room-card
     .room-card__gallery
       for img in imgList
         img.room-card__gallery-item(src= img)
-    .room-card__description
+    a.room-card__description(href="/room.html")
       .room-card__description-row.room-card__description-row--underlined
         p.room-card__title
           | № 
