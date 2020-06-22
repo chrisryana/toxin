@@ -109,13 +109,13 @@
     display: block;
     padding: 10px 20px;
     &-row {
-      padding: 0;
+      padding: 8px 0;
       display: flex;
       width: 100%;
       justify-content: space-between;
       align-items: center;
       &--underlined {
-        border-bottom: 1px solid $text-color-5;
+        border-bottom: 1px solid $text-color-10;
       }
     }
   }
