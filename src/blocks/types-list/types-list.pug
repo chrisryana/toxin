@@ -1,0 +1,7 @@
+mixin types-list(list)
+  ul.types-list
+    for typeItem in list
+      - var {textType = "", description = "", textClass = "body-text"} = typeItem
+      li(class= `types-list__item types-list__item--${textClass}`)
+        p.types-list__text-type= textType
+        p.types-list__description= description

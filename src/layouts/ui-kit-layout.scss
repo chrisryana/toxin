@@ -1,3 +1,11 @@
 .ui-kit-wrapper {
-  
+
+}
+.ui-kit-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ui-kit-column {
+  max-width: 403px;
 }

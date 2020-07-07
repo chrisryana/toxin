@@ -1,0 +1,42 @@
+.types-list {
+  &__item {
+    display: flex;
+    margin-bottom: 50px;
+    &--sub-section {
+      font-size: $text-lg;
+      .types-list__description {
+        font-family: $font-secondary;
+        font-weight: bold;
+        color: $text-color;
+      }
+    }
+    &--item-title {
+      font-size: $text-md;
+      .types-list__description {
+        font-family: $font-secondary;
+        font-weight: bold;
+        color: $text-color;
+      }
+    }
+    &--label {
+      font-size: $text-sm;
+      .types-list__description {
+        font-weight: bold;
+        color: $text-color;
+        text-transform: uppercase;
+      }
+    }
+    &--body-text {
+      font-size: $text-base-size;
+    }
+  }
+  &__text-type {
+    color: $text-color-25;
+    margin-right: 30px;
+    text-align: right;
+    min-width: 37px;
+  }
+  &__description {
+
+  }
+}

@@ -1,5 +1,6 @@
 extends ../../layouts/ui-kit-layout
 include ../../blocks/colors-list/colors-list
+include ../../blocks/types-list/types-list
 
 block head
   - var title = "Цвета и шрифты проекта";
@@ -15,9 +16,19 @@ block content
       {title: "Purple", hex: "#BC9CFF", color: "#BC9CFF"},
       {title: "Green", hex: "#6FCF97", color: "#6FCF97"},
     ]
+    var types = [
+      {textType: "H1", description: "This one is the sub-section or widget title", textClass: "sub-section"},
+      {textType: "H2", description: "Next one is the item title inside widgets", textClass: "item-title"},
+      {textType: "H3", description: "This is a label or CTA text", textClass: "label"},
+      {textType: "Body", description: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", textClass: "body-text"},
+    ]
   main.colors-type-page
     .container
-      .content-wrapper
-        h1.visually-hidden Цвета и шрифты используемые в проекте
-        section
+      h1.visually-hidden Цвета и шрифты используемые в проекте
+      .ui-kit-row
+        section.ui-kit-column
+          h2.visually-hidden Палитра
           +colors-list(colors)
+        section.ui-kit-column
+          h2.visually-hidden Шрифты
+          +types-list(types)
