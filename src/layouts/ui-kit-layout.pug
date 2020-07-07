@@ -2,6 +2,8 @@ doctype html
 html(lang='ru')
   include ../blocks/head/head
   body
-    .ui-kit-wrapper
+    block ui-kit-wrapper
+    - var uiClass = background ? `ui-kit-wrapper ui-kit-wrapper--${background}` : "ui-kit-wrapper"
+    div(class= uiClass)
       include ../blocks/ui-kit-header/ui-kit-header
       block content

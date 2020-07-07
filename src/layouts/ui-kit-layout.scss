@@ -1,5 +1,8 @@
 .ui-kit-wrapper {
-
+  min-height: 100vh;
+  &--dark {
+    background-color: #F4F4F6;
+  }
 }
 .ui-kit-row {
   display: flex;
@@ -7,5 +10,5 @@
   flex-wrap: wrap;
 }
 .ui-kit-column {
-  max-width: 403px;
+  max-width: 380px;
 }

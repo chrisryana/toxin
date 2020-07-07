@@ -1,0 +1,98 @@
+extends ../../layouts/ui-kit-layout
+include ../../blocks/colors-list/colors-list
+include ../../blocks/dialog/dialog
+include ../../blocks/input/input
+include ../../blocks/select-counter/select-counter
+include ../../blocks/date-dropdown/date-dropdown
+include ../../blocks/button/button
+include ../../blocks/switcher/switcher
+include ../../blocks/radio-group/radio-group
+include ../../blocks/price/price
+include ../../blocks/room-card/room-card
+
+block head
+  - var title = "Карточки"
+
+block ui-kit-wrapper
+  - var background = "dark"
+
+block content
+  main.ui-kit-page
+    .container
+      h1.visually-hidden Карточки
+      .ui-kit-row
+        .ui-kit-column
+          .card
+            +dialog({title: "Найдём номера под ваши пожелания"})
+              .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
+                +date-dropdown({split: true})
+              .dialog__form-group.dialog__form-group--gap-xxl
+                +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+              +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
+          .card
+            -
+              var radioGroup = {
+                name: "user-gender",
+                title: "Ваш пол",
+                radioButtons: [
+                  {label: "Мужчина", value: "man", checked: true},
+                  {label: "Женщина", value: "woman"}
+                ]
+              }
+            +dialog({title: "Регистрация аккаунта"})
+              .dialog__form-group.dialog__form-group--gap-xs
+                +input()(placeholder="Имя" name="user-name" required)
+              .dialog__form-group.dialog__form-group--gap-xs
+                +input()(placeholder="Фамилия" name="user-surname")
+              .dialog__form-group.dialog__form-group--gap-m
+                +radio-group(radioGroup)
+
+              .dialog__form-group.dialog__form-group--gap-xs
+                +input("Дата рождения")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+
+              .dialog__form-group.dialog__form-group--gap-xs
+                +input("Данные для входа в сервис")(type="email" placeholder="Email" name="user-email" required)
+              .dialog__form-group.dialog__form-group--gap-xs
+                +input()(type="password" placeholder="Пароль" name="user-password" required)
+              .dialog__form-group.dialog__form-group--gap-m
+                +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
+
+              .dialog__form-group.dialog__form-group--gap-xxl
+                +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
+
+              .dialog__form-message
+                p.dialog__text Уже есть аккаунт на Toxin?
+                +button({name: "Войти", type: "secondary", href: "/signin.html", size: "l"})
+        .ui-kit-column
+          .card
+            -
+              var items = [
+                {title: 'Взрослые', count: 2, countWord: 'Гости'},
+                {title: 'Дети', count: 1, countWord: 'Гости'},
+                {title: 'Младенцы', count: 0},
+              ]
+            +dialog({number: "888", isLux: true, cost: 9990})
+              .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
+                +date-dropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+              .dialog__form-group.dialog__form-group--gap-m
+                +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+              .dialog__form-group.dialog__form-group--gap-xxl
+                +price({roomCost: 9990, days: 4, servicesCost: -2179, additional: 300})
+              +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
+          .card
+            +dialog({title: "Войти"})
+              .dialog__form-group.dialog__form-group--gap-xs
+                +input()(type="email" placeholder="Email" name="user-email" required)
+              .dialog__form-group.dialog__form-group--gap-m
+                +input()(type="password" placeholder="Пароль" name="user-password" required)
+              .dialog__form-group.dialog__form-group--gap-xxl
+                +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
+              .dialog__form-message
+                p.dialog__text Нет аккаунта на Toxin?
+                +button({name: "Создать", type: "secondary", href: "/registration.html", size: "l"})
+        .ui-kit-column
+          .card
+          .card.card--with-room
+            +roomCard({imgList: ['../../assets/img/888/1-sm.jpg', '../../assets/img/888/2-sm.jpg', '../../assets/img/888/3-sm.jpg', '../../assets/img/888/2-sm.jpg'], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
+          .card.card--with-room
+            +roomCard({imgList: ['../../assets/img/rooms/840.jpg', '../../assets/img/rooms/840.jpg', '../../assets/img/rooms/840.jpg', '../../assets/img/rooms/840.jpg'], number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65})

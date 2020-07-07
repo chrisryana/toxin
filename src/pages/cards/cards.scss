@@ -1,0 +1,12 @@
+@import "../../assets/styles/main";
+@import "../../layouts/ui-kit-layout";
+
+.card {
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &--with-room {
+    max-width: 270px;
+  }
+}
