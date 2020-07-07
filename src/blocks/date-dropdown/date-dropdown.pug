@@ -29,12 +29,12 @@ mixin date-dropdown(options)
   .date-dropdown
     for inputDataItem, index in inputsData
       .date-dropdown__item(class= (index === inputsData.length - 1) ? "" : "date-dropdown__item--gap-m")
-        label.date-dropdown__label(for="arrival")= inputDataItem.label
-        .date-dropdown__input-wrapper
-          button.date-dropdown__button(type="button")
-            span.visually-hidden Показать календарь
-            i.material-icons expand_more
-          input#arrival.date-dropdown__input.date-dropdown__input--with-icon(value=inputDataItem.value placeholder="ДД.ММ.ГГГГ" name="arrival" required)
-          //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
-          .date-dropdown__click-area
+        label.date-dropdown__label= inputDataItem.label
+          .date-dropdown__input-wrapper
+            button.date-dropdown__button(type="button")
+              span.visually-hidden Показать календарь
+              i.material-icons expand_more
+            input.date-dropdown__input.date-dropdown__input--with-icon(value=inputDataItem.value placeholder="ДД.ММ.ГГГГ" name="arrival" required)
+            //- click-area для работы js, тк если input disabled не срабатывает событие клика на inputs-wrapper 
+            .date-dropdown__click-area
     .date-dropdown__datepicker
