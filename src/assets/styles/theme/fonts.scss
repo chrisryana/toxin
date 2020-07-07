@@ -29,6 +29,15 @@
 }
 
 @font-face {
+  font-family: 'Quicksand';
+  src: url('../../assets/fonts/quicksand/quicksandregular.ttf') format('truetype');
+  src: local('☺'), url('../../assets/fonts/quicksand/quicksandregular.woff') format('woff'), url('../../assets/fonts/quicksand/quicksandregular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: 400;
