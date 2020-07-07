@@ -44,6 +44,11 @@
           -webkit-appearance: none;
       }
     }
+    &[type="password"] {
+      &::-ms-reveal {
+        display: none;
+      }
+    }
     &:-webkit-autofill {
       animation-name: autofill;
       animation-fill-mode: both;
