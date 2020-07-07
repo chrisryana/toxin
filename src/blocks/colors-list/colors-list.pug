@@ -1,0 +1,9 @@
+mixin colors-list(list)
+  ul.colors-list
+    for colorItem in list
+      - var {title = "", hex = "", color = ""} = colorItem
+      li.colors-list__item
+        .colors-list__square(style=`background-color: ${color}`)
+        .colors-list__description
+          p.colors-list__title= title
+          = hex
