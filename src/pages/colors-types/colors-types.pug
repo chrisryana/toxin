@@ -1,0 +1,23 @@
+extends ../../layouts/ui-kit-layout
+include ../../blocks/colors-list/colors-list
+
+block head
+  - var title = "Цвета и шрифты проекта";
+
+block content
+  - 
+    var colors = [
+      {title: "Dark Shade 100%", hex: "#1F2041", color: "#1F2041"},
+      {title: "Dark Shade 75%", hex: "#1F2041", color: "rgba(31, 32, 65, 0.75)"},
+      {title: "Dark Shade 50%", hex: "#1F2041", color: "rgba(31, 32, 65, 0.5)"},
+      {title: "Dark Shade 25%", hex: "#1F2041", color: "rgba(31, 32, 65, 0.25)"},
+      {title: "Dark Shade 5%", hex: "#1F2041", color: "rgba(31, 32, 65, 0.05)"},
+      {title: "Purple", hex: "#BC9CFF", color: "#BC9CFF"},
+      {title: "Green", hex: "#6FCF97", color: "#6FCF97"},
+    ]
+  main.colors-type-page
+    .container
+      .content-wrapper
+        h1.visually-hidden Цвета и шрифты используемые в проекте
+        section
+          +colors-list(colors)
