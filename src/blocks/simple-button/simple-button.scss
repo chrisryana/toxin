@@ -7,19 +7,20 @@
   border: none;
   transition: opacity .2s ease;
   padding: 0;
-  &:hover,
-  &:focus {
-    opacity: .8;
-    outline: none;
-  }
-  &:disabled {
-    color: $text-color-10;
-    cursor: initial;
-  }
   &--primary {
     color: $color-primary;
   }
   &--secondary {
     color: $text-color-50;
+  }
+  &:hover,
+  &:focus {
+    opacity: .8;
+    outline: none;
+  }
+  &:disabled,
+  &--disabled {
+    color: $text-color-10;
+    cursor: initial;
   }
 }

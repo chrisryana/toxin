@@ -1,9 +1,12 @@
 // Переназначение стилей библиотеки air-datepicker
+.datepicker-inline .datepicker {
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+}
 .datepicker {
   box-sizing: border-box;
   width: 100%;
+  max-width: 320px;
   border-color: $text-color-25;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   font-family: $font-primary;
   &--nav {
     border-bottom: none;
@@ -153,7 +156,7 @@
   .-range-from- {
     border-radius: 50% 0 0 50%;
   }
-  &--footer {
+  &--buttons {
     padding: 10px 20px 20px 20px;
     border-top: none;
     display: flex;

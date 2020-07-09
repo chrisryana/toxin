@@ -1,0 +1,13 @@
+mixin calendar(options)
+  //- - var {selectedDates} = options
+  //- -
+    function onRenderCell(date, cellType) {
+      // addFooterButtons();
+      if (cellType == 'day') {
+        const currentDate = date.getDate();
+        return {
+          html: `<span class="datepicker--cell-circle">${currentDate}</span>`
+        }
+      }
+    }
+  .calendar

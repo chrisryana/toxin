@@ -1,8 +1,9 @@
 @import "../../assets/styles/main";
 @import "../../layouts/ui-kit-layout";
+@import "../../blocks/calendar/calendar";
 
 .card {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   &:last-child {
     margin-bottom: 0;
   }

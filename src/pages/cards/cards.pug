@@ -9,6 +9,7 @@ include ../../blocks/switcher/switcher
 include ../../blocks/radio-group/radio-group
 include ../../blocks/price/price
 include ../../blocks/room-card/room-card
+include ../../blocks/calendar/calendar
 
 block head
   - var title = "Карточки"
@@ -92,6 +93,7 @@ block content
                 +button({name: "Создать", type: "secondary", href: "/registration.html", size: "l"})
         .ui-kit-column
           .card
+            +calendar()
           .card.card--with-room
             +roomCard({imgList: ['../../assets/img/888/1-sm.jpg', '../../assets/img/888/2-sm.jpg', '../../assets/img/888/3-sm.jpg', '../../assets/img/888/2-sm.jpg'], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
           .card.card--with-room
