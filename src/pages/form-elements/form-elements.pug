@@ -1,0 +1,159 @@
+extends ../../layouts/ui-kit-layout
+include ../../blocks/input/input
+include ../../blocks/date-dropdown/date-dropdown
+include ../../blocks/select-counter/select-counter
+include ../../blocks/filters/filters-group
+include ../../blocks/checkbox-list/checkbox-list
+include ../../blocks/radio-group/radio-group
+include ../../blocks/switcher/switcher
+include ../../blocks/like-button/like-button
+include ../../blocks/rate/rate
+include ../../blocks/range-slider/range-slider
+include ../../blocks/button/button
+include ../../blocks/paginator/paginator
+include ../../blocks/bullet-list/bullet-list
+include ../../blocks/features-list/features-list
+include ../../blocks/comment/comment
+
+block head
+  - var title = "Элементы формы Toxin"
+
+block content
+  -
+    var subscribeButton = {
+      icon: "arrow_forward",
+      type: "submit",
+      title: "Отправить",
+    }
+    var items = [
+      {title: 'Взрослые', count: 0, countWord: 'Гости'},
+      {title: 'Дети', count: 0, countWord: 'Гости'},
+      {title: 'Младенцы', count: 0},
+    ]
+    var itemsFull = [
+      {title: 'Взрослые', count: 2, countWord: 'Гости'},
+      {title: 'Дети', count: 1, countWord: 'Гости'},
+      {title: 'Младенцы', count: 0},
+    ]
+    var radioGroup = {
+      name: "user-gender",
+      title: "Ваш пол",
+      radioButtons: [
+        {label: "Мужчина", value: "man", checked: true},
+        {label: "Женщина", value: "woman"}
+      ]
+    }
+    var roomItems = [
+      {title: 'Спальни', count: 2},
+      {title: 'Кровати', count: 2},
+      {title: 'Ванные комнаты', count: 0},
+    ]
+    var rules = [
+      "Нельзя с питомцами",
+      "Без вечеринок и мероприятий",
+      "Время прибытия — после 13:00, а выезд до 12:00"
+    ]
+    var features = [
+      {icon: "insert_emoticon", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
+      {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
+      {},
+    ]
+    var fiveDaysAgo = new Date().setDate(new Date().getDate() - 5)
+  main.ui-kit-page
+    .container
+      h1.visually-hidden Элементы формы
+      .ui-kit-row
+        .ui-kit-column
+          +input("Text Field")(placeholder="Email")
+          +input("Text Field")(placeholder="Email" value="This is pretty awesome")
+          +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true})
+          +input("Masked text field")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+          +date-dropdown({split: true, startLabel: "Date dropdown", endLabel: "Date dropdown", end: new Date(2020, 7, 23)})
+          +date-dropdown({label: "Filter date dropdown", start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+          +input("Subscription text field", subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
+        .ui-kit-column
+          +filters-group("Checkbox Buttons")
+            +checkbox-list([
+              {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
+              {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
+              {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
+            ])
+          +filters-group("Radio Buttons")
+            +radio-group(radioGroup)
+          +filters-group("Toggle")
+            +switcher({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
+            +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
+          +filters-group("Like button")
+            +like-button({count: 2})
+            +like-button({count: 12, liked: true})
+          +filters-group("Rate button")
+            +rate(4)
+            +rate(5)
+        .ui-kit-column
+          +filters-group()
+            +range-slider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})
+          +filters-group("Buttons")
+            +button({name: "Click me", size: "l"})
+            +button({name: "Click me", size: "l"})
+            +button({name: "Click me", type: "secondary", size: "l"})
+            +button({name: "Click me", type: "secondary", size: "l"})
+            +simple-button({name: "Click me"})
+            +simple-button({name: "Click me", type: "secondary"})
+            +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
+          +filters-group("Pagination")
+            +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
+      .ui-kit-row
+        .ui-kit-column
+          +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
+          +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false, inline: true})
+          +filters-group()
+            details.filters__accordion()
+              summary.filters__group-title.filters__group-title--with-icon Expandable checkbox list
+                i.material-icons.material-icons__more expand_more
+                i.material-icons.material-icons__less expand_less
+              +checkbox-list([
+                {label: "Завтрак", name: "additionally", value: "breakfast"},
+                {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                {label: "Телевизор",  name: "additionally", value: "tv"},
+                {label: "Шампунь",  name: "additionally", value: "shampoo"},
+              ])
+          +filters-group()
+            details.filters__accordion(open)
+              summary.filters__group-title.filters__group-title--with-icon Expandable checkbox list
+                i.material-icons.material-icons__more expand_more
+                i.material-icons.material-icons__less expand_less
+              +checkbox-list([
+                {label: "Завтрак", name: "additionally", value: "breakfast"},
+                {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                {label: "Телевизор",  name: "additionally", value: "tv"},
+                {label: "Шампунь",  name: "additionally", value: "shampoo"},
+              ])
+        .ui-kit-column
+          +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+          +filters-group("Rich Checkbox Buttons")
+            +checkbox-list([
+              {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+              {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
+            ])
+        .ui-kit-column
+          +select-counter({items: itemsFull, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+          +filters-group("Bullet list")
+            +bullet-list(rules)
+      .ui-kit-row
+        .ui-kit-column
+          +features-list(features)
+        .ui-kit-column.ui-kit-column--col-2
+          +comment({
+            userName: "Мурад Сарафанов",
+            userAvatar: "../../assets/img/avatars/man.jpg",
+            date: fiveDaysAgo,
+            message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+            likeOptions: {
+              count: 12,
+              liked: true,
+            }
+          })

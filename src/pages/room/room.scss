@@ -6,6 +6,7 @@
 @import "../../blocks/pie-chart/pie-chart";
 @import "../../blocks/price/price";
 @import "../../blocks/hint/hint";
+@import "../../blocks/features-list/features-list";
 
 
 .room-description {
@@ -43,19 +44,6 @@
       font-size: $text-base-size;
       font-weight: initial;
       font-family: $font-primary;
-    }
-    .features-list {
-      &__item {
-        padding: $gap-m $gap-m 17px 0;
-        border-top: 1px solid $text-color-10;
-        &:first-child {
-          border-top: none;
-          padding-top: 0;
-        }
-        &:last-child {
-          padding-bottom: 0;
-        }
-      }
     }
   }
 

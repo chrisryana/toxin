@@ -28,6 +28,6 @@ block content
             .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
               +date-dropdown({split: true})
             .dialog__form-group.dialog__form-group--gap-xxl
-              +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+              +select-counter({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
             +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
           

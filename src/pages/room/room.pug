@@ -4,7 +4,7 @@ include ../../blocks/input/input
 include ../../blocks/button/button
 include ../../blocks/room-gallery/room-gallery
 include ../../blocks/bullet-list/bullet-list
-include ../../blocks/feature/feature
+include ../../blocks/features-list/features-list
 include ../../blocks/comment/comment
 include ../../blocks/pie-chart/pie-chart
 include ../../blocks/price/price
@@ -77,10 +77,7 @@ block content
           .room-description__group
             section.room-description__item.description-block
               h2.description-block__title Сведения о номере
-              ul.features-list
-                for feature in features
-                  li.features-list__item
-                    +feature(feature)
+              +features-list(features)
 
             section.room-description__item.description-block
               h2.description-block__title Впечатления от номера

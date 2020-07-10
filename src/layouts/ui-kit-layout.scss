@@ -6,9 +6,18 @@
 }
 .ui-kit-row {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 .ui-kit-column {
-  max-width: 380px;
+  // max-width: 380px;
+  flex: 1;
+  margin-right: 40px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &--col-2 {
+    flex: 2;
+  }
 }
