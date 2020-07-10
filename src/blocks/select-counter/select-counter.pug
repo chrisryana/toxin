@@ -3,7 +3,7 @@ include ../simple-button/simple-button
 include ../../mixins
 
 mixin select-counter(options)
-  - var {items = [], label = '', name = '', required = false, placeholder = '', withButtons = false} = options
+  - var {items = [], label = '', name = '', required = false, placeholder = '', withButtons = false, inline = false} = options
   - var isEachCountNull = true
   - var countData = []
   - var countString = ''
@@ -38,8 +38,8 @@ mixin select-counter(options)
       - countData.push(dataItem)
 
   for countItem, index in countData
-    - var filteredCountData = countData.filter((countItem) => countItem.count !== 0)
     -
+      var filteredCountData = countData.filter((countItem) => countItem.count !== 0)
       countString = filteredCountData.reduce((string, countItem, index) => {
         const declOfCount = declOfNum(countItem.count, findDeclArray(countItem.countWord));
         const stringOfCount = `${countItem.count} ${declOfCount}`;
@@ -47,11 +47,18 @@ mixin select-counter(options)
           ? `${string}${stringOfCount}`
           : `${string}${stringOfCount}, `;
       }, '')
-    - countString = countString.toLowerCase()
+      countString = countString.toLowerCase()
+  -
+    var selectClass = "select-counter"
+    var itemsClass = "select-counter__items"
+  if inline
+    -
+      selectClass += " select-counter--expanded"
+      itemsClass += " select-counter__items--inline"
 
-  .select-counter
+  div(class= selectClass)
     +input(label, {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value= countString || 'Сколько гостей')
-    .select-counter__items
+    div(class= itemsClass)
       ul.select-counter__items-list
         for item, index in items
           li.select-counter__item(data-countword= item.countWord || '' data-index= index)

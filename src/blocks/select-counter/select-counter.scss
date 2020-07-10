@@ -28,6 +28,10 @@
     z-index: 1;
     background-color: #fff;
     width: 100%;
+    &--inline {
+      position: initial;
+      display: block;
+    }
   }
   &__item {
     display: flex;

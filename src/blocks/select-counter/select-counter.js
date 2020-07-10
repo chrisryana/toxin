@@ -15,6 +15,23 @@ function initSelectCounter(select) {
   ]
 
   let initialItems = [];
+
+  if ($('.select-counter__items--inline', $(select)).length) {
+    addChangeEvents($(select));
+  }
+
+  function addChangeEvents(el) {
+    $('.select-counter__item-button', el).on('click', handleChangeCount);
+    $('.simple-button[data-action="clear-select"]', el).on('click', clearValues);
+    $('.simple-button[data-action="apply-select"]', el).on('click', applyValues);
+
+    if (initialItems.length) {
+      items = JSON.parse(JSON.stringify(initialItems));
+      verifyButtons($('.select-counter__items', el), items);
+    } else {
+      initValues(el)
+    }
+  }
   
   function hideDropdown(e) {
     if (!$(select).is(e.target) && $(select).has(e.target).length === 0) {
@@ -33,16 +50,7 @@ function initSelectCounter(select) {
     if (!$(this).hasClass('select-counter--expanded')) {
       $(this).addClass('select-counter--expanded');
       $(document).on('click', hideDropdown);
-      $('.select-counter__item-button', $(this)).on('click', handleChangeCount);
-      $('.simple-button[data-action="clear-select"]', $(this)).on('click', clearValues);
-      $('.simple-button[data-action="apply-select"]', $(this)).on('click', applyValues);
-  
-      if (initialItems.length) {
-        items = JSON.parse(JSON.stringify(initialItems));
-        verifyButtons($('.select-counter__items', $(this)), items);
-      } else {
-        initValues($(this))
-      }
+      addChangeEvents($(this))
     }
   }
   
