@@ -1,7 +1,7 @@
 include ../calendar/calendar
 
 mixin date-dropdown(options)
-  - var {start, end, split = false} = options
+  - var {start, end, startLabel= "Прибытие", endLabel= "Выезд", label= "Даты пребывания в отеле", split = false} = options
   - var monthes = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
 
   if start && end
@@ -25,8 +25,8 @@ mixin date-dropdown(options)
     }
   
     var inputsData = split
-      ? [{label: 'Прибытие', value: startDateString}, {label: 'Выезд', value: endDateString}]
-      : [{label: 'Даты пребывания в отеле', value: periodDateString}]
+      ? [{label: startLabel, value: startDateString}, {label: endLabel, value: endDateString}]
+      : [{label: label, value: periodDateString}]
 
   .date-dropdown
     for inputDataItem, index in inputsData
