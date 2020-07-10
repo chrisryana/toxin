@@ -21,3 +21,11 @@
     flex: 2;
   }
 }
+.ui-kit-page {
+  padding: 32px 0 100px 0;
+  &__item {
+    &--gap-xxxxl {
+      margin-bottom: $gap-xxxl;
+    }
+  }
+}
