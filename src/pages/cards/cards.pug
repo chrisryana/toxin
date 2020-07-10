@@ -18,6 +18,12 @@ block ui-kit-wrapper
   - var background = "dark"
 
 block content
+  -
+    var items = [
+      {title: 'Взрослые', count: 2, countWord: 'Гости'},
+      {title: 'Дети', count: 1, countWord: 'Гости'},
+      {title: 'Младенцы', count: 0},
+    ]
   main.ui-kit-page
     .container
       h1.visually-hidden Карточки
@@ -66,12 +72,6 @@ block content
                 +button({name: "Войти", type: "secondary", href: "/signin.html", size: "l"})
         .ui-kit-column
           .card
-            -
-              var items = [
-                {title: 'Взрослые', count: 2, countWord: 'Гости'},
-                {title: 'Дети', count: 1, countWord: 'Гости'},
-                {title: 'Младенцы', count: 0},
-              ]
             +dialog({number: "888", isLux: true, cost: 9990})
               .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
                 +date-dropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
