@@ -45,7 +45,7 @@ function initCalendarToggler(datepickerArea) {
     const isDatepickerDays = !!$(e.target).closest('.datepicker--cell').length;
     const isDatepickerArea = isDatepickerClick || isDatepickerInputClick || isDatepickerNav || isDatepickerDays || isDatepickerNavAction;
   
-    if (!isDatepickerArea) {
+    if (!$(datepickerArea).is(e.target) && $(datepickerArea).has(e.target).length === 0 && !isDatepickerArea) {
       toggleDatepicker(actions.close);
     }
   }
