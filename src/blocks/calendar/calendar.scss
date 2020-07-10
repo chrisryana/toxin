@@ -174,25 +174,8 @@
     &:hover {
       background-color: transparent;
       color: $text-color-75;
-    }
-    &:focus {
-      background-color: $text-color-25;
-    }
-    &-primary {
-      color: $color-primary;
-      transition: opacity .2s ease;
-      border: none;
-      background-color: transparent;
-      &:hover {
-        color: $color-primary;
-        opacity: .6;
-      }
-      &:focus {
-        background-color: $color-primary-light;
-      }
-      &:disabled {
-        opacity: .6;
-        color: $text-color-50;
+      &.simple-button--disabled {
+        color: $text-color-10;
       }
     }
   }
