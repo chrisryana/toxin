@@ -3,7 +3,7 @@
   align-items: center;
   color: $color-primary;
   &__item {
-    margin-left: 20px;
+    margin-left: 23px;
     transition: transform .2s ease;
     &:hover {
       transform: scale(1.2);
@@ -13,6 +13,14 @@
       background: $gradient-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .socials__item {
+    &:first-child {
+      margin-left: 0;
     }
   }
 }

@@ -9,13 +9,15 @@
     }
   }
   &__tagline {
+    padding-top: 4px;
     margin: 0;
-    margin-bottom: 21px;
+    margin-bottom: 18px;
   }
   &__list {
     &-item {
-      &:not(:last-child) {
-        margin-bottom: 20px;
+      margin-bottom: 14px;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -27,6 +29,12 @@
     }
   }
   &__text {
-    margin-bottom: 20px;
+    margin-bottom: 23px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-map {
+    display: none;
   }
 }
