@@ -41,6 +41,8 @@ block footer
 - var footerClass = 'footer'
 if isUnderlined
   - footerClass = `${footerClass} footer--underlined`
+if forTablet
+  - footerClass = `${footerClass} footer--tablet-width`
 footer(class= footerClass)
   section.footer__section.footer__section--wide
     .container

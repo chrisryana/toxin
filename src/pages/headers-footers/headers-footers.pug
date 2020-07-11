@@ -13,10 +13,13 @@ block content
     h1.visually-hidden Шапки и подвалы сайта
     block content
       .ui-kit-page__item.ui-kit-page__item--gap-xxxxl
+        - var currentPage = "О нас"
         include ../../blocks/header/header
       .ui-kit-page__item.ui-kit-page__item--gap-xxxxl
+        - var user = "Юлий Цезарь"
         include ../../blocks/header/header
       .ui-kit-page__item.ui-kit-page__item--gap-xxxxl
         include ../../blocks/footer/footer
       .ui-kit-page__item.ui-kit-page__item--gap-xxxxl
+        - var forTablet = true
         include ../../blocks/footer/footer

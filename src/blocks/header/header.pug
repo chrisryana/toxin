@@ -9,11 +9,26 @@ include ../button/button
     { title: "Соглашения", href: "javascript:void(0)", children: [] },
   ]
 
+if currentPage
+  -
+    navItems.forEach((item) => {
+      if (item.title === currentPage) {
+        item.active = true
+      } else {
+        item.active = false
+      }
+    })
+
 mixin getNavigationItem(navItem)
-  li.site-navigation__item
-    a.site-navigation__item-link(href= navItem.href)=navItem.title
-      if navItem.children
-        i.material-icons expand_more
+  li(class= navItem.active ? "site-navigation__item site-navigation__item--active" : "site-navigation__item")
+    if navItem.active || navItem.children
+      .site-navigation__item-link= navItem.title
+        if navItem.children
+          i.material-icons expand_more
+    else
+      a.site-navigation__item-link(href= navItem.href)= navItem.title
+        if navItem.children
+          i.material-icons expand_more
 
 mixin getNavigation(navItems)
   ul.header__site-navigation
@@ -25,8 +40,11 @@ header.header
     nav.header__navigation
       include ../logo/logo
       +getNavigation(navItems)
-      ul.header__user-navigation
-        li.user-navigation__item
-          +button({name: "Войти", type: "secondary", href: "/signin.html"})
-        li.user-navigation__item
-          +button({name: "Зарегистрироваться", href: "/registration.html"})
+      if user
+        .header__user= user
+      else
+        ul.header__user-navigation
+          li.user-navigation__item
+            +button({name: "Войти", type: "secondary", href: "/signin.html"})
+          li.user-navigation__item
+            +button({name: "Зарегистрироваться", href: "/registration.html"})
