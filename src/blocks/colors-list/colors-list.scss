@@ -3,6 +3,7 @@
     display: flex;
     margin-bottom: 20px;
     align-items: center;
+    line-height: 1.6;
     &:last-child {
       margin-bottom: 0;
     }
@@ -14,11 +15,13 @@
     margin-right: 40px;
   }
   &__description {
+    letter-spacing: -1px;
     font-family: $font-secondary;
     font-size: 19px;
     color: $text-color;
   }
   &__title {
+    letter-spacing: initial;
     font-weight: bold;
   }
 }

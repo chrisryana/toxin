@@ -6,7 +6,7 @@
 }
 .ui-kit-row {
   display: flex;
-  // justify-content: space-between;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
 }
@@ -17,6 +17,9 @@
   &:last-child {
     margin-right: 0;
   }
+  &--gap-xxxxxxl {
+    margin-right: $gap-xxxxxxl;
+  }
   &--col-2 {
     flex: 2;
   }
@@ -26,6 +29,12 @@
   &__item {
     &--gap-xxxxl {
       margin-bottom: $gap-xxxxl;
+    }
+  }
+  &--with-colors {
+    padding: 30px 0 40px 0;
+    .container {
+      max-width: 1181px;
     }
   }
 }
