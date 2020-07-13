@@ -67,9 +67,9 @@ $padding-sm: 8px;
     &--gap-10 {
       margin-bottom: $gap-10;
     }
-    // &--gap-18 {
-    //   margin-bottom: $gap-18;
-    // }
+    &--gap-13 {
+      margin-bottom: $gap-13;
+    }
     &--gap-20 {
       margin-bottom: $gap-20;
     }
@@ -82,8 +82,26 @@ $padding-sm: 8px;
     &--gap-24 {
       margin-bottom: $gap-24;
     }
+    &--gap-26 {
+      margin-bottom: $gap-26;
+    }
     &--gap-30 {
       margin-bottom: $gap-30;
+    }
+    &--gap-32 {
+      margin-bottom: $gap-32;
+    }
+    &--gap-42 {
+      margin-bottom: $gap-42;
+    }
+    &--gap-40 {
+      margin-bottom: $gap-40;
+    }
+    &--gap-53 {
+      margin-bottom: $gap-53;
+    }
+    &--width-266 {
+      max-width: 266px;
     }
     &--period {
       display: flex;
@@ -97,6 +115,17 @@ $padding-sm: 8px;
           margin-right: 20px;
         }
       }
+    }
+    &--inline {
+      display: flex;
+    }
+  }
+  &__form-item {
+    &--gap-10 {
+      margin-right: $gap-10;
+    }
+    &--gap-20 {
+      margin-right: $gap-20;
     }
   }
   &__form-message {

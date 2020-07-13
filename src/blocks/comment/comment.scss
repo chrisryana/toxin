@@ -5,7 +5,7 @@
 .comment {
   display: flex;
   &__avatar {
-    margin-bottom: 12px;
+    margin-bottom: $gap-10;
   }
   &__column {
     &:first-child {

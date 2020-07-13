@@ -59,19 +59,26 @@ block content
       {},
     ]
     var fiveDaysAgo = new Date().setDate(new Date().getDate() - 5)
-  main.ui-kit-page
+  main.ui-kit-page.ui-kit-page--with-form-elements
     .container
       h1.visually-hidden Элементы формы
       .ui-kit-row
-        .ui-kit-column
-          +input("Text Field")(placeholder="Email")
-          +input("Text Field")(placeholder="Email" value="This is pretty awesome")
-          +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true})
-          +input("Masked text field")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
-          +date-dropdown({split: true, startLabel: "Date dropdown", endLabel: "Date dropdown", end: new Date(2020, 7, 23)})
-          +date-dropdown({label: "Filter date dropdown", start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
-          +input("Subscription text field", subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
-        .ui-kit-column
+        .ui-kit-column.ui-kit-column--width-320.ui-kit-column--gap-90
+          .dialog__form-group.dialog__form-group--gap-20
+            +input("Text Field")(placeholder="Email")
+          .dialog__form-group.dialog__form-group--gap-20
+            +input("Text Field")(placeholder="Email" value="This is pretty awesome")
+          .dialog__form-group.dialog__form-group--gap-23
+            +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true})
+          .dialog__form-group.dialog__form-group--gap-40
+            +input("Masked text field")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+          .dialog__form-group.dialog__form-group--gap-40
+            +date-dropdown({split: true, startLabel: "Date dropdown", endLabel: "Date dropdown", end: new Date(2020, 7, 23)})
+          .dialog__form-group.dialog__form-group--width-266.dialog__form-group--gap-42
+            +date-dropdown({label: "Filter date dropdown", start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+          .dialog__form-group.dialog__form-group--width-266
+            +input("Subscription text field", subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
+        .ui-kit-column.ui-kit-column--width-320
           +filters-group("Checkbox Buttons")
             +checkbox-list([
               {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
@@ -81,77 +88,105 @@ block content
           +filters-group("Radio Buttons")
             +radio-group(radioGroup)
           +filters-group("Toggle")
-            +switcher({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
+            .dialog__form-group.dialog__form-group--gap-13
+              +switcher({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
             +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
           +filters-group("Like button")
-            +like-button({count: 2})
-            +like-button({count: 12, liked: true})
+            .dialog__form-group.dialog__form-group--inline
+              .dialog__form-item.dialog__form-item--gap-10
+                +like-button({count: 2})
+              .dialog__form-item
+                +like-button({count: 12, liked: true})
           +filters-group("Rate button")
-            +rate(4)
-            +rate(5)
-        .ui-kit-column
-          +filters-group()
-            +range-slider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})
+            .dialog__form-group.dialog__form-group--inline
+              .dialog__form-item.dialog__form-item--gap-20
+                +rate(4)
+              .dialog__form-item
+                +rate(5)
+        .ui-kit-column.ui-kit-column--width-320
+          .dialog__form-group.dialog__form-group--width-266.dialog__form-group--gap-32
+            +filters-group()
+              +range-slider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})
           +filters-group("Buttons")
-            +button({name: "Click me", size: "l"})
-            +button({name: "Click me", size: "l"})
-            +button({name: "Click me", type: "secondary", size: "l"})
-            +button({name: "Click me", type: "secondary", size: "l"})
-            +simple-button({name: "Click me"})
-            +simple-button({name: "Click me", type: "secondary"})
+            .dialog__form-group.dialog__form-group--inline.dialog__form-group--gap-30
+              .dialog__form-item.dialog__form-item--gap-20
+                +button({name: "Click me", size: "l"})
+              .dialog__form-item
+                +button({name: "Click me", size: "l"})
+            .dialog__form-group.dialog__form-group--inline.dialog__form-group--gap-26
+              .dialog__form-item.dialog__form-item--gap-20
+                +button({name: "Click me", type: "secondary", size: "l"})
+              .dialog__form-item
+                +button({name: "Click me", type: "secondary", size: "l"})
+            .dialog__form-group.dialog__form-group--inline.dialog__form-group--gap-26
+              .dialog__form-item.dialog__form-item--gap-20
+                +simple-button({name: "Click me"})
+              .dialog__form-item
+                +simple-button({name: "Click me", type: "secondary"})
             +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
           +filters-group("Pagination")
             +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
+      .ui-kit-row.ui-kit-row--gap-78
+        .ui-kit-column.ui-kit-column--width-320.ui-kit-column--gap-127
+          .dialog__form-group.dialog__form-group--width-266.dialog__form-group.dialog__form-group--gap-20
+            +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
+          .dialog__form-group.dialog__form-group--width-266.dialog__form-group--gap-53
+            +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false, inline: true})
+          .dialog__form-group.dialog__form-group--width-266.dialog__form-group.dialog__form-group--gap-26
+            +filters-group()
+              details.filters__accordion()
+                summary.filters__group-title.filters__group-title--with-icon Expandable checkbox list
+                  i.material-icons.material-icons__more expand_more
+                  i.material-icons.material-icons__less expand_less
+                +checkbox-list([
+                  {label: "Завтрак", name: "additionally", value: "breakfast"},
+                  {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                  {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                  {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                  {label: "Телевизор",  name: "additionally", value: "tv"},
+                  {label: "Шампунь",  name: "additionally", value: "shampoo"},
+                ])
+          .dialog__form-group.dialog__form-group--width-266.dialog__form-group.dialog__form-group--gap-20
+            +filters-group()
+              details.filters__accordion(open)
+                summary.filters__group-title.filters__group-title--with-icon Expandable checkbox list
+                  i.material-icons.material-icons__more expand_more
+                  i.material-icons.material-icons__less expand_less
+                +checkbox-list([
+                  {label: "Завтрак", name: "additionally", value: "breakfast"},
+                  {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                  {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                  {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                  {label: "Телевизор",  name: "additionally", value: "tv"},
+                  {label: "Шампунь",  name: "additionally", value: "shampoo"},
+                ])
+        .ui-kit-column
+          .ui-kit-row
+            .ui-kit-column.ui-kit-column--width-320
+              +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+            .ui-kit-column.ui-kit-column--width-320
+              +select-counter({items: itemsFull, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+          .ui-kit-row
+            .ui-kit-column.ui-kit-column--width-320
+              .dialog__form-group.dialog__form-group--width-266
+                +filters-group("Rich Checkbox Buttons")
+                  +checkbox-list([
+                    {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+                    {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
+                  ])
+            .ui-kit-column.ui-kit-column--width-320
+              .dialog__form-group.dialog__form-group--width-266
+                +filters-group("Bullet list")
+                  +bullet-list(rules)
       .ui-kit-row
-        .ui-kit-column
-          +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
-          +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false, inline: true})
-          +filters-group()
-            details.filters__accordion()
-              summary.filters__group-title.filters__group-title--with-icon Expandable checkbox list
-                i.material-icons.material-icons__more expand_more
-                i.material-icons.material-icons__less expand_less
-              +checkbox-list([
-                {label: "Завтрак", name: "additionally", value: "breakfast"},
-                {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
-                {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
-                {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
-                {label: "Телевизор",  name: "additionally", value: "tv"},
-                {label: "Шампунь",  name: "additionally", value: "shampoo"},
-              ])
-          +filters-group()
-            details.filters__accordion(open)
-              summary.filters__group-title.filters__group-title--with-icon Expandable checkbox list
-                i.material-icons.material-icons__more expand_more
-                i.material-icons.material-icons__less expand_less
-              +checkbox-list([
-                {label: "Завтрак", name: "additionally", value: "breakfast"},
-                {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
-                {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
-                {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
-                {label: "Телевизор",  name: "additionally", value: "tv"},
-                {label: "Шампунь",  name: "additionally", value: "shampoo"},
-              ])
-        .ui-kit-column
-          +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
-          +filters-group("Rich Checkbox Buttons")
-            +checkbox-list([
-              {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
-              {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
-            ])
-        .ui-kit-column
-          +select-counter({items: itemsFull, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
-          +filters-group("Bullet list")
-            +bullet-list(rules)
-      .ui-kit-row
-        .ui-kit-column
+        .ui-kit-column.ui-kit-column--gap-90
           +features-list(features)
-        .ui-kit-column.ui-kit-column--col-2
+        .ui-kit-column.ui-kit-column--col-2.ui-kit-column--p-10
           +comment({
             userName: "Мурад Сарафанов",
             userAvatar: "../../assets/img/avatars/man.jpg",
             date: fiveDaysAgo,
-            message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+            message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И&#160;стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
             likeOptions: {
               count: 12,
               liked: true,

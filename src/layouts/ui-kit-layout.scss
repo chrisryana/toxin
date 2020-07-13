@@ -9,6 +9,12 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
+  // &--centered {
+  //   align-items: center;
+  // }
+  &--gap-78 {
+    margin-bottom: $gap-78;
+  }
 }
 .ui-kit-column {
   // max-width: 380px;
@@ -17,11 +23,26 @@
   &:last-child {
     margin-right: 0;
   }
+  &--p-10 {
+    padding-top: $gap-10;
+  }
   &--gap-xxxxxxl {
     margin-right: $gap-xxxxxxl;
   }
+  &--gap-90 {
+    margin-right: $gap-90;
+  }
+  &--gap-127 {
+    margin-right: $gap-127;
+  }
   &--col-2 {
     flex: 2;
+  }
+  &--width-320 {
+    max-width: 320px;
+  }
+  &--width-266 {
+    max-width: 266px;
   }
 }
 .ui-kit-page {
@@ -39,5 +60,9 @@
   }
   &--with-cards {
     padding: 35px 0 40px 0;
+  }
+  &--with-form-elements {
+    padding-top: 28px;
+    padding-bottom: 0;
   }
 }

@@ -5,6 +5,9 @@
   flex-direction: column;
   align-content: flex-start;
   &__item {
-    margin-top: 10px;
+    margin-bottom: 11px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

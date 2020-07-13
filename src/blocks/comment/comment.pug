@@ -30,4 +30,4 @@ mixin comment(options)
     .comment__column
       p.comment__user-name= userName
       p.comment__date= getDateString(daysAgo)
-      p.comment__message= message
+      p.comment__message!= message
