@@ -16,13 +16,13 @@ mixin roomCard(roomOptions)
           if isLux 
             span.room-card__type= ` Люкс`
         p.room-card__info
-          span.room-card__info--big
+          span.room-card__info-item.room-card__info-item--bold
             +numberWithSpaces(cost)
             | ₽ 
-          | в сутки
+          span.room-card__info-item.room-card__info-item--small в сутки
       .room-card__description-row
         .room-card__rate
           +rate(rate)
         p.room-card__info
-          span.room-card__info--big= `${reviewCount} `
+          span.room-card__info-item.room-card__info-item--bold= `${reviewCount} `
           | Отзывов

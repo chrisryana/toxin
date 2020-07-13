@@ -2,12 +2,13 @@
   &__cell-wrapper {
     display: flex;
     justify-content: space-between;
+    line-height: 1.29;
     &--aligned-right {
       justify-content: flex-end;
       padding-left: 5px;
     }
-    &--gap-m {
-      padding-top: $gap-m;
+    &--gap-20 {
+      padding-top: $gap-20;
     }
   }
   &__dots {
@@ -17,7 +18,7 @@
   }
   &__cell {
     vertical-align: top;
-    padding: 5px 0;
+    padding: 7px 0;
   }
   &__total {
     font-family: $font-secondary;
@@ -25,10 +26,14 @@
     font-size: $text-md;
     color: $text-color;
     line-height: 1.2;
+    .price__cell-wrapper {
+      line-height: 0.6;
+      padding-bottom: 7px;
+    }
   }
   &__hint {
-    &--gap-xxs {
-      margin-left: $gap-xxs;
+    &--gap-5 {
+      margin-left: $gap-5;
     }
   }
 }

@@ -1,13 +1,13 @@
-$padding-main: 30px;
-$padding-lg: 40px;
-$padding-sm: 10px;
+$padding-main: 29px;
+$padding-lg: 39px;
+$padding-sm: 8px;
 
 .dialog {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  width: 382px;
+  width: 380px;
   &__header,
   &__content {
     padding-left: $padding-main;
@@ -15,10 +15,10 @@ $padding-sm: 10px;
   }
   &__header {
     padding-top: $padding-lg;
-    padding-bottom: $padding-sm;
+    padding-bottom: 12px;
   }
   &__content {
-    padding-top: $padding-sm;
+    padding-top: 8px;
     padding-bottom: $padding-main;
   }
   &__title {
@@ -47,7 +47,9 @@ $padding-sm: 10px;
   }
   &__room-cost {
     color: $text-color-50;
+    font-size: 12px;
     &--bold {
+      font-size: 14px;
       font-weight: bold;
     }
   }
@@ -57,10 +59,31 @@ $padding-sm: 10px;
       margin-bottom: $gap-xs;
     }
     &--gap-m {
-      margin-bottom: $gap-m;
+      margin-bottom: 21px;
     }
     &--gap-xxl {
-      margin-bottom: $gap-xxl;
+      margin-bottom: 31px;
+    }
+    &--gap-10 {
+      margin-bottom: $gap-10;
+    }
+    // &--gap-18 {
+    //   margin-bottom: $gap-18;
+    // }
+    &--gap-20 {
+      margin-bottom: $gap-20;
+    }
+    &--gap-21 {
+      margin-bottom: $gap-21;
+    }
+    &--gap-23 {
+      margin-bottom: $gap-23;
+    }
+    &--gap-24 {
+      margin-bottom: $gap-24;
+    }
+    &--gap-30 {
+      margin-bottom: $gap-30;
     }
     &--period {
       display: flex;
@@ -80,8 +103,8 @@ $padding-sm: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .button__wrapper {
-      padding: 12px 18px 13px;
-    }
+    // .button__wrapper {
+    //   padding: 12px 18px 13px;
+    // }
   }
 }

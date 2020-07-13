@@ -20,11 +20,16 @@ block ui-kit-wrapper
 block content
   -
     var items = [
+      {title: 'Взрослые', count: 0, countWord: 'Гости'},
+      {title: 'Дети', count: 0, countWord: 'Гости'},
+      {title: 'Младенцы', count: 0},
+    ]
+    var itemsWithGuests = [
       {title: 'Взрослые', count: 2, countWord: 'Гости'},
       {title: 'Дети', count: 1, countWord: 'Гости'},
       {title: 'Младенцы', count: 0},
     ]
-  main.ui-kit-page
+  main.ui-kit-page.ui-kit-page--with-cards
     .container
       h1.visually-hidden Карточки
       .ui-kit-row
@@ -34,7 +39,7 @@ block content
               .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
                 +date-dropdown({split: true})
               .dialog__form-group.dialog__form-group--gap-xxl
-                +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+                +select-counter({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
               +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
           .card
             -
@@ -47,46 +52,46 @@ block content
                 ]
               }
             +dialog({title: "Регистрация аккаунта"})
-              .dialog__form-group.dialog__form-group--gap-xs
+              .dialog__form-group.dialog__form-group--gap-10
                 +input()(placeholder="Имя" name="user-name" required)
-              .dialog__form-group.dialog__form-group--gap-xs
+              .dialog__form-group.dialog__form-group--gap-10
                 +input()(placeholder="Фамилия" name="user-surname")
-              .dialog__form-group.dialog__form-group--gap-m
+              .dialog__form-group.dialog__form-group--gap-23
                 +radio-group(radioGroup)
 
-              .dialog__form-group.dialog__form-group--gap-xs
+              .dialog__form-group.dialog__form-group--gap-20
                 +input("Дата рождения")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
 
-              .dialog__form-group.dialog__form-group--gap-xs
+              .dialog__form-group.dialog__form-group--gap-10
                 +input("Данные для входа в сервис")(type="email" placeholder="Email" name="user-email" required)
-              .dialog__form-group.dialog__form-group--gap-xs
+              .dialog__form-group.dialog__form-group--gap-10
                 +input()(type="password" placeholder="Пароль" name="user-password" required)
-              .dialog__form-group.dialog__form-group--gap-m
+              .dialog__form-group.dialog__form-group--gap-23
                 +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
 
-              .dialog__form-group.dialog__form-group--gap-xxl
+              .dialog__form-group.dialog__form-group--gap-30
                 +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
 
               .dialog__form-message
-                p.dialog__text Уже есть аккаунт на Toxin?
-                +button({name: "Войти", type: "secondary", href: "/signin.html", size: "l"})
+                p.dialog__text Уже есть аккаунт на Toxin
+                +button({name: "Войти", type: "secondary", href: "/signin.html", size: "xl"})
         .ui-kit-column
           .card
             +dialog({number: "888", isLux: true, cost: 9990})
-              .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
+              .dialog__form-group.dialog__form-group--gap-21.dialog__form-group--period
                 +date-dropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
-              .dialog__form-group.dialog__form-group--gap-m
-                +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
-              .dialog__form-group.dialog__form-group--gap-xxl
+              .dialog__form-group.dialog__form-group--gap-10
+                +select-counter({items: itemsWithGuests, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+              .dialog__form-group.dialog__form-group--gap-10
                 +price({roomCost: 9990, days: 4, servicesCost: -2179, additional: 300})
               +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
           .card
             +dialog({title: "Войти"})
-              .dialog__form-group.dialog__form-group--gap-xs
+              .dialog__form-group.dialog__form-group--gap-10
                 +input()(type="email" placeholder="Email" name="user-email" required)
-              .dialog__form-group.dialog__form-group--gap-m
+              .dialog__form-group.dialog__form-group--gap-20
                 +input()(type="password" placeholder="Пароль" name="user-password" required)
-              .dialog__form-group.dialog__form-group--gap-xxl
+              .dialog__form-group.dialog__form-group--gap-30
                 +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
               .dialog__form-message
                 p.dialog__text Нет аккаунта на Toxin?

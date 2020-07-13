@@ -26,7 +26,7 @@ mixin price(data)
               | :&nbsp;скидка&nbsp;
               +numberWithSpaces(-servicesCost)
               | ₽
-            .price__hint.price__hint--gap-xxs
+            .price__hint.price__hint--gap-5
               +hint("Скидка на первую бронь за подписку")
         td.price__cell
           .price__cell-wrapper.price__cell-wrapper--aligned-right
@@ -38,7 +38,7 @@ mixin price(data)
       tr.price__row
         td.price__cell
           .price__cell-wrapper Сбор за дополнительные услуги
-            .price__hint.price__hint--gap-xxs
+            .price__hint.price__hint--gap-5
               +hint("Чаевые для персонала уже включены в счет")
         td.price__cell
           .price__cell-wrapper.price__cell-wrapper--aligned-right
@@ -47,9 +47,9 @@ mixin price(data)
     tfoot.price__total
       tr.price__row
         td.price__cell
-          .price__cell-wrapper.price__cell-wrapper--gap-m Итого
+          .price__cell-wrapper.price__cell-wrapper--gap-20 Итого
             span.price__dots
         td.price__cell
-          .price__cell-wrapper.price__cell-wrapper--aligned-right.price__cell-wrapper--gap-m
+          .price__cell-wrapper.price__cell-wrapper--aligned-right.price__cell-wrapper--gap-20
             +numberWithSpaces(total)
             | ₽

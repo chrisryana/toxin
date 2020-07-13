@@ -8,9 +8,9 @@ mixin dialog(dialogOptions)
         .dialog__title-wrapper
           h2.dialog__room-title
             | № 
-            span.dialog__room-number 888
+            span.dialog__room-number= number + " "
             if isLux
-              span.dialog__room-type= ` Люкс`
+              span.dialog__room-type Люкс
           span.dialog__room-cost 
             span.dialog__room-cost.dialog__room-cost--bold
               +numberWithSpaces(cost)

@@ -38,6 +38,15 @@
 }
 
 @font-face {
+  font-family: 'Open Sans';
+  src: url('../../assets/fonts/open-sans/opensansbold.ttf') format('truetype');
+  src: local('☺'), url('../../assets/fonts/open-sans/opensansbold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: 400;
@@ -65,7 +74,7 @@
 
 
 $font-primary: Montserrat, Arial, serif;
-$font-secondary: Quicksand, Arial, serif;
+$font-secondary: Quicksand, Open Sans, Arial, serif;
 
 $text-base-size: 14px;
 $text-xs: 10px;

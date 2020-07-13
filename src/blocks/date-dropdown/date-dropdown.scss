@@ -5,14 +5,14 @@
   &__item {
     flex-grow: 1;
     &--gap-m {
-      margin-right: $gap-m;
+      margin-right: 20px;
     }
   }
   &__input {
     font-size: $text-base-size;
     width: 100%;
     border-radius: 4px;
-    padding: 13px 15px;
+    padding: 13px 14px;
     border-width: 1px;
     border-style: solid;
     border-color: $text-color-25;
@@ -38,6 +38,7 @@
   }
   &__input-wrapper {
     position: relative;
+    margin-top: 1px;
     // чтобы при наведении на иконку оставались стили у инпута
     &:hover {
       .date-dropdown__input {
@@ -63,8 +64,8 @@
     border: none;
     background-color: transparent;
     position: absolute;
-    transform: translateY(-50%);
-    right: 13px;
+    transform: translateY(-44%);
+    right: 10px;
     top: 50%;
     transition: opacity .2s ease;
     color: $text-color-50;
@@ -83,6 +84,8 @@
     line-height: 1.25;
     font-weight: bold;
     color: $text-color;
+    display: block;
+    margin-bottom: 5px;
   }
   &__datepicker {
     position: absolute;
