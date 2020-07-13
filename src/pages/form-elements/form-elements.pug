@@ -79,30 +79,35 @@ block content
           .dialog__form-group.dialog__form-group--width-266
             +input("Subscription text field", subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
         .ui-kit-column.ui-kit-column--width-320
-          +filters-group("Checkbox Buttons")
-            +checkbox-list([
-              {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
-              {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
-              {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
-            ])
-          +filters-group("Radio Buttons")
-            +radio-group(radioGroup)
-          +filters-group("Toggle")
-            .dialog__form-group.dialog__form-group--gap-13
-              +switcher({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
-            +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
-          +filters-group("Like button")
-            .dialog__form-group.dialog__form-group--inline
-              .dialog__form-item.dialog__form-item--gap-10
-                +like-button({count: 2})
-              .dialog__form-item
-                +like-button({count: 12, liked: true})
-          +filters-group("Rate button")
-            .dialog__form-group.dialog__form-group--inline
-              .dialog__form-item.dialog__form-item--gap-20
-                +rate(4)
-              .dialog__form-item
-                +rate(5)
+          .dialog__form-group.dialog__form-group--gap-40
+            +filters-group("Checkbox Buttons")
+              +checkbox-list([
+                {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
+                {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
+                {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
+              ])
+          .dialog__form-group.dialog__form-group--gap-40
+            +filters-group("Radio Buttons")
+              +radio-group(radioGroup)
+          .dialog__form-group.dialog__form-group--gap-40
+            +filters-group("Toggle")
+              .dialog__form-group.dialog__form-group--gap-13
+                +switcher({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
+              +switcher({label: "Получать спецпредложения", name: "allow-notifications"})
+          .dialog__form-group.dialog__form-group--gap-40
+            +filters-group("Like button")
+              .dialog__form-group.dialog__form-group--inline
+                .dialog__form-item.dialog__form-item--gap-10
+                  +like-button({count: 2})
+                .dialog__form-item
+                  +like-button({count: 12, liked: true})
+          .dialog__form-group.dialog__form-group--gap-40
+            +filters-group("Rate button")
+              .dialog__form-group.dialog__form-group--inline
+                .dialog__form-item.dialog__form-item--gap-20
+                  +rate(4)
+                .dialog__form-item
+                  +rate(5)
         .ui-kit-column.ui-kit-column--width-320
           .dialog__form-group.dialog__form-group--width-266.dialog__form-group--gap-32
             +filters-group()
@@ -123,7 +128,8 @@ block content
                 +simple-button({name: "Click me"})
               .dialog__form-item
                 +simple-button({name: "Click me", type: "secondary"})
-            +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
+            .dialog__form-group.dialog__form-group--gap-40
+              +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
           +filters-group("Pagination")
             +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
       .ui-kit-row.ui-kit-row--gap-78

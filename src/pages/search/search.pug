@@ -35,24 +35,26 @@ block content
     .container
       .search-page__columns
         +filters("Фильтр комнат")
-          +filters-group()
+          .filters__item.filters__item--gap-20
             +date-dropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
-          +filters-group()
+          .filters__item.filters__item--gap-28
             +select-counter({items: guestItems, label: 'Гости', name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
-          +filters-group()
+          .filters__item.filters__item--gap-28
             +range-slider({label: "Диапазон цены", description: "Стоимость за сутки пребывания в номере", unit: "₽", from: 5000, to: 10000, max: 15000})
-          +filters-group("Условия размещения")
-            +checkbox-list([
-              {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
-              {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
-              {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
-            ])
-          +filters-group("Доступность")
-            +checkbox-list([
-              {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
-              {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper", checked: true},
-            ])
-          +filters-group()
+          .filters__item.filters__item--gap-30
+            +filters-group("Условия размещения")
+              +checkbox-list([
+                {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
+                {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
+                {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
+              ])
+          .filters__item.filters__item--gap-28
+            +filters-group("Доступность")
+              +checkbox-list([
+                {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+                {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper", checked: true},
+              ])
+          .filters__item.filters__item--gap-28
             +select-counter({items: roomItems, label: 'Удобства номера', name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
           +filters-group()
             details.filters__accordion(open)
