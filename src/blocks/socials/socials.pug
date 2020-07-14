@@ -7,7 +7,7 @@
 
 mixin getSocialItem(social)
   li.socials__item
-    a.socials__item-link(href= social.href)
+    a.socials__item-link(href= social.href target="_blank" rel="noopener noreferrer")
       i.fab(class= social.icon)
       span.visually-hidden= social.title
 
