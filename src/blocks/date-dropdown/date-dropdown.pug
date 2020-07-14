@@ -2,7 +2,7 @@ include ../calendar/calendar
 
 mixin date-dropdown(options)
   - var {start, end, startLabel= "Прибытие", endLabel= "Выезд", label= "Даты пребывания в отеле", split = false} = options
-  - var monthes = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
+  - var monthes = ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]
 
   if start && end
     - var startDD = start.getDate() < 10 ? `0${start.getDate()}` : start.getDate()

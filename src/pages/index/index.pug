@@ -14,20 +14,19 @@ block logo
 block content
   -
     var items = [
-      {title: 'Взрослые', count: 0, countWord: 'Гости'},
-      {title: 'Дети', count: 0, countWord: 'Гости'},
-      {title: 'Младенцы', count: 0},
+      {title: "Взрослые", count: 0, countWord: "Гости"},
+      {title: "Дети", count: 0, countWord: "Гости"},
+      {title: "Младенцы", count: 0},
     ]
   main.main-page
     .container
       .content-wrapper
         h1.visually-hidden Поиск номеров в отеле Токсин
         p.subtitle Лучшие номера для вашей работы, отдыха и просто вдохновения
-        section
-          +dialog({title: "Найдём номера под ваши пожелания"})
-            .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
-              +date-dropdown({split: true})
-            .dialog__form-group.dialog__form-group--gap-xxl
-              +select-counter({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
-            +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
+        +dialog({title: "Найдём номера под ваши пожелания"})
+          .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
+            +date-dropdown({split: true})
+          .dialog__form-group.dialog__form-group--gap-xxl
+            +select-counter({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+          +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
           

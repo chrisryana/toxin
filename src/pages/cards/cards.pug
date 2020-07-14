@@ -20,14 +20,14 @@ block ui-kit-wrapper
 block content
   -
     var items = [
-      {title: 'Взрослые', count: 0, countWord: 'Гости'},
-      {title: 'Дети', count: 0, countWord: 'Гости'},
-      {title: 'Младенцы', count: 0},
+      {title: "Взрослые", count: 0, countWord: "Гости"},
+      {title: "Дети", count: 0, countWord: "Гости"},
+      {title: "Младенцы", count: 0},
     ]
     var itemsWithGuests = [
-      {title: 'Взрослые', count: 2, countWord: 'Гости'},
-      {title: 'Дети', count: 1, countWord: 'Гости'},
-      {title: 'Младенцы', count: 0},
+      {title: "Взрослые", count: 2, countWord: "Гости"},
+      {title: "Дети", count: 1, countWord: "Гости"},
+      {title: "Младенцы", count: 0},
     ]
   main.ui-kit-page.ui-kit-page--with-cards
     .container
@@ -100,6 +100,6 @@ block content
           .card
             +calendar()
           .card.card--with-room
-            +roomCard({imgList: ['../../assets/img/888/1-sm.jpg', '../../assets/img/888/2-sm.jpg', '../../assets/img/888/3-sm.jpg', '../../assets/img/888/2-sm.jpg'], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
+            +roomCard({imgList: ["../../assets/img/888/1-sm.jpg", "../../assets/img/888/2-sm.jpg", "../../assets/img/888/3-sm.jpg", "../../assets/img/888/2-sm.jpg"], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
           .card.card--with-room
-            +roomCard({imgList: ['../../assets/img/rooms/840.jpg', '../../assets/img/rooms/840.jpg', '../../assets/img/rooms/840.jpg', '../../assets/img/rooms/840.jpg'], number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65})
+            +roomCard({imgList: ["../../assets/img/rooms/840.jpg", "../../assets/img/rooms/840.jpg", "../../assets/img/rooms/840.jpg", "../../assets/img/rooms/840.jpg"], number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65})

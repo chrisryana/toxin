@@ -88,7 +88,7 @@ block content
               h2.description-block__title Отзывы посетителей номера
                 span.description-block__counter
                   = `${comments.length} `
-                  +declOfNum(comments.length, ['отзыв', 'отзыва', 'отзывов'])
+                  +declOfNum(comments.length, ["отзыв", "отзыва", "отзывов"])
               ul.comments-list
                 for comment in comments
                   li.comments-list__item
@@ -113,9 +113,9 @@ block content
           - var maxDate = `${todayYY + 1}-${todayMM}-${todayDD}`
           -
             var items = [
-              {title: 'Взрослые', count: 2, countWord: 'Гости'},
-              {title: 'Дети', count: 1, countWord: 'Гости'},
-              {title: 'Младенцы', count: 0},
+              {title: "Взрослые", count: 2, countWord: "Гости"},
+              {title: "Дети", count: 1, countWord: "Гости"},
+              {title: "Младенцы", count: 0},
             ]
           .room-description__card.room-description__card--fixed
             +dialog({number: "888", isLux: true, cost: 9990})

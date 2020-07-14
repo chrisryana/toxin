@@ -3,10 +3,10 @@ include ../simple-button/simple-button
 include ../../mixins
 
 mixin select-counter(options)
-  - var {items = [], label = '', name = '', required = false, placeholder = '', withButtons = false, inline = false} = options
+  - var {items = [], label = "", name = "", required = false, placeholder = "", withButtons = false, inline = false} = options
   - var isEachCountNull = true
   - var countData = []
-  - var countString = ''
+  - var countString = ""
   - var filteredItems = items.filter((item) => item.count !== 0)
 
   -
@@ -16,11 +16,11 @@ mixin select-counter(options)
   -
     function findDeclArray(word) {
       const dictionary = {
-        'Гости': ['Гость', 'Гостя', 'Гостей'],
-        'Младенцы': ['Младенец', 'Младенца', 'Младенцев'],
-        'Спальни': ['Спальня', 'Спальни', 'Спален'],
-        'Кровати': ['Кровать', 'Кровати', 'Кроватей'],
-        'Ванные комнаты': ['Ванная комната', 'Ванные комнаты', 'Ванных комнат'],
+        "Гости": ["Гость", "Гостя", "Гостей"],
+        "Младенцы": ["Младенец", "Младенца", "Младенцев"],
+        "Спальни": ["Спальня", "Спальни", "Спален"],
+        "Кровати": ["Кровать", "Кровати", "Кроватей"],
+        "Ванные комнаты": ["Ванная комната", "Ванные комнаты", "Ванных комнат"],
       };
       return dictionary[word];
     }
@@ -46,7 +46,7 @@ mixin select-counter(options)
         return index === (filteredCountData.length - 1)
           ? `${string}${stringOfCount}`
           : `${string}${stringOfCount}, `;
-      }, '')
+      }, "")
       countString = countString.toLowerCase()
   -
     var selectClass = "select-counter"
@@ -57,11 +57,11 @@ mixin select-counter(options)
       itemsClass += " select-counter__items--inline"
 
   div(class= selectClass)
-    +input(label, {title: 'Показать элементы для выбора', icon: 'expand_more', type: 'button'})(placeholder= placeholder name= name required= required value= countString || 'Сколько гостей')
+    +input(label, {title: "Показать элементы для выбора", icon: "expand_more", type: "button"})(placeholder= placeholder name= name required= required value= countString || "Сколько гостей")
     div(class= itemsClass)
       ul.select-counter__items-list
         for item, index in items
-          li.select-counter__item(data-countword= item.countWord || '' data-index= index)
+          li.select-counter__item(data-countword= item.countWord || "" data-index= index)
             span.select-counter__item-word= item.title
             .select-counter__item-controls
               button.select-counter__item-button(type="button" data-action="desc" disabled= item.count === 0) -
@@ -73,6 +73,6 @@ mixin select-counter(options)
           if isEachCountNull
             - clearClasses = `${clearClasses} select-counter__footer-button--hide`
           div(class= clearClasses)
-            +simple-button({name: 'Очистить', type: 'secondary'})(data-action="clear-select")
+            +simple-button({name: "Очистить", type: "secondary"})(data-action="clear-select")
           .select-counter__footer-button.select-counter__footer-button--right
-            +simple-button({name: 'Применить'})(data-action="apply-select" disabled= isEachCountNull)
+            +simple-button({name: "Применить"})(data-action="apply-select" disabled= isEachCountNull)

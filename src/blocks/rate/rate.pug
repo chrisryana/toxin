@@ -4,9 +4,9 @@ mixin rate(rate)
   .rate
     span.visually-hidden
       = `${rate} `
-      +declOfNum(rate, ['звезда', 'звезды', 'звезд'])
+      +declOfNum(rate, ["звезда", "звезды", "звезд"])
       |  из 5
     - for (var i = 0; i < 5; i++)
-      - var icon = i < rate ? 'star' : 'star_border';
+      - var icon = i < rate ? "star" : "star_border";
       span.rate__item
         i.material-icons= icon

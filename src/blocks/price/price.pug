@@ -13,7 +13,7 @@ mixin price(data)
           .price__cell-wrapper
             +numberWithSpaces(roomCost)
             = `₽ х ${days} `
-            +declOfNum(days, ['сутки', 'суток', 'суток'])
+            +declOfNum(days, ["сутки", "суток", "суток"])
         td.price__cell
           .price__cell-wrapper.price__cell-wrapper--aligned-right
             +numberWithSpaces(totalRoomCost)
