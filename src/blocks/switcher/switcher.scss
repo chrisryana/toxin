@@ -57,7 +57,6 @@ $circle-radius: calc(#{$circle-size} * 2);
       bottom: $switcher-padding;
       left: $switcher-padding;
       width: $circle-size;
-      display: block;
       background-color: $text-color-25;
       border-radius: $circle-radius;
       transition: left .2s, width .3s, transform .2s;

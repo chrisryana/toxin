@@ -89,7 +89,7 @@
     }
     
   }
-  &__label {
+  &__title {
     font-size: $text-sm;
     text-transform: uppercase;
     line-height: 1.25;
@@ -97,7 +97,6 @@
     color: $text-color;
     margin-bottom: 2px;
     margin-bottom: 5px;
-    display: block;
   }
 }
 

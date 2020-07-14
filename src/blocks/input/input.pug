@@ -1,7 +1,7 @@
 mixin input(label, buttonAttributes)
   .form-group
     label.form-group__wrapper
-      span(class= label ? "form-group__title" : "visually-hidden")= label
+      div(class= label ? "form-group__title" : "visually-hidden")= label
       .input-wrapper
         input.form-group__input(class= buttonAttributes && "form-group__input--with-icon")&attributes(attributes)
         if buttonAttributes

@@ -3,9 +3,9 @@ mixin checkbox(checkboxOptions)
 
   label.checkbox(class= details ? "checkbox--with-details" : "")
     input.visually-hidden.checkbox__input(type="checkbox" name= name checked= checked value= value)
-    span.checkbox__indicator
-      span.checkbox__mark
-    span.checkbox__description
+    .checkbox__indicator
+      .checkbox__mark
+    .checkbox__description
       != label
       if details
-        span.checkbox__details!= details
+        p.checkbox__details!= details
