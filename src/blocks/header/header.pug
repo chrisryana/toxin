@@ -3,10 +3,18 @@ include ../button/button
 -
   var navItems = [
     { title: "О нас", href: "javascript:void(0)" },
-    { title: "Услуги", href: "javascript:void(0)", children: [] },
+    { title: "Услуги", href: "javascript:void(0)", children: [
+      { title: "Баня и сауна", href: "javascript:void(0)" },
+      { title: "SPA-программа", href: "javascript:void(0)" },
+      { title: "Массаж", href: "javascript:void(0)" },
+      { title: "Бассейн", href: "javascript:void(0)" },
+    ] },
     { title: "Вакансии", href: "javascript:void(0)" },
     { title: "Новости", href: "javascript:void(0)" },
-    { title: "Соглашения", href: "javascript:void(0)", children: [] },
+    { title: "Соглашения", href: "javascript:void(0)", children: [
+      { title: "Соглашение об обработке персональных данных", href: "javascript:void(0)" },
+      { title: "Публичная оферта", href: "javascript:void(0)" },
+    ] },
   ]
 
 if currentPage
@@ -25,13 +33,20 @@ mixin getNavigationItem(navItem)
       .site-navigation__item-link= navItem.title
         if navItem.children
           i.material-icons expand_more
+          //- ul.site-navigation__dropdown
+            for child in navItem.children
+              li.site-navigation__dropdown-item
+                a.site-navigation__dropdown-link(href= child.href)= child.title
     else
       a.site-navigation__item-link(href= navItem.href)= navItem.title
-        if navItem.children
-          i.material-icons expand_more
+    if navItem.children
+      ul.site-navigation__dropdown
+        for child in navItem.children
+          li.site-navigation__dropdown-item
+            a.site-navigation__dropdown-link(href= child.href)= child.title
 
 mixin getNavigation(navItems)
-  ul.header__site-navigation
+  ul.header__site-navigation.site-navigation
     for navItem in navItems
       +getNavigationItem(navItem)
 

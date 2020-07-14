@@ -1,5 +1,6 @@
 import '../../blocks/date-dropdown/date-dropdown';
 import '../../blocks/select-counter/select-counter';
+import '../../blocks/header/header';
 import './index.scss';
 
 
