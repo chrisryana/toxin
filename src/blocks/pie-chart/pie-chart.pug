@@ -7,7 +7,7 @@ mixin pie-chart(votes)
   - var totalCount = perfect + good + satisfactorily + bad
   .pie-chart
     .pie-chart__group
-      svg.pie-chart__chart(width="120" height="120" viewbox="0 0 34 34" fill="none" stroke-width="1")
+      svg.pie-chart__chart(width="124" height="124" viewbox="0 0 34 34" fill="none" stroke-width="1")
         defs
           linearGradient(id="satisfactorily" x1="0%" y1="0%" x2="0%" y2="100%")
             stop(offset="0%" stop-color="#BC9CFF")
@@ -24,7 +24,7 @@ mixin pie-chart(votes)
         - var previosOffset = 0
         each value, voteType in orderedVotes
           if value !== 0
-            - var gap = 2
+            - var gap = 1
             - var dash = value * 100 / totalCount - gap / 2
             circle.pie-chart__unit(r="15.9" stroke=`url(#${voteType})` stroke-dasharray=`${dash} 100` stroke-dashoffset= previosOffset cx="50%" cy="50%")
             - previosOffset = previosOffset - dash - gap / 2

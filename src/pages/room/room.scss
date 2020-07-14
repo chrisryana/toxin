@@ -12,32 +12,57 @@
 .room-description {
   display: flex;
   &__column {
-    padding: 70px 0;
+    padding: 70px 0 63px;
+    margin-right: 70px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   &__group {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     &:last-child {
       margin-bottom: 0;
     }
   }
   &__item {
     flex: 1;
-    margin-right: 70px;
+    margin-right: 12px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__card {
+    &--fixed {
+      position: sticky;
+      top: 0;
+    }
   }
 
   .description-block {
+    &--width-292 {
+      max-width: 292px;
+    }
+    &--width-341 {
+      max-width: 341px;
+    }
+    &--gap-70 {
+      margin-right: 70px;
+    }
     &__title {
       font-family: $font-secondary;
       font-size: $text-md;
       font-weight: bold;
-      margin-bottom: $gap-m;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       &--gap-m {
         padding-left: $gap-m;
       }
+    }
+    &__paragraph {
+      line-height: 1.7;
     }
     &__counter {
       color: $text-color-50;

@@ -14,7 +14,6 @@
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: $text-sm;
     font-weight: bold;
     line-height: 1.2;
     color: $color-primary;
@@ -27,7 +26,7 @@
     font-size: $text-lg;
   }
   &__legend {
-    margin-left: 30px;
+    margin-left: 26px;
   }
   &__legend-item {
     position: relative;
@@ -35,7 +34,7 @@
     &:before {
       content: '';
       position: absolute;
-      top: 8px;
+      top: 7px;
       left: 0;
       width: 10px;
       height: 10px;

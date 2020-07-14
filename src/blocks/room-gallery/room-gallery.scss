@@ -1,3 +1,6 @@
+$gallery-height: 485px;
+$gallery-width: 100vw;
+
 .room-gallery {
   &__list {
     margin: 0;
@@ -6,26 +9,26 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 484px;
-    max-width: 100vw;
+    height: $gallery-height;
+    max-width: $gallery-width;
   }
   &__item {
     flex-grow: 1;
-    max-width: 32vw;
-    max-height: 242px;
+    max-width: calc(#{$gallery-width} / 3);
+    max-height: calc(#{$gallery-height} / 2);
     overflow: hidden;
     &--current {
       max-height: 100%;
-      max-width: 68vw;
+      max-width: calc(#{$gallery-width} / 3 * 2);
       // flex-grow: 2;
     }
   }
   &__item-img {
     height: 100%;
     object-fit: cover;
-    transition: transform .4s ease;
-    &:hover {
-      transform: scale(1.05);
-    }
+    // transition: transform .4s ease;
+    // &:hover {
+    //   transform: scale(1.05);
+    // }
   }
 }

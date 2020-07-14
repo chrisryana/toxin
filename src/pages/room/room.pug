@@ -32,7 +32,7 @@ block content
     var rules = [
       "Нельзя с питомцами",
       "Без вечеринок и мероприятий",
-      "Время прибытия — после 13:00, а выезд до 12:00"
+      "Время прибытия — после 13:00, а&#160;выезд до 12:00"
     ]
   -
     var features = [
@@ -95,10 +95,10 @@ block content
                     +comment(comment)
 
           .room-description__group
-            section.room-description__item.description-block
+            section.room-description__item.description-block.description-block--width-292.description-block--gap-70
               h2.description-block__title.description-block__title--gap-m Правила
               +bullet-list(rules)
-            section.room-description__item.description-block
+            section.room-description__item.description-block.description-block--width-341
               h2.description-block__title Отмена
               p.description-block__paragraph
                 | Бесплатная отмена в течение 48 ч. 
@@ -117,12 +117,12 @@ block content
               {title: 'Дети', count: 1, countWord: 'Гости'},
               {title: 'Младенцы', count: 0},
             ]
-
-          +dialog({number: "888", isLux: true, cost: 9990})
-            .dialog__form-group.dialog__form-group--gap-m.dialog__form-group--period
-              +date-dropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
-            .dialog__form-group.dialog__form-group--gap-m
-              +select-counter({items, name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
-            .dialog__form-group.dialog__form-group--gap-xxl
-              +price({roomCost: 9990, days: 4, servicesCost: -2179, additional: 300})
-            +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
+          .room-description__card.room-description__card--fixed
+            +dialog({number: "888", isLux: true, cost: 9990})
+              .dialog__form-group.dialog__form-group--gap-21.dialog__form-group--period
+                +date-dropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+              .dialog__form-group.dialog__form-group--gap-10
+                +select-counter({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+              .dialog__form-group.dialog__form-group--gap-10
+                +price({roomCost: 9990, days: 4, servicesCost: -2179, additional: 300})
+              +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
