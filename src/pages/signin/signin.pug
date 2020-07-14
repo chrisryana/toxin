@@ -10,15 +10,15 @@ block logo
   - var isMainPage = false
 
 block content
-  main.start-account-page
+  main.start-account-page.start-account-page--with-small-card
     h1.visually-hidden Вход в аккаунт Toxin
     .container
       +dialog({title: "Войти"})
-        .dialog__form-group.dialog__form-group--gap-xs
+        .dialog__form-group.dialog__form-group--gap-10
           +input()(type="email" placeholder="Email" name="user-email" required)
-        .dialog__form-group.dialog__form-group--gap-m
+        .dialog__form-group.dialog__form-group--gap-20
           +input()(type="password" placeholder="Пароль" name="user-password" required)
-        .dialog__form-group.dialog__form-group--gap-xxl
+        .dialog__form-group.dialog__form-group--gap-30
           +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
         .dialog__form-message
           p.dialog__text Нет аккаунта на Toxin?

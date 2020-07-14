@@ -22,4 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &--with-small-card {
+    min-height: 702px;
+  }
 }
