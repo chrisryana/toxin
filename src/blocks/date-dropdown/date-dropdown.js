@@ -21,7 +21,7 @@ function initCalendarToggler(datepickerArea) {
   })
   
   for (let i = 0; i < inputs.length; i++) {
-    $(inputs).eq(i).find('.date-dropdown__input').on('focus', function(e) {$(this).blur()});
+    $(inputs).eq(i).find('.date-dropdown__input').on('focus', function(e) {$(e.currentTarget).blur()});
   }
 
   const toggleDatepicker = (action) => {

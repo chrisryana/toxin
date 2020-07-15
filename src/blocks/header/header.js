@@ -4,10 +4,10 @@ $('.site-navigation__item')
   .on('mouseleave', hideMenu);
 
 function showMenu(e) {
-  $('.site-navigation__dropdown', $(this)).fadeIn(100);
+  $('.site-navigation__dropdown', $(e.currentTarget)).fadeIn(100);
 }
 
 function hideMenu(e) {
   // TODO: пофиксить моргания
-  $('.site-navigation__dropdown', $(this)).delay(300).fadeOut(100);
+  $('.site-navigation__dropdown', $(e.currentTarget)).delay(300).fadeOut(100);
 }

@@ -5,7 +5,7 @@ const selects = $('.select-counter');
 
 function initSelectCounter(select) {
   $(select).on('click', showDropdown);
-  $('.form-group__input', $(select)).on('focus', function(e) {$(this).blur()});
+  $('.form-group__input', $(select)).on('focus', function(e) {$(e.currentTarget).blur()});
 
   let items = [
     // example:
@@ -47,10 +47,10 @@ function initSelectCounter(select) {
   
   function showDropdown(e) {
     target = e.target;
-    if (!$(this).hasClass('select-counter--expanded')) {
-      $(this).addClass('select-counter--expanded');
+    if (!$(e.currentTarget).hasClass('select-counter--expanded')) {
+      $(e.currentTarget).addClass('select-counter--expanded');
       $(document).on('click', hideDropdown);
-      addChangeEvents($(this))
+      addChangeEvents($(e.currentTarget))
     }
   }
   
@@ -67,16 +67,16 @@ function initSelectCounter(select) {
   }
   
   function handleChangeCount(e) {
-    const liElement = $(this).closest('.select-counter__item');
-    const isHaveFooterButtons = !!$(this).closest('.select-counter__items').find('.select-counter__items-footer').length;
+    const liElement = $(e.currentTarget).closest('.select-counter__item');
+    const isHaveFooterButtons = !!$(e.currentTarget).closest('.select-counter__items').find('.select-counter__items-footer').length;
     const liIndex = liElement.attr('data-index');
-    const countType = $(this).attr('data-action'); // asc | desc
+    const countType = $(e.currentTarget).attr('data-action'); // asc | desc
     items[liIndex].count = countType === 'asc' ? items[liIndex].count + 1 : items[liIndex].count - 1;
   
     refreshItemCount(liElement, items[liIndex].count);
   
     if (isHaveFooterButtons) {
-      verifyButtons($(this), items);
+      verifyButtons($(e.currentTarget), items);
     } else {
       applyValues(e);
     }
@@ -124,7 +124,7 @@ function initSelectCounter(select) {
   }
   
   function clearValues(e) {
-    const liElements = $(this)
+    const liElements = $(e.currentTarget)
       .closest('.select-counter__items')
       .find('.select-counter__item');
   
@@ -133,7 +133,7 @@ function initSelectCounter(select) {
       refreshItemCount($(liElements[index]), dataItem.count);
     });
   
-    verifyButtons($(this), items);
+    verifyButtons($(e.currentTarget), items);
   }
   
   function applyValues(e) {
