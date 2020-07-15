@@ -28,19 +28,15 @@ if currentPage
     })
 
 mixin getNavigationItem(navItem)
-  li(class= navItem.active ? "site-navigation__item site-navigation__item--active" : "site-navigation__item")
+  li(class= navItem.active ? "site-navigation__item js-site-navigation__item site-navigation__item--active" : "site-navigation__item js-site-navigation__item")
     if navItem.active || navItem.children
       .site-navigation__item-link= navItem.title
         if navItem.children
           i.material-icons expand_more
-          //- ul.site-navigation__dropdown
-            for child in navItem.children
-              li.site-navigation__dropdown-item
-                a.site-navigation__dropdown-link(href= child.href)= child.title
     else
       a.site-navigation__item-link(href= navItem.href)= navItem.title
     if navItem.children
-      ul.site-navigation__dropdown
+      ul.site-navigation__dropdown.js-site-navigation__dropdown
         for child in navItem.children
           li.site-navigation__dropdown-item
             a.site-navigation__dropdown-link(href= child.href)= child.title

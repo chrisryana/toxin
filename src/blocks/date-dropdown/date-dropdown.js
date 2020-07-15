@@ -1,14 +1,14 @@
-const dropdowns = $('.date-dropdown');
-[...dropdowns].forEach((dropdown) => {initCalendarToggler(dropdown)});
+const $dropdowns = $('.js-date-dropdown');
+[...$dropdowns].forEach((dropdown) => {initCalendarToggler(dropdown)});
 
 
 function initCalendarToggler(datepickerArea) {
   const actions = { close: 'close', open: 'open'};
 
-  const inputs = $(datepickerArea).find('.date-dropdown__input-wrapper');
-  const inputButtons = $(datepickerArea).find('.date-dropdown__button');
+  const $inputs = $(datepickerArea).find('.date-dropdown__input-wrapper');
+  const $inputButtons = $(datepickerArea).find('.date-dropdown__button');
 
-  inputButtons.on('keydown', (e) => {
+  $inputButtons.on('keydown', (e) => {
     if (e.keyCode === 13 && $(datepickerArea).is(':hidden')) {
       toggleDatepicker(actions.open);
     }
@@ -20,18 +20,18 @@ function initCalendarToggler(datepickerArea) {
     }
   })
   
-  for (let i = 0; i < inputs.length; i++) {
-    $(inputs).eq(i).find('.date-dropdown__input').on('focus', function(e) {$(e.currentTarget).blur()});
+  for (let i = 0; i < $inputs.length; i++) {
+    $($inputs).eq(i).find('.date-dropdown__input').on('focus', function(e) {$(e.currentTarget).blur()});
   }
 
   const toggleDatepicker = (action) => {
-    const datepicker = $(datepickerArea).find('.calendar');
+    const $datepicker = $(datepickerArea).find('.calendar');
     if (action === actions.open) {
-      datepicker.fadeIn(100);
+      $datepicker.fadeIn(100);
       $(document).on('click', onOutsideCalendarClick);
     }
     if (action === actions.close) {
-      datepicker.fadeOut(100);
+      $datepicker.fadeOut(100);
       $(document).off('click', onOutsideCalendarClick);
     }
   }
@@ -52,11 +52,11 @@ function initCalendarToggler(datepickerArea) {
   
   toggleDatepicker(actions.close);
   
-  inputs.on('click', (e) => {
+  $inputs.on('click', (e) => {
     e.preventDefault();
-    const datepicker = $(datepickerArea).find('.calendar');
+    const $datepicker = $(datepickerArea).find('.calendar');
 
-    if (!datepicker || $(datepicker).is(':hidden')) {
+    if (!$datepicker || $($datepicker).is(':hidden')) {
       toggleDatepicker(actions.open);
     }
   });

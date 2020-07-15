@@ -28,7 +28,7 @@ mixin date-dropdown(options)
       ? [{label: startLabel, value: startDateString}, {label: endLabel, value: endDateString}]
       : [{label: label, value: periodDateString}]
 
-  .date-dropdown
+  .date-dropdown.js-date-dropdown
     for inputDataItem, index in inputsData
       .date-dropdown__item(class= (index === inputsData.length - 1) ? "" : "date-dropdown__item--gap-m")
         label.date-dropdown__wrapper

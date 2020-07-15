@@ -1,5 +1,5 @@
-const selects = $('.select-counter');
-[...selects].forEach((select) => {initSelectCounter(select)})
+const $selects = $('.js-select-counter');
+[...$selects].forEach((select) => {initSelectCounter(select)})
 
 
 
@@ -46,7 +46,6 @@ function initSelectCounter(select) {
   }
   
   function showDropdown(e) {
-    target = e.target;
     if (!$(e.currentTarget).hasClass('select-counter--expanded')) {
       $(e.currentTarget).addClass('select-counter--expanded');
       $(document).on('click', hideDropdown);
@@ -55,8 +54,8 @@ function initSelectCounter(select) {
   }
   
   function initValues(el) {
-    const liElements = [...$('.select-counter__item', $(el))];
-    liElements.forEach((li) => {
+    const $liElements = [...$('.select-counter__item', $(el))];
+    $liElements.forEach((li) => {
       const itemData = {};
       itemData.title = $('.select-counter__item-word', $(li)).text();
       itemData.count = Number($('.select-counter__item-count', $(li)).text());
@@ -83,54 +82,54 @@ function initSelectCounter(select) {
   }
   
   function verifyButtons(el, itemsData) {
-    const clearButton = $(el).closest('.select-counter__items').find('.simple-button[data-action="clear-select"]');
-    const clearButtonWrapper = clearButton.parent();
-    const applyButton = $(el).closest('.select-counter__items').find('.simple-button[data-action="apply-select"]');
+    const $clearButton = $(el).closest('.select-counter__items').find('.simple-button[data-action="clear-select"]');
+    const clearButtonWrapper = $clearButton.parent();
+    const $applyButton = $(el).closest('.select-counter__items').find('.simple-button[data-action="apply-select"]');
     const isEveryEmpty = itemsData.every((item) => item.count === 0);
     if (isEveryEmpty) {
       if (!clearButtonWrapper.hasClass('select-counter__footer-button--hide')) {
         clearButtonWrapper.addClass('select-counter__footer-button--hide');
       }
-      applyButton.prop('disabled', true);
+      $applyButton.prop('disabled', true);
     } else {
       clearButtonWrapper.removeClass('select-counter__footer-button--hide');
-      applyButton.prop('disabled', false);
+      $applyButton.prop('disabled', false);
     }
   }
   
   function refreshItemCount(liElement, value) {
-    const descButton = $('.select-counter__item-button[data-action="desc"]', $(liElement));
-    const ascButton = $('.select-counter__item-button[data-action="asc"]', $(liElement));
+    const $descButton = $('.select-counter__item-button[data-action="desc"]', $(liElement));
+    const $ascButton = $('.select-counter__item-button[data-action="asc"]', $(liElement));
     if (value === 0) {
-      descButton.prop('disabled', true);
-      ascButton.prop('disabled', false);
+      $descButton.prop('disabled', true);
+      $ascButton.prop('disabled', false);
     }
     if (value >= 5) {
-      descButton.prop('disabled', false);
-      ascButton.prop('disabled', true);
+      $descButton.prop('disabled', false);
+      $ascButton.prop('disabled', true);
     }
     if (value > 0 && value < 5) {
-      descButton.prop('disabled', false);
-      ascButton.prop('disabled', false);
+      $descButton.prop('disabled', false);
+      $ascButton.prop('disabled', false);
     }
     $('.select-counter__item-count', $(liElement)).text(value);
   }
   
   function resetItemCountInitial() {
-    const liElements = $('.select-counter__item', $(select));
+    const $liElements = $('.select-counter__item', $(select));
     initialItems.forEach((initValue, index) => {
-      refreshItemCount($(liElements[index]), initValue.count);
+      refreshItemCount($($liElements[index]), initValue.count);
     })
   }
   
   function clearValues(e) {
-    const liElements = $(e.currentTarget)
+    const $liElements = $(e.currentTarget)
       .closest('.select-counter__items')
       .find('.select-counter__item');
   
     items.forEach((dataItem, index) => {
       dataItem.count = 0;
-      refreshItemCount($(liElements[index]), dataItem.count);
+      refreshItemCount($($liElements[index]), dataItem.count);
     });
   
     verifyButtons($(e.currentTarget), items);
