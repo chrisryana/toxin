@@ -76,10 +76,11 @@ module.exports = {
     {
       test: /\.(png|jpe?g|gif|svg)?$/,
       loader: 'file-loader',
+      exclude: '/src/assets/fonts/',
       options: {
         name: '[name].[ext]'
       }
-    }, 
+    },
     {
       test: /\.scss$/,
       use: [
@@ -127,9 +128,10 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-      { from: `${PATHS.src}/${PATHS.assets}img/favicon.ico`, to: '' },
-      // { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+      // { from: `${PATHS.src}/${PATHS.assets}img/favicon.ico`, to: '' },
+      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
+      { from: `${PATHS.src}/favicons`, to: `favicons` },
     ]),
     ...PAGES.map((page, index) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${page}`,
