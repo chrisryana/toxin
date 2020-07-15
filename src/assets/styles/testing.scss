@@ -1,0 +1,20 @@
+// 
+// п.11 элементы у которых нет класса
+body *:not([class]) {
+  border: 3px solid red;
+}
+
+// п.10 элементы у которых есть id
+[id] {
+  border: 3px solid blue;
+}
+
+// п.13 изображения без alt
+img:not([alt]) {
+  border: 3px solid green;
+}
+
+// п.20 Никогда не допускать вложенные формы <form>
+form form {
+  border: 3px solid aquamarine;
+}
