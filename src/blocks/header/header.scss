@@ -22,21 +22,24 @@
     &__item {
       padding: 0 10px;
       position: relative;
-      &-link {
-        transition: color .2s ease;
-        display: flex;
-        align-items: flex-end;
-        cursor: pointer;
-        &:hover {
-          color: $text-color-75;
-        }
-      }
       &--active {
         font-weight: bold;
         color: $text-color-75;
         .site-navigation__item-link {
           cursor: initial;
         }
+      }
+    }
+    &__item-link {
+      transition: color .2s ease;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      &:hover {
+        color: $text-color-75;
+      }
+      &:visited {
+        color: $color-secondary;
       }
     }
     &__dropdown {
@@ -60,6 +63,9 @@
       &:hover {
         background-color: $color-primary-light;
         color: $text-color-75;
+      }
+      &:visited {
+        color: $color-secondary;
       }
     }
   }

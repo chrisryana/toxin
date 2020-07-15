@@ -8,12 +8,15 @@
     &:hover {
       transform: scale(1.2);
     }
-    &-link {
-      font-size: 24px;
-      background: $gradient-primary;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    &:visited {
+      color: $color-secondary;
     }
+  }
+  &__item-link {
+    font-size: 24px;
+    background: $gradient-primary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
