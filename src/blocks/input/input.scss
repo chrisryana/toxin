@@ -32,19 +32,19 @@
   }
   &__input {
     height: 44px;
-    &[type="date"] {
+    &[type='date'] {
       text-transform: uppercase;
       &::-webkit-inner-spin-button,
       &::-webkit-calendar-picker-indicator {
         display: none;
       }
     }
-    &[type="number"] {
+    &[type='number'] {
       &::-webkit-inner-spin-button {
           -webkit-appearance: none;
       }
     }
-    &[type="password"] {
+    &[type='password'] {
       &::-ms-reveal {
         display: none;
       }

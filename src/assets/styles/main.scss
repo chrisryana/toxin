@@ -1,7 +1,8 @@
-@import "~normalize.css";
-@import "theme/fonts";
-@import "theme/colors";
-@import "theme/spaces";
+@import '~normalize.css';
+@import 'theme/fonts';
+@import 'theme/colors';
+@import 'theme/spaces';
+@import 'testing';
 
 
 body {
@@ -63,8 +64,8 @@ main {
 }
 
 .visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
 	position: absolute;
 	width: 1px;
 	height: 1px;

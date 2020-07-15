@@ -30,10 +30,10 @@
       opacity: .5;
       background-color: transparent;
     }
-    &[data-action="prev"] {
+    &[data-action='prev'] {
       justify-content: flex-start;
     }
-    &[data-action="next"] {
+    &[data-action='next'] {
       justify-content: flex-end;
     }
   }
@@ -74,7 +74,7 @@
       background: $gradient-primary-light;
       border: none;
     }
-    &.-focus-:not([class^="-range-"], .-selected-) {
+    &.-focus-:not([class^='-range-'], .-selected-) {
       background: transparent;
       border: none;
     }
