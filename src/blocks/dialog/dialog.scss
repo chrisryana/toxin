@@ -132,8 +132,14 @@ $padding-sm: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // .button__wrapper {
-    //   padding: 12px 18px 13px;
-    // }
+  }
+  &__text {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .dialog {
+    width: auto;
   }
 }
