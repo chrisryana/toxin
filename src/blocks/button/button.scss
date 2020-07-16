@@ -29,6 +29,8 @@
   }
   &__wrapper {
     border-radius: calc(#{$border-radius} - #{$border-width});
+    width: 100%;
+    text-align: center;
   }
   &--primary {
     color: #fff;
@@ -51,17 +53,12 @@
   }
   &--size-m {
     .button__wrapper {
-      padding: 7px 18px 8px;
+      padding: 0.6em 1.5em 0.7em;
     }
   }
   &--size-l {
     .button__wrapper {
-      padding: 12px 18px 13px;
-    }
-  }
-  &--size-xl {
-    .button__wrapper {
-      padding: 12px 24px 13px;
+      padding: 1.04em 2.03em 1.05em;
     }
   }
 }
