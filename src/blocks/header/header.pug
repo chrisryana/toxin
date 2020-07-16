@@ -1,4 +1,5 @@
 include ../button/button
+include ../hamburger-menu/hamburger-menu
 
 -
   var navItems = [
@@ -59,3 +60,17 @@ header.header
             +button({name: "Войти", type: "secondary", href: "/signin.html"})
           li.user-navigation__item
             +button({name: "Зарегистрироваться", href: "/registration.html"})
+    nav.header__navigation.header__navigation--for-mobile
+      .header__row.header__row--mobile
+        include ../logo/logo
+        +hamburger-menu()
+      .header__navigation-wrapper
+        +getNavigation(navItems)
+        if user
+          .header__user= user
+        else
+          ul.header__user-navigation
+            li.user-navigation__item
+              +button({name: "Войти", type: "secondary", href: "/signin.html"})
+            li.user-navigation__item
+              +button({name: "Зарегистрироваться", href: "/registration.html"})

@@ -2,17 +2,21 @@
 @import 'theme/fonts';
 @import 'theme/colors';
 @import 'theme/spaces';
-// @import 'testing';
 
-
-body {
-  margin:0;
-	padding: 0;
+html {
+  font-size: $text-base-size;
   font-family: $font-primary;
   color: $text-color-75;
-  font-size: $text-base-size;
   line-height: 1.72;
   text-rendering: optimizeSpeed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  &.blocked {
+    overflow: hidden;
+  }
 }
 
 * {
@@ -80,7 +84,7 @@ input[type='radio'].visually-hidden {
 
 .container {
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 0 1.4%;
   margin: 0 auto;
   min-width: 320px;
 }

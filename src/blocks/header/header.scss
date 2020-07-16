@@ -1,12 +1,19 @@
+@import '../hamburger-menu/hamburger-menu';
+
 .header {
   background-color: #fff;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   z-index: 1;
+  position: sticky;
+  top: 0;
   &__navigation {
-    padding: 15px 0;
+    padding: 1.0714em 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+  }
+  &__navigation-wrapper {
+    flex-direction: column;
   }
   &__site-navigation,
   &__user-navigation {
@@ -15,12 +22,12 @@
   }
   &__site-navigation {
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 0.7143em;
     color: $text-color-50;
   }
   .site-navigation {
     &__item {
-      padding: 0 10px;
+      padding: 0 0.7143em;
       position: relative;
       &--active {
         font-weight: bold;
@@ -82,5 +89,93 @@
     padding-left: 20px;
     border-left: 1px solid $text-color-10;
     position: relative;
+  }
+}
+
+@media (max-width: 950px) {
+  .hamburger-menu {
+    display: flex;
+  }
+  .header {
+    position: sticky;
+    top: 0;
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      background-color: #fff;
+      padding: 1.0714em 0;
+    }
+    &__navigation {
+      display: none;
+      &--for-mobile {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background-color: #fff;
+      }
+    }
+    &__navigation-wrapper {
+      padding: 100px 1.4% 30px;
+      position: absolute;
+      top: -100vh;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: #fff;
+      transition: top .3s ease;
+      &--visible {
+        top: 0;
+        display: flex;
+      }
+    }
+    &__site-navigation,
+    &__user-navigation {
+      margin: 0;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+    .site-navigation {
+      font-size: $text-md;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 2;
+      width: fit-content;
+      flex-direction: column;
+      &__item {
+        margin-bottom: 10px;
+      }
+      &__item-link {
+        align-items: center;
+      }
+      .material-icons {
+        font-size: 36px;
+      }
+      &__dropdown {
+        position: static;
+        display: block;
+        border: none;
+      }
+    }
+    .user-navigation {
+      flex-wrap: wrap;
+      &__item {
+        margin-bottom: 15px;
+        .button {
+          font-size: $text-md;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header__user-navigation .user-navigation__item {
+    width: 100%;
+    margin-right: 0;
   }
 }
