@@ -21,9 +21,9 @@ mixin price(data)
       tr.price__row
         td.price__cell
           .price__cell-wrapper
-            | Сбор&nbsp;за&nbsp;услуги
+            | Сбор за&nbsp;услуги
             if servicesCost < 0
-              | :&nbsp;скидка&nbsp;
+              | : скидка&nbsp;
               +numberWithSpaces(-servicesCost)
               | ₽
             .price__hint.price__hint--gap-5

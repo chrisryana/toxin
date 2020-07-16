@@ -87,7 +87,7 @@ block content
             section.room-description__item.description-block
               h2.description-block__title Отзывы посетителей номера
                 span.description-block__counter
-                  = `${comments.length} `
+                  != `${comments.length}&nbsp;`
                   +declOfNum(comments.length, ["отзыв", "отзыва", "отзывов"])
               ul.comments-list
                 for comment in comments

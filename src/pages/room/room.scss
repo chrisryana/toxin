@@ -11,16 +11,18 @@
 
 .room-description {
   display: flex;
+  padding: 70px 0 63px;
   &__column {
-    padding: 70px 0 63px;
     margin-right: 70px;
+    margin-bottom: 20px;
     &:last-child {
       margin-right: 0;
+      margin-bottom: 0;
     }
   }
   &__group {
     display: flex;
-    margin-bottom: 35px;
+    flex-wrap: wrap;
     &:last-child {
       margin-bottom: 0;
     }
@@ -28,14 +30,18 @@
   &__item {
     flex: 1;
     margin-right: 12px;
+    margin-bottom: 35px;
+    min-width: 250px;
     &:last-child {
       margin-right: 0;
     }
   }
   &__card {
+    display: flex;
+    justify-content: center;
     &--fixed {
       position: sticky;
-      top: 0;
+      top: 100px;
     }
   }
 
@@ -78,6 +84,15 @@
       &:last-child {
         margin-bottom: 0;
       }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .room-description {
+    flex-direction: column;
+    &__column {
+      margin-right: 0;
     }
   }
 }

@@ -15,20 +15,23 @@ $gallery-width: 100vw;
   &__item {
     flex-grow: 1;
     max-width: calc(#{$gallery-width} / 3);
-    max-height: calc(#{$gallery-height} / 2);
+    max-height: 50%;
     overflow: hidden;
     &--current {
       max-height: 100%;
       max-width: calc(#{$gallery-width} / 3 * 2);
-      // flex-grow: 2;
     }
   }
   &__item-img {
     height: 100%;
     object-fit: cover;
-    // transition: transform .4s ease;
-    // &:hover {
-    //   transform: scale(1.05);
-    // }
+  }
+}
+
+@media (max-width: 768px) {
+  .room-gallery {
+    &__list-wrapper {
+      height: 250px;
+    }
   }
 }
