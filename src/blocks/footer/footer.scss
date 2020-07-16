@@ -6,6 +6,7 @@
   &--underlined {
     border-top: 1px solid $text-color-25;
   }
+  // нужен только для UI-kit
   &--tablet-width {
     max-width: 768px;
     margin: 0 auto;
@@ -26,7 +27,7 @@
         flex-direction: column;
       }
     }
-    .copyright {
+    .footer__copyright {
       margin-bottom: 15px;
     }
     .socials__item {
@@ -72,26 +73,20 @@
   .site-info__description {
     display: none;
   }
-  .site-info {
-    margin: 0 auto;
-  }
-  .footer__section--wide {
-    padding: 15.76% 0 0 0;
-  }
-  .footer__section--narrow {
-    border-top: none;
-    padding: 17px 0 14.32% 0;
-    .container {
-      flex-direction: column;
+  .footer {
+    &__section--wide {
+      padding: 15.76% 0 0 0;
     }
-  }
-  .copyright {
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  .socials__item {
-    &:first-child {
-      margin-left: 0;
+    &__section--narrow {
+      border-top: none;
+      padding: 17px 0 14.32% 0;
+      .container {
+        flex-direction: column;
+      }
+    }
+    &__copyright {
+      text-align: center;
+      margin-bottom: 15px;
     }
   }
 }
