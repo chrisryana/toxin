@@ -11,6 +11,9 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    &--for-mobile {
+      display: none;
+    }
   }
   &__navigation-wrapper {
     flex-direction: column;

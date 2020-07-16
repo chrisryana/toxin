@@ -36,7 +36,7 @@ mixin getNavigationItem(navItem)
           i.material-icons expand_more
     else
       a.site-navigation__item-link(href= navItem.href)= navItem.title
-    if navItem.children
+    //- if navItem.children
       ul.site-navigation__dropdown.js-site-navigation__dropdown
         for child in navItem.children
           li.site-navigation__dropdown-item
