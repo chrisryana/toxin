@@ -66,36 +66,19 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/'
     }, {
-      test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      test: /(\.(woff2?|ttf|eot|otf)$|font.*\.svg$)/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]',
         outputPath: 'assets/fonts',
-        // outputPath: (url, resourcePath, context) => {
-        //   const relativePath = path.relative(context, resourcePath);
-        //   if (/\/img\//.test(relativePath)) {
-        //     return;
-        //   }
-
-        //   return `assets/fonts/${url}`;
-        // },
       }
     }, 
     {
-      test: /\.(png|jpe?g|gif|svg)?$/,
+      test: /(\.(png|jpe?g|gif)$|^((?!font).)*\.svg$)/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]',
         outputPath: 'assets/img',
-        // outputPath: (url, resourcePath, context) => {
-        //   const relativePath = path.relative(context, resourcePath);
-        //   if (/\/fonts\//.test(relativePath)) {
-        //       return;
-        //   }
-        //   // console.log('context::::', resourcePath, context, relativePath)
-        //   // return 'assets/img';
-        //   return `assets/img/${url}`;
-        // },
       }
     },
     {
@@ -145,7 +128,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-      // { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
       { from: `${PATHS.src}/favicons`, to: 'favicons' },
     ]),
