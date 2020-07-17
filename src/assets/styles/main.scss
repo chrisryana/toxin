@@ -89,11 +89,11 @@ input[type='radio'].visually-hidden {
   min-width: 320px;
 }
 
-@import '../../pages/index/index';
-@import '../../pages/cards/cards';
-@import '../../pages/registration/registration';
-@import '../../pages/room/room';
-@import '../../pages/search/search';
+@import './index';
+@import './cards';
+@import './registration';
+@import './room';
+@import './search';
 @import '../../layouts/default-layout';
 @import '../../layouts/ui-kit-layout';
 @import '../../blocks/header/header';

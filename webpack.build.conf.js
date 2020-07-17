@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const getFiles = (dir, fileType) => {
   return dir.map(folder => {
@@ -27,6 +28,7 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',
   plugins: [
+    new CleanWebpackPlugin(),
     ...PAGES.map((page, index) => new HtmlCriticalWebpackPlugin({
       base: path.resolve(__dirname, 'dist'),
       src: page.replace(/\.pug/,'.html'),
