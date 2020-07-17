@@ -1,10 +1,16 @@
 .filters {
-  // TODO: сделать резиновый datepicker
+  width: 325px;
   .datepicker--cell-day {
     height: 32px;
   }
   .datepicker--nav {
     padding: 20px 20px 0 20px;
+  }
+  &__wrapper {
+    transition: top .2s ease;
+  }
+  &__tongue {
+    display: none;
   }
   &__form {
     padding-top: 30px;
@@ -24,7 +30,6 @@
   &__group {
     border: none;
     padding: 0;
-    // margin-bottom: 40px;
     width: 100%;
     &:last-child {
       margin-bottom: 0;
@@ -56,14 +61,6 @@
       }
     }
   }
-  // &__group-item {
-  //   &--gap-20 {
-  //     margin-bottom: $gap-20;
-  //   }
-  //   &--gap-28 {
-  //     margin-bottom: $gap-28;
-  //   }
-  // }
   &__accordion {
     .material-icons {
       margin-right: 9px;
@@ -78,6 +75,66 @@
       .material-icons__more {
         display: none;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    position: fixed;
+    bottom: 0;
+    z-index: 4;
+    width: 100vw;
+    &--visible {
+      .filters__wrapper {
+        top: 0;
+      }
+      .filters__tongue--close {
+        display: flex;
+      }
+      .filters__tongue--open {
+        display: none;
+      }
+    }
+    &__wrapper {
+      position: fixed;
+      top: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      overflow: scroll;
+      max-height: 100%;
+      background-color: #fff;
+    }
+    &__tongue {
+      bottom: 20px;
+      position: absolute;
+      right: 50%;
+      transform: translateX(50%);
+      border-radius: 50%;
+      box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.3);
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-top: 1px solid $text-color-25;
+      width: 46px;
+      height: 46px;
+      background-color: $color-secondary;
+      color: #fff;
+      font-size: $text-lg;
+      z-index: 4;
+      &:focus {
+        outline: none;
+      }
+      &--close {
+        display: none;
+      }
+    }
+    &__form {
+      padding: 100px 10px;
     }
   }
 }
