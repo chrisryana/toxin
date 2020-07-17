@@ -128,7 +128,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-      { from: `${PATHS.src}/static`, to: '' },
       { from: `${PATHS.src}/favicons`, to: 'favicons' },
     ]),
     ...PAGES.map((page, index) => new HtmlWebpackPlugin({
