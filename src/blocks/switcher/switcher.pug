@@ -1,7 +1,0 @@
-mixin switcher(labelOptions) 
-  - var {label, details, name, value, checked = false} = labelOptions;
-
-  label.switcher
-    input.visually-hidden.switcher__input(type="checkbox" name= name checked= checked value= value)
-    span.switcher__indicator
-    = label

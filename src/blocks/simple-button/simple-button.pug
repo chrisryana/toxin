@@ -1,8 +1,0 @@
-mixin simple-button(params)
-  //- type = ["primary", "secondary"]
-  - var {name, type="primary", href} = params
-  - var className = `simple-button simple-button--${type}`
-  if href
-    a(class= className href= href)= name
-  else
-    button(class= className type="button")&attributes(attributes)= name
