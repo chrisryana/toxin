@@ -1,0 +1,14 @@
+.search-page {
+  &__columns {
+    display: flex;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-page {
+    &__columns {
+      flex-direction: column-reverse;
+    }
+  }
+}

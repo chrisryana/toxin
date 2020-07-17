@@ -89,5 +89,41 @@ input[type='radio'].visually-hidden {
   min-width: 320px;
 }
 
-
+@import './index';
+@import './cards';
+@import './registration';
+@import './room';
+@import './search';
+@import '../../layouts/default-layout';
+@import '../../layouts/ui-kit-layout';
+@import '../../blocks/header/header';
+@import '../../blocks/button/button';
+@import '../../blocks/input/input';
+@import '../../blocks/date-dropdown/date-dropdown';
+@import '../../blocks/footer/footer';
+@import '../../blocks/dialog/dialog';
+@import '../../blocks/logo/logo';
+@import '../../blocks/simple-button/simple-button';
+@import '../../blocks/select-counter/select-counter';
+@import '../../blocks/calendar/calendar';
+@import '../../blocks/ui-kit-header/ui-kit-header';
+@import '../../blocks/colors-list/colors-list';
+@import '../../blocks/types-list/types-list';
+@import '../../blocks/switcher/switcher';
+@import '../../blocks/radio-group/radio-group';
+@import '../../blocks/room-gallery/room-gallery';
+@import '../../blocks/bullet-list/bullet-list';
+@import '../../blocks/feature/feature';
+@import '../../blocks/comment/comment';
+@import '../../blocks/pie-chart/pie-chart';
+@import '../../blocks/price/price';
+@import '../../blocks/hint/hint';
+@import '../../blocks/features-list/features-list';
+@import '../../blocks/filters/filters';
+@import '../../blocks/paginator/paginator';
+@import '../../blocks/rate/rate';
+@import '../../blocks/checkbox-list/checkbox-list';
+@import '../../blocks/rooms/rooms';
+@import '../../blocks/room-card/room-card';
+@import '../../blocks/range-slider/range-slider';
 

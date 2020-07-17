@@ -1,0 +1,12 @@
+.main-page {
+  background-image: url('../../assets/img/sofa.jpg');
+  background-repeat: no-repeat;
+  background-color: #efefff;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease;
+  .container {
+    padding-top: 70px;
+    padding-bottom: 18px;
+  }
+}

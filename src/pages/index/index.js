@@ -1,7 +1,7 @@
 import '../../blocks/date-dropdown/date-dropdown';
 import '../../blocks/select-counter/select-counter';
 import '../../blocks/header/header';
-import './index.scss';
+import '../../assets/styles/main.scss';
 
 
 const imageUrls = ['../../assets/img/blue-chair.jpg', '../../assets/img/green-room.jpg', '../../assets/img/sofa.jpg'];
