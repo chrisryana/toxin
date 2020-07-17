@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlCriticalWebpackPlugin  =  require ('html-critical-webpack-plugin');
 
 const getFiles = (dir, fileType) => {
   return dir.map(folder => {
@@ -21,7 +20,7 @@ const PATHS = {
   assets: 'assets/'
 }
 
-const PAGES_DIR = `${PATHS.src}/pages/`;
+const PAGES_DIR = `${PATHS.src}/pages`;
 const PAGE_FOLDERS = fs.readdirSync(PAGES_DIR);
 const PAGES = getFiles(PAGE_FOLDERS, 'pug');
 const ENTRY_FILES = getFiles(PAGE_FOLDERS, 'js');
@@ -72,14 +71,31 @@ module.exports = {
       options: {
         name: '[name].[ext]',
         outputPath: 'assets/fonts',
+        // outputPath: (url, resourcePath, context) => {
+        //   const relativePath = path.relative(context, resourcePath);
+        //   if (/\/img\//.test(relativePath)) {
+        //     return;
+        //   }
+
+        //   return `assets/fonts/${url}`;
+        // },
       }
     }, 
     {
       test: /\.(png|jpe?g|gif|svg)?$/,
       loader: 'file-loader',
-      exclude: 'src/assets/fonts/',
       options: {
-        name: '[name].[ext]'
+        name: '[name].[ext]',
+        outputPath: 'assets/img',
+        // outputPath: (url, resourcePath, context) => {
+        //   const relativePath = path.relative(context, resourcePath);
+        //   if (/\/fonts\//.test(relativePath)) {
+        //       return;
+        //   }
+        //   // console.log('context::::', resourcePath, context, relativePath)
+        //   // return 'assets/img';
+        //   return `assets/img/${url}`;
+        // },
       }
     },
     {
@@ -129,26 +145,13 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+      // { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
-      { from: `${PATHS.src}/favicons`, to: `favicons` },
+      { from: `${PATHS.src}/favicons`, to: 'favicons' },
     ]),
     ...PAGES.map((page, index) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`
-    })),
-    ...PAGES.map((page, index) => new HtmlCriticalWebpackPlugin({
-      base: path.resolve(__dirname, 'dist'),
-      src: page.replace(/\.pug/,'.html'),
-      dest: page.replace(/\.pug/,'.html'),
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false,
-      }
     })),
   ],
 }
