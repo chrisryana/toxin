@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlCriticalWebpackPlugin  =  require ('html-critical-webpack-plugin');
 
 const getFiles = (dir, fileType) => {
   return dir.map(folder => {
@@ -76,7 +77,7 @@ module.exports = {
     {
       test: /\.(png|jpe?g|gif|svg)?$/,
       loader: 'file-loader',
-      exclude: '/src/assets/fonts/',
+      exclude: 'src/assets/fonts/',
       options: {
         name: '[name].[ext]'
       }
@@ -128,7 +129,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-      // { from: `${PATHS.src}/${PATHS.assets}img/favicon.ico`, to: '' },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
       { from: `${PATHS.src}/favicons`, to: `favicons` },
@@ -136,6 +136,19 @@ module.exports = {
     ...PAGES.map((page, index) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`
-    }))
+    })),
+    ...PAGES.map((page, index) => new HtmlCriticalWebpackPlugin({
+      base: path.resolve(__dirname, 'dist'),
+      src: page.replace(/\.pug/,'.html'),
+      dest: page.replace(/\.pug/,'.html'),
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      }
+    })),
   ],
 }
