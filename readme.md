@@ -1,75 +1,112 @@
 # Toxin – сайт для поиска номеров в отеле
 
+С использованием Pug, Scss, jQuery, Webpack
+
 **Цель:**
-- Научиться проектировать компонентную архитектуру, где каждый блок можно переиспользовать
+- Научиться проектировать компонентную архитектуру с помощью pug
 - Изучить Pug
-- Научиться отзывчивой вёрстке
 - Научиться подключать и настраивать шрифты так, чтобы они корректно отображались в разных браузерах
-- Научиться искать, подключать и настраивать JavaScript-библиотеки и jQuery-плагины в частности
+- Научиться искать, подключать и настраивать JavaScript-библиотеки и jQuery-плагины
 
-## Требования к верстке
+## Скрипты
 
-- Ориентироваться на последние версии Chrome и Firefox. На Safari и старые IE можно забить для этих заданий
-- Все отступы и размеры элементов должны быть соблюдены, для этого во время работы используйте расширение PerfectPixel
-- Все шрифты должны быть подключены и сгенерированы в форматах .ttf, .woff, .svg в сервисе Font2Web
-- Все страницы должны быть по максимуму responsive. Можно максимальной ширину сделать 1920, а минимальной 320, а между этими значениями подстраиваться под ширину страницы
-- Компонентность. В стандартах будет требоваться использование БЭМ, так что предлагаем сразу его использовать. Необходимо настроить Parcel или Webpack и шаблоны, чтобы каждый БЭМ-овский блок находился в отдельной папке (там будет шаблон самого блока и все его стили, скрипты и картинки). Затем в index.pug вы будете просто подключать самые верхние блоки, а они уже будут внутри себя импортировать вложенные блоки, где надо. Каждый отдельный элемент лучше делать отдельным БЭМ-блоком. Мы сделали небольшой туториал по компонентнуой архитектуре, где вы можете понять основные принципы
-- Использовать в макетах препроцессоры по максимуму. Вам в любом случае надо будет это сделать для соблюдения предыдущего требования про компонентность, импорты и вставки компонентов друг в друга вы на сыром HTML не сделаете. Подключайте Parcel (или Webpack), он же нужен будет для 4-го задания, и через него настройте сборку Pug (замена HTML)и SCSS (замена CSS). Конкретно эти технологии просто рекомендации, можете использовать другие препроцессоры, главное, чтобы они позволяли вам сделать вкладываемые компоненты с чёткими контрактами.
-- В этом задании вам нужно сверстать все элементы из макета, разбив на компоненты. То есть прямо по макету накидать на одной странице все компоненты
-- Сделать отдельно сами страницы проекта по поиску номеров в отеле, где эти блоки будут использоваться. Обратите внимание, что некоторые блоки будут в немного измененных модификациях (в разных местах будут разный цвет, разные масштабы или еще что-то подобное)
-- Так же такие вещи,как бегунки, календари и дропдауны должны быть сделаны через js, можете подключать какие угодно jQuery-плагины для этого
+#### `npm run dev` – запуск devServer на http://localhost:8081/
 
-## Требования к сборке
+#### `npm run build` – production сборка проекта
 
-### HTML
+#### `npm run puglint` – запуск линтера для файлов pug
 
-- [ ] Страницы генерируются из массива
-- [ ] Использование bemto
-- [x] Минификация HTML и удаление комментариев
-- [ ] Используется типограф Лебедева или Муравьева, автоматически расставляются неразрывные пробелы
+## Используемые библиотеки
 
-### CSS
+- [air-datepicker](https://github.com/t1m0n/air-datepicker)
+- [ion.rangeSlider](https://github.com/IonDen/ion.rangeSlider)
+- [jQuery-Mask-Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
+- [normalize.css](https://github.com/necolas/normalize.css)
+- [slick-carousel](https://github.com/kenwheeler/slick)
+- [material-design-icons](https://github.com/google/material-design-icons)
 
-- [ ] Все media queries объединяются автоматически
-- [ ] Автоматически извлекается и подключается критический CSS
-- [ ] Использовать возможности препроцессора по максимуму
-- [x] Автопрефиксер, normalise
-- [ ] Классы в собранном проекте переименованы более коротко (сравнить размер бандла)
-- [x] Для каждой страницы свой CSS с правилами только нужных компонентов
-- [ ] Полифилл для CSS переменных
-- [x] Минификация CSS и удаление комментариев
+## Макеты
 
-### Изображения
+<table>
+  <tr>
+    <th><a href="https://chrisryana.github.io/toxin/" target="_blank">Landing Page</a></th>
+    <th><a href="https://chrisryana.github.io/toxin/search" target="_blank">Search Room</a></th>
+    <th><a href="https://chrisryana.github.io/toxin/room" target="_blank">Room Details</a></th>
+    <th><a href="https://chrisryana.github.io/toxin/registration" target="_blank">Registration</a></th> 
+    <th><a href="https://chrisryana.github.io/toxin/signin" target="_blank">SignIn</a></th> 
+  </tr>
+	
+  <tr valign="top">
+    <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Landing%20page.jpg?raw=true" target="_blank">
+        <img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Landing%20page.jpg?raw=true" width="250" alt="Главная страница">
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Search%20room/Filter.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Search%20room/Filter.jpg?raw=true" width="250" alt="Страница поиска"></a>
+    </td>
+	<td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Room%20details.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Room%20details.jpg?raw=true" width="250" alt="Страница номера"></a>
+    </td>
+  <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Registration.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Registration.jpg?raw=true" width="250" alt="Страница регистрации"></a>
+    </td>
+  <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Sign%20in.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Sign%20in.jpg?raw=true" width="250" alt="Страница авторизации"></a>
+    </td>
+  </tr>
+  
+  <tr>
+  <th><a href="https://chrisryana.github.io/toxin/colors-types" target="_blank">Colors & Types</a></th>
+  <th><a href="https://chrisryana.github.io/toxin/form-elements" target="_blank">Form Elements</a></th>
+  <th><a href="https://chrisryana.github.io/toxin/cards" target="_blank">Cards</a></th>
+  <th><a href="https://chrisryana.github.io/toxin/headers-footers" target="_blank">Headers & Footers</a></th>
+  </tr>
+  
+  <tr valign="top">
+    <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Colors%20&%20Type.jpg?raw=true" target="_blank">
+        <img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Colors%20&%20Type.jpg?raw=true" width="250" alt="Страница цветов и шрифтов">
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Form%20Elements.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Form%20Elements.jpg?raw=true" width="250" alt="Страница с элементами форм"></a>
+    </td>
+  <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Cards.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Cards.jpg?raw=true" width="250" alt="Страница карточек"></a>
+    </td>
+  <td>
+      <a href="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Headers%20&%20Footers.jpg?raw=true" target="_blank"><img src="https://github.com/chrisryana/toxin/blob/master/src/pixel-perfect/Headers%20&%20Footers.jpg?raw=true" width="250" alt="Страница с шапками и футерами сайта"></a>
+    </td>
+  </tr>
+</table>
 
-- [ ] Правило для BASE64
-- [ ] Автоматически должны оптимизироваться
-- [ ] Иконки собираются в спрайт
-- [ ] Использование img srcset и lazy loading
-
-### Прочее
-
-- [ ] Линтер ломает сборку при ошибках
-- [ ] Prettier (в тч меняет порядок по алфавиту)
-- [ ] Автоматическая сборка при коммите, хаски
-- [ ] Подключен Storybook
-
-
-### Структура сборки
+### Структура проекта
 
 ```
-├── css/                       # Стили для страниц
-│   ├── page.css               # Стили для конкретной страницы
-│   └── main.css               # Общие стили
-├── js/                        # Скрипты
-│   ├── page.js                # Скрипты для конкретной страницы
-│   └── main.js                # Общие скрипты
-├── fonts/                     # Шрифты
-├── img/                       # Изображения
-│   ├── logo.svg               # Логотип
-│   └── sprites/               # Спрайты
-│       └── icons.png          # Спрайт с иконками
-├── favicon.ico                # Фавиконки для всех браузеров в корне проекта
-├── robots.txt                 # Рекомендации для поисковых роботов
-├── index.html                 # Главная страница
-└── page.html                  # Другие страницы должны быть в корне проекта
+├── src/                             # Исходники
+│   ├── assets/                      # Подключаемые ресурсы
+│   │   ├── fonts/                   # Шрифты используемые в проекте
+│   │   ├── img/                     # Изображения используемые в проекте
+│   │   └── styles/                  # Стили
+│   │       ├── theme/               # Папка с темой проекта
+│   │       │   ├── colors.scss      # Файл с переменными цветов
+│   │       │   ├── fonts.scss       # Файл с подлючаемыми шрифтами
+│   │       │   └── spaces.scss      # Переменные отступов
+│   │       └── main.scss            # Файл в который импортируются все стили
+│   ├── blocks/                      # Папка с блоками проекта
+│   ├── favicons/                    # Фавиконки для разных браузеров
+│   ├── layouts/                     # Папка с шаблонами разметки
+│   ├── pages/                       # Папка страниц проекта
+│   └── pixel-perfect/               # Скриншоты для сверки Pixel Perfect
+├── .babelrc                         # Конфигурация компиляции Javascript в es5
+├── .eslintrc.json                   # Конфигурация проверки JavaScript в ESLint
+├── .gitignore                       # Список исключённых файлов из Git
+├── .pug-lintrc                      # Конфигурация проверки pug-файлов
+├── package.json                     # Список модулей и прочей информации
+├── postcss.config.js                # Конфигурация компиляции стилей
+├── README.md                        # Документация шаблона
+├── webpack.base.conf.js             # Базовая конфигурация Webpack.js
+├── webpack.build.conf.js            # Конфигурация Webpack.js для production сборки
+└── webpack.dev.conf.js              # Конфигурация Webpack.js для dev сборки
 ```
