@@ -16,7 +16,7 @@ Thumbs.db
 .svn
 package-lock.json
 build
-# dist
+dist
 bower_components
 
 # Node.JS
