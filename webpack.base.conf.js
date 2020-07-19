@@ -39,7 +39,7 @@ module.exports = {
   output: {
     filename: `js/[name].min.js`,
     path: PATHS.dist,
-    publicPath: '/'
+    publicPath: './'
   },
   optimization: {
     splitChunks: {
@@ -67,19 +67,23 @@ module.exports = {
       exclude: '/node_modules/'
     }, {
       test: /(\.(woff2?|ttf|eot|otf)$|font.*\.svg$)/,
-      loader: 'file-loader',
-      options: {
-        name: '[name].[ext]',
-        outputPath: 'assets/fonts',
-      }
+      use: [
+        {
+          loader: 'file-loader?name=./assets/fonts/[name].[ext]'
+        },
+      ],
     }, 
     {
       test: /(\.(png|jpe?g|gif)$|^((?!font).)*\.svg$)/,
-      loader: 'file-loader',
-      options: {
-        name: '[name].[ext]',
-        outputPath: 'assets/img',
-      }
+      loaders: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/img',
+          }
+        },
+      ],
     },
     {
       test: /\.scss$/,
@@ -92,10 +96,17 @@ module.exports = {
         }, {
           loader: 'postcss-loader',
           options: { sourceMap: true, config: { path: `./postcss.config.js` } }
-        }, {
+        }, 
+        {
+          loader: 'resolve-url-loader',
+          options: {
+            root: `${PATHS.src}/${PATHS.assets}/styles`,
+          }
+        }, 
+        {
           loader: 'sass-loader',
           options: { sourceMap: true }
-        }
+        },
       ]
     }, {
       test: /\.css$/,
@@ -105,10 +116,17 @@ module.exports = {
         {
           loader: 'css-loader',
           options: { sourceMap: true }
-        }, {
+        }, 
+        {
           loader: 'postcss-loader',
           options: { sourceMap: true, config: { path: `./postcss.config.js` } }
-        }
+        },
+        {
+          loader: 'resolve-url-loader',
+          options: {
+            root: path.join(__dirname, 'src')
+          }
+        }, 
       ]
     }]
   },
@@ -119,7 +137,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `css/[name].min.css`,
+      filename: `[name].min.css`,
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -127,6 +145,7 @@ module.exports = {
       'window.jQuery': 'jquery',
     }),
     new CopyWebpackPlugin([
+      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/favicons`, to: 'favicons' },
     ]),

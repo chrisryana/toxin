@@ -24,7 +24,6 @@ const PAGE_FOLDERS = fs.readdirSync(PAGES_DIR);
 const PAGES = getFiles(PAGE_FOLDERS, 'pug');
 
 const buildWebpackConfig = merge(baseWebpackConfig, {
-  // BUILD config
   mode: 'production',
   plugins: [
     ...PAGES.map((page, index) => new HtmlCriticalWebpackPlugin({
