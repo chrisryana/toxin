@@ -7,7 +7,13 @@ mixin input(options = {}, buttonAttributes)
         if type
           .form-group__type= type
       .input-wrapper
-        input.form-group__input(class= buttonAttributes && "form-group__input--with-icon")&attributes(attributes)
+        - var inputClass = "form-group__input"
+        if buttonAttributes
+          - inputClass += " form-group__input--with-icon"
+        - var isHoverState = type.indexOf("hover") !== -1
+        if isHoverState
+          - inputClass += " form-group__input--hovered"
+        input(class= inputClass)&attributes(attributes)
         if buttonAttributes
           button.form-group__input-button(class= `${buttonAttributes.type === "submit" ? "form-group__input-button--primary" : "form-group__input-button--secondary"}` type= buttonAttributes.type)
             i.visually-hidden= buttonAttributes.title

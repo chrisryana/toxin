@@ -16,7 +16,8 @@
       color: $text-color-25;
     }
     &:hover,
-    &:focus {
+    &:focus,
+    &--hovered {
       border-color: $text-color-50;
       outline: none;
     }
