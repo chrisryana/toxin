@@ -65,19 +65,19 @@ block content
       .ui-kit-row
         .ui-kit-column.ui-kit-column--width-320.ui-kit-column--gap-90
           .dialog__form-group.dialog__form-group--gap-20
-            +input("Text Field")(placeholder="Email")
+            +input({label: "Text Field", type: "default"})(placeholder="Email")
           .dialog__form-group.dialog__form-group--gap-20
-            +input("Text Field")(placeholder="Email" value="This is pretty awesome")
+            +input({label: "Text Field", type: "hover/focus"})(placeholder="Email" value="This is pretty awesome")
           .dialog__form-group.dialog__form-group--gap-23
-            +select-counter({items, label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true})
+            +select-counter({items, type: "default", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true})
           .dialog__form-group.dialog__form-group--gap-40
-            +input("Masked text field")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+            +input({label: "Masked text field", type: "default"})(placeholder="ДД.ММ.ГГГГ" name="user-bday")
           .dialog__form-group.dialog__form-group--gap-40
             +date-dropdown({split: true, startLabel: "Date dropdown", endLabel: "Date dropdown", end: new Date(2020, 7, 23)})
           .dialog__form-group.dialog__form-group--width-266.dialog__form-group--gap-42
             +date-dropdown({label: "Filter date dropdown", start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
           .dialog__form-group.dialog__form-group--width-266
-            +input("Subscription text field", subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
+            +input({label: "Subscription text field"}, subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
         .ui-kit-column.ui-kit-column--width-320
           .dialog__form-group.dialog__form-group--gap-40
             +filters-group("Checkbox Buttons")
@@ -135,9 +135,9 @@ block content
       .ui-kit-row.ui-kit-row--gap-78
         .ui-kit-column.ui-kit-column--width-320.ui-kit-column--gap-127
           .dialog__form-group.dialog__form-group--width-266.dialog__form-group.dialog__form-group--gap-20
-            +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
+            +select-counter({items: roomItems, type: "default", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
           .dialog__form-group.dialog__form-group--width-266.dialog__form-group--gap-53
-            +select-counter({items: roomItems, label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false, inline: true})
+            +select-counter({items: roomItems, type: "expanded", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", withButtons: false, inline: true})
           .dialog__form-group.dialog__form-group--width-266.dialog__form-group.dialog__form-group--gap-26
             +filters-group()
               details.filters__accordion()

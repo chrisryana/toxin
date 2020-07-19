@@ -3,7 +3,7 @@ include ../simple-button/simple-button
 include ../../mixins
 
 mixin select-counter(options)
-  - var {items = [], label = "", name = "", required = false, placeholder = "", withButtons = false, inline = false} = options
+  - var {items = [], label = "", name = "", required = false, placeholder = "", type = "", withButtons = false, inline = false} = options
   - var isEachCountNull = true
   - var countData = []
   - var countString = ""
@@ -57,7 +57,7 @@ mixin select-counter(options)
       itemsClass += " select-counter__items--inline"
 
   div(class= selectClass)
-    +input(label, {title: "Показать элементы для выбора", icon: "expand_more", type: "button"})(placeholder= placeholder name= name required= required value= countString || "Сколько гостей")
+    +input({label, type}, {title: "Показать элементы для выбора", icon: "expand_more", type: "button"})(placeholder= placeholder name= name required= required value= countString || "Сколько гостей")
     div(class= itemsClass)
       ul.select-counter__items-list
         for item, index in items

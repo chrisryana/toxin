@@ -37,10 +37,10 @@ block content
           +radio-group(radioGroup)
 
         .dialog__form-group.dialog__form-group--gap-20
-          +input("Дата рождения")(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+          +input({label: "Дата рождения"})(placeholder="ДД.ММ.ГГГГ" name="user-bday")
 
         .dialog__form-group.dialog__form-group--gap-10
-          +input("Данные для входа в сервис")(type="email" placeholder="Email" name="user-email" required)
+          +input({label: "Данные для входа в сервис"})(type="email" placeholder="Email" name="user-email" required)
         .dialog__form-group.dialog__form-group--gap-10
           +input()(type="password" placeholder="Пароль" name="user-password" required)
         .dialog__form-group.dialog__form-group--gap-23

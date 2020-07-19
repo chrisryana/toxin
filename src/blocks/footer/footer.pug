@@ -56,7 +56,7 @@ footer(class= footerClass)
           h3.site-map__tagline Подписка
           p.site-map__text Получайте специальные предложения и новости сервиса
           form.site-map__form(action="https://echo.htmlacademy.ru" method="post")
-            +input(null, subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
+            +input({}, subscribeButton)(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
   section.footer__section.footer__section--narrow
     .container
       p.footer__copyright Copyright &#169; 2018 Toxin отель. Все права зачищены.

@@ -96,6 +96,14 @@
     color: $text-color;
     margin-bottom: 2px;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__type {
+    font-family: $font-primary;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $text-color-50;
   }
 }
 
