@@ -5,11 +5,12 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  output: {
-    filename: `js/[name].min.js`,
-    path: baseWebpackConfig.externals.paths.dist,
-    publicPath: '/'
-  },
+  // publicPath: './' - для просмотра девсервером билд сборки
+  // output: {
+  //   filename: `js/[name].min.js`,
+  //   path: baseWebpackConfig.externals.paths.dist,
+  //   publicPath: './'
+  // },
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
     port: 8081,
