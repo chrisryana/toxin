@@ -17,7 +17,8 @@
   background-image: $gradient-primary;
   outline: none;
   &:hover,
-  &:focus {
+  &:focus,
+  &--hovered {
     background-color: $color-primary-light;
     background-image: $gradient-primary-transparent;
   }

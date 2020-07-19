@@ -1,7 +1,9 @@
 mixin button(params)
   //- type = ["primary", "secondary"]
-  - var {name, type="primary", href, icon, size="m"} = params
+  - var {name, type="primary", href, icon, size="m", hovered = false} = params
   - var className = `button button--${type} button--size-${size}`
+  if hovered
+    - className += " button--hovered"
   if icon
     - className = `${className} button--with-icon`
   if href
