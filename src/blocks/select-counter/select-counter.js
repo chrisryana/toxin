@@ -34,7 +34,10 @@ function initSelectCounter(select) {
   }
   
   function hideDropdown(e) {
-    if (!$(select).is(e.target) && $(select).has(e.target).length === 0) {
+    const $isInlineSelect = !($(e.target).closest('.select-counter__items--inline').length === 0);
+    const $isApplyButtonClick = $(e.target).data('action') === 'apply-select';
+    const $isOutsideClick = !$(select).is(e.target) && $(select).has(e.target).length === 0;
+    if ($isOutsideClick || $isApplyButtonClick && !$isInlineSelect) {
       resetItemCountInitial();
       $(select).removeClass('select-counter--expanded');
       $(document).off('click', hideDropdown);
@@ -142,6 +145,7 @@ function initSelectCounter(select) {
       .find('.form-group__input')
       .val(countValue);
     initialItems = JSON.parse(JSON.stringify(items));
+    hideDropdown(e);
   }
   
   function getCountData(dataItems) {
