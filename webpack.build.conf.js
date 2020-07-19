@@ -25,21 +25,7 @@ const PAGES = getFiles(PAGE_FOLDERS, 'pug');
 
 const buildWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
-  plugins: [
-    ...PAGES.map((page, index) => new HtmlCriticalWebpackPlugin({
-      base: path.resolve(__dirname, 'dist'),
-      src: page.replace(/\.pug/,'.html'),
-      dest: page.replace(/\.pug/,'.html'),
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false,
-      }
-    })),
-  ]
+  plugins: []
 })
 
 module.exports = new Promise((resolve, reject) => {
